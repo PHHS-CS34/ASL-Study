@@ -331,7 +331,6 @@ dialog::backdrop{
 
 .homeHelpImg {
 	height: 85%;
-
 }
 
 .setupButton{
@@ -341,7 +340,12 @@ dialog::backdrop{
 
 /* Easter Eggs*/
 
-/* Im so blank rn */
+#christmasLights {
+	position: absolute;
+	top: 0;
+	width: max(100vw, 70rem);
+	z-index: 1;
+}
 
 @media only screen and (max-width: 1280px){
 	#homeBody .setupButton {

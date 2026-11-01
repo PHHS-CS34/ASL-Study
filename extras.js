@@ -2,14 +2,15 @@
 const isIndex = document.body.id === "homeBody";
 
 function christmas() {
-	const body = document.body;
+	const img = document.createElement("img");
 
 	document.documentElement.style.setProperty('--color-darkText', '#3b0404');
 	document.documentElement.style.setProperty('--color-background4', '#8a1c1c');
 
-	body.style.backgroundImage = "url(media/christmasLightsUpres.png)";
-	body.style.backgroundRepeat = "repeat-x";
-	body.style.backgroundSize = "calc(20% + 20rem)";
+	img.src = "media/christmasLightsUpresRepeat.png";
+	img.id = "christmasLights";
+
+	document.body.appendChild(img);
 }
 
 christmas();
