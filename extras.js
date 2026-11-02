@@ -2,16 +2,31 @@
 const isIndex = document.body.id === "homeBody";
 const today = new Date();
 
+rngFunction(myDudeBackground, 1);
 function myDudeBackground(){
 	let body = document.body;
 	body.style.backgroundImage = "url(media/dudeTile.png)";
 	body.style.backgroundRepeat = "repeat";
 	body.style.backgroundSize = "200px";
 	body.style.animation = "moveBackground 10s linear infinite";
-	body.stle.backgroundColor = window.getComputedStyle(root).getPropertyValue("--color-background1").trim()
+
+	const tint = document.createElement("div");
+	Object.assign(tint.style, {
+		position: "fixed",
+		inset: "0",
+		backgroundColor: getComputedStyle(document.documentElement)
+			.getPropertyValue("--color-background1").trim(),
+		mixBlendMode: "color",
+		opacity: "0.7",
+		pointerEvents: "none",
+		zIndex: "-1"
+	});
+
+	document.body.style.isolation = "isolate";
+	document.body.prepend(tint);
 }
 
-rngFunction(myDudeBackground, 1);
+
 
 // Runs a function with a 1-in-chance probability.
 // Example: rngFunction(myEasterEgg, 10) gives a 1-in-10 chance.

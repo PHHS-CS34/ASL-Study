@@ -129,6 +129,12 @@ footer {
 	margin-bottom: 0;
 }
 
+#dudeUnit{
+	border-top: 0.4rem solid var(--color-background4);
+    border-radius: 0 0 1rem 1rem;
+	margin-bottom: 0;
+}
+
 #homeBody .setupContainer{
 	margin-top: 1rem;
 	max-width: fit-content;
