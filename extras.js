@@ -15,7 +15,15 @@ function christmas() {
 	document.body.appendChild(img);
 }
 
-christmas();
+// christmas();
+// 1st Monday of december, 3rd friday of december to dec. 26
+dateFunction(christmas, [
+	dayOfWeekOfMonth(11, 1, 1),
+	dateRange(
+		dayOfWeekOfMonth(11, 5, 3),
+		new Date(2026,11,26)
+	)
+]);
 
 // Runs a function with a 1-in-chance probability.
 // Example: rngFunction(myEasterEgg, 10) gives a 1-in-10 chance.
@@ -64,8 +72,8 @@ function trueMod(n, m) {
 // Generates an array of Date objects spanning from startTime up to (including) endDate.
 // Parameters: startTime (Date), endDate (Date).
 // Example: dateRange(new Date(2026, 11, 20), new Date(2026, 11, 25))
-function dateRange(startTime, endDate){
-	const iDate = new Date(startTime.getFullYear(), startTime.getMonth(), startTime.getDate());
+function dateRange(startDate, endDate){
+	const iDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
 	let dateList = [];
 	while (iDate <= endDate){
 		dateList.push(new Date(iDate));
