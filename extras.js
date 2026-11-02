@@ -3,6 +3,10 @@ const isIndex = document.body.id === "homeBody";
 
 const today = new Date();
 
+function rainbow(){
+
+}
+
 function christmas() {
 	const img = document.createElement("img");
 
@@ -21,7 +25,7 @@ function america() {
 	document.documentElement.style.setProperty('--color-background1', '#0A3161');
 	document.documentElement.style.setProperty('--color-background2', '#0d76bd');
 	document.documentElement.style.setProperty('--color-background3', '#B31942');
-	document.documentElement.style.setProperty('--color-background4', 'black');
+	document.documentElement.style.setProperty('--color-background4', '#0A3161');
 
 	document.body.style.backgroundImage = "URL(media/STARS.svg)";
 	document.body.style.backgroundRepeat = "repeat";

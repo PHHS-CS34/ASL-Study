@@ -53,6 +53,9 @@ body {
 }
 
 footer {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
 	font-weight:600;
 	height: 3rem;
 	width: 100%;
@@ -61,6 +64,7 @@ footer {
 	text-align: center;
 	background-color: var(--color-background2);
 	max-height: 10%;
+	font-size: 1rem;
 }
 
 /* Widespread Containers */
@@ -147,6 +151,12 @@ footer {
 	font-size: 1.25rem;
 	font-weight: 500;
 	color: inherit;
+}
+
+#secretButton{
+	width: 1px;
+	aspect-ratio: 1 / 1;
+	opacity: 0;
 }
 
 /* Dialog */
