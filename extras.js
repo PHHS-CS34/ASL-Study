@@ -2,7 +2,7 @@
 const isIndex = document.body.id === "homeBody";
 const pageStyle = document.querySelector(':root').style;
 
-dateFunction(medinaPurple(), new Date("2026-10-29"));
+const today = new Date();
 
 function medinaPurple() {
 	pageStyle.setProperty('--color-darkText', '#');
@@ -14,6 +14,9 @@ function medinaPurple() {
 	pageStyle.setProperty('--color-background4', '');
 }
 
+// Just for testing, we don't know her actual birthday yet
+medinaPurple();
+
 // Runs a function with a 1-in-chance probability.
 // Example: rngFunction(myEasterEgg, 10) gives a 1-in-10 chance.
 function rngFunction(iFunction, chance) {
@@ -22,17 +25,51 @@ function rngFunction(iFunction, chance) {
 	}
 }
 
-// You can input either one date or multiple dates in an array
-// Make a date like this: new Date("2026-10-28")
-// You can also pass a list of dates like this: [new Date("2026-10-28"), new Date("2026-12-25")]
-// Year does not matter, it only compares dates.
+// Runs a function if today's date matches any provided date (month and day only; year is ignored).
+// Accepts a single Date object, an array of Dates, or deeply nested arrays of Dates.
+// Example: dateFunction(myEasterEgg, new Date("2026-10-28"))
+// Example: dateFunction(myEasterEgg, [new Date("2026-10-28"), new Date("2026-12-25")])
 function dateFunction(iFunction, iDates) {
-	const dates = Array.isArray(iDates) ? iDates : [iDates];
-	const today = new Date();
-
-	for (const date of dates){
-		if (date.getMonth() === today.getMonth() && date.getDay() === today.getDay()) {
+	if (Array.isArray(iDates)){
+		for (const date of iDates){
+			dateFunction(iFunction, date);
+		}
+	}
+	else {
+		if (iDates.getMonth() === today.getMonth() && iDates.getDate() === today.getDate()) {
 			iFunction();
 		}
 	}
+}
+
+// Calculates the Date for the Nth occurrence of a specific weekday in a given month.
+// Parameters: month (0-11, where 0 = Jan), dayOfWeek (0-6, where 0 = Sun), occurrence (1 = 1st, 2 = 2nd, etc.).
+// Example: dayOfWeekOfMonth(10, 4, 4) calculates the 4th Thursday of November (Thanksgiving).
+function dayOfWeekOfMonth(month, dayOfWeek, occurrence) {
+	const firstOfTheMonth = new Date(today.getFullYear(), month, 1);
+
+	firstOfTheMonth.setDate(firstOfTheMonth.getDate()+trueMod(dayOfWeek-firstOfTheMonth.getDay(), 7));
+	firstOfTheMonth.setDate(firstOfTheMonth.getDate() + 7*(occurrence-1));
+
+	return firstOfTheMonth;
+}
+
+// Calculates the true mathematical modulo, ensuring a non-negative result for negative dividends.
+// Parameters: n (dividend), m (divisor).
+// Example: trueMod(-1, 7) returns 6.
+function trueMod(n, m) {
+	return ((n % m) + m) % m;
+}
+
+// Generates an array of Date objects spanning from startTime up to (including) endDate.
+// Parameters: startTime (Date), endDate (Date).
+// Example: dateRange(new Date(2026, 11, 20), new Date(2026, 11, 25))
+function dateRange(startTime, endDate){
+	const iDate = new Date(startTime.getFullYear(), startTime.getMonth(), startTime.getDate());
+	let dateList = [];
+	while (iDate <= endDate){
+		dateList.push(new Date(iDate));
+		iDate.setDate(iDate.getDate()+1);
+	}
+	return dateList;
 }
