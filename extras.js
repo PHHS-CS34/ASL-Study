@@ -42,9 +42,9 @@ dateFunction(america, [
 ]);
 
 // christmas();
-// 1st Monday of december, 3rd friday of december to dec. 26
+// Dec 1, 3rd friday of december to dec. 26
 dateFunction(christmas, [
-	dayOfWeekOfMonth(11, 1, 1),
+	new Date(2026, 11, 1),
 	dateRange(
 		dayOfWeekOfMonth(11, 5, 3),
 		new Date(2026,11,26)
