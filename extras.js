@@ -46,3 +46,16 @@ function dayOfWeekOfMonth(month, dayOfWeek, occurrence) {
 function trueMod(n, m) {
 	return ((n % m) + m) % m;
 }
+
+// Generates an array of Date objects spanning from startTime up to (including) endDate.
+// Parameters: startTime (Date), endDate (Date).
+// Example: dateRange(new Date(2026, 11, 20), new Date(2026, 11, 25))
+function dateRange(startTime, endDate){
+	const iDate = new Date(startTime.getFullYear(), startTime.getMonth(), startTime.getDate());
+	let dateList = [];
+	while (iDate <= endDate){
+		dateList.push(new Date(iDate));
+		iDate.setDate(iDate.getDate()+1);
+	}
+	return dateList;
+}
