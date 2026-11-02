@@ -102,14 +102,22 @@ function copySelected(){
     copypopup.showModal();
 }
 
-function setUpLink(type = "flash"){
+function setUpLink(type = "flash") {
     let link = type === "flash" ? "flashcards.html?front=" : "list.html?front=";
 		// add if the front is ASL or English to the link
-		link += document.getElementById("whichFront").dataset.aslorenglish;
-		link += "&units=";
+	link += document.getElementById("whichFront").dataset.aslorenglish;
+	link += "&units=";
 
-    for (let i = 0; i < unitsSelected.length;i++){
-        link += unitsSelected[i].id.slice(4) + ((i === unitsSelected.length - 1) ? "" : ",");
+	let sortedUnits = [];
+
+	for (let i = 0; i < unitsSelected.length; i++) {
+		sortedUnits.push(unitsSelected[i].id.slice(4));
+	}
+
+	sortedUnits = sortedUnits.map(Number).sort((a, b) => a - b);
+
+    for (let i = 0; i < sortedUnits.length; i++) {
+        link += String(sortedUnits[i]) + ((i === sortedUnits.length - 1) ? "" : ",");
     }
 
     return link;
