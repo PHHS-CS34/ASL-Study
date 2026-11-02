@@ -15,6 +15,32 @@ function christmas() {
 	document.body.appendChild(img);
 }
 
+function america() {
+	document.documentElement.style.setProperty('--color-darkText', '#000000');
+	document.documentElement.style.setProperty('--color-lightText', '#ede6e6');
+	document.documentElement.style.setProperty('--color-background1', '#0A3161');
+	document.documentElement.style.setProperty('--color-background2', '#0d76bd');
+	document.documentElement.style.setProperty('--color-background3', '#B31942');
+	document.documentElement.style.setProperty('--color-background4', 'black');
+
+	document.body.style.backgroundImage = "URL(media/STARS.svg)";
+	document.body.style.backgroundRepeat = "repeat";
+	document.body.style.backgroundSize = "10rem";
+}
+
+// america();
+// July 4, Memorial Day (Last Monday in May), Veterans Day (Nov 11), Presidents Day (3rd monday in february), Sep 11, Labor Day
+const memorialDay = dayOfWeekOfMonth(5,1,1);
+memorialDay.setDate(memorialDay.getDate()-7);
+dateFunction(america, [
+	new Date(2026,6,4),
+	memorialDay,
+	new Date(2026, 10, 11),
+	dayOfWeekOfMonth(1, 1, 3),
+	new Date(2026, 8, 11),
+	dayOfWeekOfMonth(8,1,1)
+]);
+
 // christmas();
 // 1st Monday of december, 3rd friday of december to dec. 26
 dateFunction(christmas, [
