@@ -179,7 +179,7 @@
 			"gif": "https://o.quizlet.com/zNcx3DK1NVTc9JALCMwU-Q.gif"
 		},
 		"5": {
-			"text": "CLASS/CATEGORY/GROUP",
+			"text": "CLASS",
 			"gif": "https://o.quizlet.com/8a8xehW46-ZxjrPupxsVXw.gif"
 		},
 		"6": {
@@ -187,7 +187,7 @@
 			"gif": "https://o.quizlet.com/DB.AyYd-O2dXmBZodhAPDw.gif"
 		},
 		"7": {
-			"text": "DEAF SCHOOL/INSTITUTION/RESIDENTIAL SCHOOL",
+			"text": "DEAF SCHOOL",
 			"gif": "https://o.quizlet.com/6gfchn5mzuddY2uje1N74g.gif"
 		},
 		"8": {
@@ -199,7 +199,7 @@
 			"gif": "https://o.quizlet.com/w3kM34dKxQPcje5tNPFgVw.gif"
 		},
 		"10": {
-			"text": "HAVE/POSSESS",
+			"text": "HAVE",
 			"gif": "https://o.quizlet.com/XbJv.3xwtbPdyWEWDwbVCA.gif"
 		},
 		"11": {
@@ -281,7 +281,7 @@
 			"gif": "https://o.quizlet.com/o2aZNFnVBOOacPNr2szx0A.gif"
 		},
 		"3": {
-			"text": "ASK (directional verb)",
+			"text": "ASK (directional)",
 			"gif": "https://o.quizlet.com/KuV.dlzSyc5qHUYUJym8og.gif"
 		},
 		"4": {
@@ -337,7 +337,7 @@
 			"gif": "https://o.quizlet.com/KpZACyA8LoKmUZmQcisooQ.gif"
 		},
 		"17": {
-			"text": "GIVE (directional verb)",
+			"text": "GIVE (directional)",
 			"gif": "https://o.quizlet.com/TsVqZafoIioocF4HY1egcw.gif"
 		},
 		"18": {
@@ -345,7 +345,7 @@
 			"gif": "https://o.quizlet.com/FdlJ0Ow4OBeX53cYTmzwCA.gif"
 		},
 		"19": {
-			"text": "HELP (directional verb)",
+			"text": "HELP (directional)",
 			"gif": "https://o.quizlet.com/8Pg9c1QBetkJsAOCejzPjQ.gif"
 		},
 		"20": {
@@ -357,7 +357,7 @@
 			"gif": "https://o.quizlet.com/SyT14dR943gCQhaFoeBHmg.gif"
 		},
 		"22": {
-			"text": "LOOK AT (directional verb)",
+			"text": "LOOK AT (directional)",
 			"gif": "https://o.quizlet.com/-5e68GzY7TFeZA8lqhaaUA.gif"
 		},
 		"23": {
@@ -369,11 +369,11 @@
 			"gif": "https://o.quizlet.com/rYVHHBp7Y2ZmWjglrWfRAQ.gif"
 		},
 		"25": {
-			"text": "PAY (directional verb)",
+			"text": "PAY (directional)",
 			"gif": "https://o.quizlet.com/dlMPB79McBJgVHiRqOTGbw.gif"
 		},
 		"26": {
-			"text": "SEND (directional verb)",
+			"text": "SEND (directional)",
 			"gif": "https://o.quizlet.com/Ian1.UpSAzUdEfmuG9uC2Q.gif"
 		},
 		"27": {
@@ -381,7 +381,7 @@
 			"gif": "https://o.quizlet.com/7MG9UQUCWo-BPo5pbHbEzw.gif"
 		},
 		"28": {
-			"text": "SHOW (directional verb)",
+			"text": "SHOW (directional)",
 			"gif": "https://o.quizlet.com/E20Vh2DdL8rOkcD9.jHSWg.gif"
 		},
 		"29": {
@@ -393,7 +393,7 @@
 			"gif": "https://o.quizlet.com/5YFKg1vuAyXX5-IcatPGQA.gif"
 		},
 		"31": {
-			"text": "TELL (directional verb)",
+			"text": "TELL (directional)",
 			"gif": "https://o.quizlet.com/eMdHpwEjgiNivku.VimdjQ.gif"
 		},
 		"32": {
@@ -1115,7 +1115,7 @@
 			"gif": "https://o.quizlet.com/stzpPTw1Cqgfc-GJXTH-bQ.gif"
 		},
 		"21": {
-			"text": "BEST FRIEND (2 SIGNS)",
+			"text": "BEST FRIEND",
 			"gif": "https://o.quizlet.com/3-LMnOLU1QbOXnXV4L372Q.gif"
 		},
 		"22": {
@@ -1163,7 +1163,7 @@
 			"gif": "https://o.quizlet.com/lw7aC5gwfdsiC3kPzewiYQ.gif"
 		},
 		"33": {
-			"text": "LATER (2 SIGNS)",
+			"text": "LATER",
 			"gif": "https://o.quizlet.com/jCf8KWGzEs9P6HmhaZ6B3Q.gif"
 		},
 		"34": {
@@ -2081,7 +2081,7 @@
 			"gif": "https://o.quizlet.com/pzrxLBfCrRFaEDwUfUT-8Q.gif"
 		},
 		"33": {
-			"text": "MISS-OUT (guess, assume)",
+			"text": "MISS-OUT/GUESS/ASSUME",
 			"gif": "https://o.quizlet.com/AgUUHHF21yUL367GKFkSAQ.gif"
 		},
 		"34": {
@@ -2127,175 +2127,175 @@
 	},
 	"Unit14": {
 		"1": {
-			"text": "SKILL .",
+			"text": "SKILL",
 			"gif": "https://o.quizlet.com/G9Ufaz2i.3cTO7UxhSsTzg.gif"
 		},
 		"2": {
-			"text": "SOFTBALL .",
+			"text": "SOFTBALL",
 			"gif": "https://o.quizlet.com/NIFL6Sdj8WZkSQwPpPZPfA.gif"
 		},
 		"3": {
-			"text": "BASKETBALL .",
+			"text": "BASKETBALL",
 			"gif": "https://o.quizlet.com/OVpCGCUZ2JNtP-1h.Gs.CA.gif"
 		},
 		"4": {
-			"text": "BASEBALL .",
+			"text": "BASEBALL",
 			"gif": "https://o.quizlet.com/A3GYcbdSeY.3apK6HxkSNg.gif"
 		},
 		"5": {
-			"text": "FOOTBALL .",
+			"text": "FOOTBALL",
 			"gif": "https://o.quizlet.com/fuT9oUlNbgtuYH2U59-dNw.gif"
 		},
 		"6": {
-			"text": "HOCKEY .",
+			"text": "HOCKEY",
 			"gif": "https://o.quizlet.com/Elvq9rO2rkXFKxoLYwr4ZQ.gif"
 		},
 		"7": {
-			"text": "SOCCER .",
+			"text": "SOCCER",
 			"gif": "https://o.quizlet.com/kfLHB.YPM0urdWC3DP4T5w.gif"
 		},
 		"8": {
-			"text": "BADMINTON .",
+			"text": "BADMINTON",
 			"gif": "https://o.quizlet.com/1bTkxOGnB4sWDh-mlQ-ZAg.gif"
 		},
 		"9": {
-			"text": "TENNIS .",
+			"text": "TENNIS",
 			"gif": "https://o.quizlet.com/44JiFZBaaXk1Qs4cz3M9OA.gif"
 		},
 		"10": {
-			"text": "GOLF .",
+			"text": "GOLF",
 			"gif": "https://o.quizlet.com/Gxu7aE9yyGvpWrgtuoEBBQ.gif"
 		},
 		"11": {
-			"text": "WRONG .",
+			"text": "WRONG",
 			"gif": "https://o.quizlet.com/Utig5-tI7BBnMZN2zQkS3w.gif"
 		},
 		"12": {
-			"text": "FIND/DISCOVER .",
+			"text": "FIND/DISCOVER",
 			"gif": "https://o.quizlet.com/Ei04x8.6-1g2.pROvrEaBQ.gif"
 		},
 		"13": {
-			"text": "FRUSTRATED .",
+			"text": "FRUSTRATED",
 			"gif": "https://o.quizlet.com/wvqih6hYQa9VZzt9AfHDeA.gif"
 		},
 		"14": {
-			"text": "HIT/IMPACT .",
+			"text": "HIT/IMPACT",
 			"gif": "https://o.quizlet.com/whDUTber5N8AqSmP8SFxnQ.gif"
 		},
 		"15": {
-			"text": "GOOD-AT .",
+			"text": "GOOD-AT",
 			"gif": "https://o.quizlet.com/LzbyJioJNcuojoAPSjgdGw.gif"
 		},
 		"16": {
-			"text": "KNOWLEDGEABLE/GENIUS .",
+			"text": "KNOWLEDGEABLE/GENIUS",
 			"gif": "https://o.quizlet.com/YaZOhKQCiMJ7bw9Mz2yCZw.gif"
 		},
 		"17": {
-			"text": "INEPT/NOT-GOOD-AT .",
+			"text": "INEPT/NOT-GOOD-AT",
 			"gif": "https://o.quizlet.com/kiW15OSrvJVyF2kawk.E5g.gif"
 		},
 		"18": {
-			"text": "TICKET .",
+			"text": "TICKET",
 			"gif": "https://o.quizlet.com/dRYlYvqvoVeyoR9.hvg5CA.gif"
 		},
 		"19": {
-			"text": "WOOD-WORK/SANDING .",
+			"text": "WOOD-WORK/SANDING",
 			"gif": "https://o.quizlet.com/MlqaLEo5sDFJ.chvBOgUlg.gif"
 		},
 		"20": {
-			"text": "WASHINGTON .",
+			"text": "WASHINGTON",
 			"gif": "https://o.quizlet.com/dC5pHCF5VAqWCo4L8REiUg.gif"
 		},
 		"21": {
-			"text": "CHICAGO .",
+			"text": "CHICAGO",
 			"gif": "https://o.quizlet.com/M7xbf72B4Xrydrm1MxCN-A.gif"
 		},
 		"22": {
-			"text": "PHILADELPHIA .",
+			"text": "PHILADELPHIA",
 			"gif": "https://o.quizlet.com/Mn6-CTS2GiQKuaz7p2qA7Q.gif"
 		},
 		"23": {
-			"text": "BOSTON .",
+			"text": "BOSTON",
 			"gif": "https://o.quizlet.com/hIwGX3VLvmq9uazu-cGKdQ.gif"
 		},
 		"24": {
-			"text": "DETROIT .",
+			"text": "DETROIT",
 			"gif": "https://o.quizlet.com/Ij.Ge9bRAdqp2eIf4IONXg.gif"
 		},
 		"25": {
-			"text": "PITTSBURGH .",
+			"text": "PITTSBURGH",
 			"gif": "https://o.quizlet.com/56SQrABWdHgcmF7DSqrE2Q.gif"
 		},
 		"26": {
-			"text": "ATLANTA .",
+			"text": "ATLANTA",
 			"gif": "https://o.quizlet.com/F67giUmZLDtHkmk8SDLMlA.gif"
 		},
 		"27": {
-			"text": "BALTIMORE .",
+			"text": "BALTIMORE",
 			"gif": "https://o.quizlet.com/EWLplcvP8uRMQV6FtGwTKw.gif"
 		},
 		"28": {
-			"text": "HISTORY .",
+			"text": "HISTORY",
 			"gif": "https://o.quizlet.com/6jX7FeTt4zN6Mi0-cWM9EA.gif"
 		},
 		"29": {
-			"text": "MATH .",
+			"text": "MATH",
 			"gif": "https://o.quizlet.com/7zxGURkiYzW.N5JgXCRVwg.gif"
 		},
 		"30": {
-			"text": "ART .",
+			"text": "ART",
 			"gif": "https://o.quizlet.com/uDLLJsYyvE5fB764bbBDCg.gif"
 		},
 		"31": {
-			"text": "ENGLISH .",
+			"text": "ENGLISH",
 			"gif": "https://o.quizlet.com/d3K0ke43HicFNtZO9DjffA.gif"
 		},
 		"32": {
-			"text": "SCIENCE .",
+			"text": "SCIENCE",
 			"gif": "https://o.quizlet.com/WYCQUzrkzOmjEp0saGZzbw.gif"
 		},
 		"33": {
-			"text": "PEOPLE .",
+			"text": "PEOPLE",
 			"gif": "https://o.quizlet.com/zfvV6yhRnlNUzEKJsurqRw.gif"
 		},
 		"34": {
-			"text": "FLATTERY .",
+			"text": "FLATTERY",
 			"gif": "https://o.quizlet.com/1O1DifQHlkWXAisl2jmAbQ.gif"
 		},
 		"35": {
-			"text": "ENTER .",
+			"text": "ENTER",
 			"gif": "https://o.quizlet.com/F4YmiNTOLNrKHWRaDElbgQ.gif"
 		},
 		"36": {
-			"text": "WATCH .",
+			"text": "WATCH",
 			"gif": "https://o.quizlet.com/970sJBTyPbi3pkLGVLd0QQ.gif"
 		},
 		"37": {
-			"text": "HURT .",
+			"text": "HURT",
 			"gif": "https://o.quizlet.com/nvbpZYfETg.xCjbaz.qPWQ.gif"
 		},
 		"38": {
-			"text": "BECOME .",
+			"text": "BECOME",
 			"gif": "https://o.quizlet.com/qpnXcSX9ZTNkGRw3uUJzkw.gif"
 		},
 		"39": {
-			"text": "CRASH .",
+			"text": "CRASH",
 			"gif": "https://o.quizlet.com/NL.9FkAoor0i39hpF5nepQ.gif"
 		},
 		"40": {
-			"text": "HOSPITAL .",
+			"text": "HOSPITAL",
 			"gif": "https://o.quizlet.com/ToGAjQRTKdTwiwIzKnXsUQ.gif"
 		},
 		"41": {
-			"text": "PAST/BEFORE/AGO .",
+			"text": "PAST/BEFORE/AGO",
 			"gif": "https://o.quizlet.com/ul097bGnwbzKQ5j0VuWZtg.gif"
 		},
 		"42": {
-			"text": "DANCE .",
+			"text": "DANCE",
 			"gif": "https://o.quizlet.com/47t8tmhDDBdZePAMAtccEg.gif"
 		},
 		"43": {
-			"text": "FINALLY .",
+			"text": "FINALLY",
 			"gif": "https://o.quizlet.com/esls9REhBSbZGmS.rFg.Ig.gif"
 		},
 		"44": {
@@ -2483,7 +2483,7 @@
 			"gif": "https://o.quizlet.com/vKiF3oJO9lauIbgjLLXDbg.gif"
 		},
 		"2": {
-			"text": "ACROSS/AFTER \\",
+			"text": "ACROSS/AFTER",
 			"gif": "https://o.quizlet.com/E9SDenf4-BopcZ1Bf2VtxQ.gif"
 		},
 		"3": {
@@ -2571,7 +2571,7 @@
 			"gif": "https://o.quizlet.com/5TaY3cv7HzcCg9XSmTIiVQ.gif"
 		},
 		"24": {
-			"text": "PLUG-IN/CHARGE =",
+			"text": "PLUG-IN/CHARGE",
 			"gif": "https://o.quizlet.com/8LOoYf64PmkHaK.HspJBMw.gif"
 		},
 		"25": {
@@ -2757,7 +2757,7 @@
 			"gif": "https://o.quizlet.com/B8XsO3YlcgZqFPK0z8zzQA.gif"
 		},
 		"35": {
-			"text": "SEND ELECTORNALLY",
+			"text": "SEND electronically",
 			"gif": "https://o.quizlet.com/hg-Dk9qKAoLlLHu3XRSZWg.gif"
 		},
 		"36": {
@@ -3191,7 +3191,7 @@
 			"gif": "https://o.quizlet.com/WsXmiXzqzXKfIO4LeU6rlA.gif"
 		},
 		"13": {
-			"text": "EMPARRASSED",
+			"text": "EMBARRASSED",
 			"gif": "https://o.quizlet.com/m0tXKZJyiOsne1UrH-zKyQ.gif"
 		},
 		"14": {
@@ -3725,11 +3725,11 @@
 			"gif": "https://o.quizlet.com/saQiALiNBQ25YtXT1s6Jqg.gif"
 		},
 		"21": {
-			"text": "IMPROVE 2 ways to sign : both HS open B's; ND Front of Body with D touching palm sliding up Palm orientations side and downwards OR both HS open B's ND Front of Body with D bouncing from wrist to inner elbow; Palm orientations down and in-ish",
+			"text": "IMPROVE",
 			"gif": "https://o.quizlet.com/5.6xJRE-7nnfOedvJHU6cQ.gif"
 		},
 		"22": {
-			"text": "EXAGGERATE Both HS S's; ND front of body, D index touching pinky of N and pulls outward and squiggles. Palm Orientation both downish",
+			"text": "EXAGGERATE",
 			"gif": "https://o.quizlet.com/3TBP2GJdm2ENlo7icy9x-Q.gif"
 		},
 		"23": {
