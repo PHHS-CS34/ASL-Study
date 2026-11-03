@@ -24,6 +24,60 @@ function myDudeBackground(){
 
 	document.body.style.isolation = "isolate";
 	document.body.prepend(tint);
+
+	if (document.body.id === "homeBody"){
+		document.getElementById("upToTwentyUnits").style.borderBottom = "0.4rem solid var(--color-background4)";
+		let units17_24 = document.getElementById("upToThirtyUnits");
+		units17_24.id = "upToTwentyUnits";
+
+		let dudeUnitContainer = document.createElement("div");
+		dudeUnitContainer.id = "upToThirtyUnits";
+		dudeUnitContainer.className = "roundedLargeElement divButtons";
+
+		let dudeButton = document.createElement("button");
+		dudeButton.className = "unitButton buttons";
+		dudeButton.title = "dude.png";
+		dudeButton.id = "dude.png";
+		dudeButton.style.width = "6rem";
+		dudeButton.style.height = "6rem";
+
+		let imageWrapper = document.createElement("div");
+		imageWrapper.style.position = "relative";
+		imageWrapper.style.width = "100%";
+		imageWrapper.style.height = "100%";
+
+		let dudeButtonImg = document.createElement("img");
+		dudeButtonImg.className = "unitText";
+		dudeButtonImg.src = "media/dude.png";
+		dudeButtonImg.style.maxWidth = "100%";
+		dudeButtonImg.style.display = "block";
+
+		const tint = document.createElement("div");
+
+		Object.assign(tint.style, {
+			position: "absolute",
+			inset: "0",
+			backgroundColor: getComputedStyle(document.documentElement)
+				.getPropertyValue("--color-background3").trim(),
+			mixBlendMode: "color",
+			opacity: "0.7",
+			pointerEvents: "none",
+			zIndex: "1"
+		})
+
+		imageWrapper.appendChild(dudeButtonImg);
+		imageWrapper.appendChild(tint);
+
+		dudeButton.appendChild(imageWrapper);
+		dudeUnitContainer.appendChild(dudeButton);
+
+		units17_24.after(dudeUnitContainer);
+	}
+
+// <div id = "upToTenUnits" class="roundedLargeElement divButtons"></div>
+// 	<div id = "upToTwentyUnits" class="roundedLargeElement divButtons"></div>
+// 	<div id = "upToThirtyUnits" class="roundedLargeElement divButtons"></div>
+
 }
 
 
