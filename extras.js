@@ -3,8 +3,57 @@ const isIndex = document.body.id === "homeBody";
 
 const today = new Date();
 
-function rainbow(){
+// skew();
+// April 1st, along with secret button
+dateFunction(skew, new Date(2026, 3, 1));
 
+// america();
+// July 4, Memorial Day (Last Monday in May), Veterans Day (Nov 11), Presidents Day (3rd monday in february), Sep 11, Labor Day
+const memorialDay = dayOfWeekOfMonth(5,1,1);
+memorialDay.setDate(memorialDay.getDate()-7);
+dateFunction(america, [
+	new Date(2026,6,4),
+	memorialDay,
+	new Date(2026, 10, 11),
+	dayOfWeekOfMonth(1, 1, 3),
+	new Date(2026, 8, 11),
+	dayOfWeekOfMonth(8,1,1)
+]);
+
+// christmas();
+// Dec 1, 3rd friday of december to dec. 26
+dateFunction(christmas, [
+	new Date(2026, 11, 1),
+	dateRange(
+		dayOfWeekOfMonth(11, 5, 3),
+		new Date(2026,11,26)
+	)
+]);
+
+// occurs on load to either index or flashcards, page
+if (Number(sessionStorage.getItem("skew")) >= 1){
+	skew();
+}
+
+// increments the skew variable
+function incrementSkew(){
+	if (sessionStorage.getItem("skew")){
+		sessionStorage.setItem("skew",Number(sessionStorage.getItem("skew"))+1);
+	}
+	else {
+		sessionStorage.setItem("skew", 0);
+	}
+
+	if (Number(sessionStorage.getItem("skew")) === 1) skew();
+}
+
+function skew() {
+	const allElements = document.querySelectorAll("body *");
+
+	for (const el of allElements) {
+		const randomValue = (Math.random()-0.5)*2*2;
+		el.style.rotate = `${randomValue}deg`;
+	}
 }
 
 function christmas() {
@@ -31,29 +80,6 @@ function america() {
 	document.body.style.backgroundRepeat = "repeat";
 	document.body.style.backgroundSize = "10rem";
 }
-
-// america();
-// July 4, Memorial Day (Last Monday in May), Veterans Day (Nov 11), Presidents Day (3rd monday in february), Sep 11, Labor Day
-const memorialDay = dayOfWeekOfMonth(5,1,1);
-memorialDay.setDate(memorialDay.getDate()-7);
-dateFunction(america, [
-	new Date(2026,6,4),
-	memorialDay,
-	new Date(2026, 10, 11),
-	dayOfWeekOfMonth(1, 1, 3),
-	new Date(2026, 8, 11),
-	dayOfWeekOfMonth(8,1,1)
-]);
-
-// christmas();
-// Dec 1, 3rd friday of december to dec. 26
-dateFunction(christmas, [
-	new Date(2026, 11, 1),
-	dateRange(
-		dayOfWeekOfMonth(11, 5, 3),
-		new Date(2026,11,26)
-	)
-]);
 
 // Runs a function with a 1-in-chance probability.
 // Example: rngFunction(myEasterEgg, 10) gives a 1-in-10 chance.
