@@ -5,10 +5,16 @@ let currentCard = 0;
 const perspectiveCardDiv = document.getElementById("perspectiveCardDiv");
 const front = document.getElementById("front");
 const back = document.getElementById("back");
+const lazyCard = document.getElementById("lazy");
 const frontsideNumber = document.getElementById("frontsideNumber");
 const backsideNumber = document.getElementById("backsideNumber");
 const whichFront = document.getElementById("whichFront");
 const whichFrontImg = whichFront.querySelector("img");
+const helppopup = document.getElementById("help");
+
+helppopup.querySelector(".close-btn").addEventListener("click", () => {
+	helppopup.close();
+});
 
 function flip(element){
     element.classList.toggle("flipped");
@@ -58,15 +64,68 @@ function backflip(){
 }
 
 function showASLCard() {
-    front.lastChild.textContent = cardList[currentCard].aslside;
-    back.lastChild.textContent = cardList[currentCard].engside;
+    front.querySelector("img")?.remove();
+    back.querySelector("img")?.remove();
+    front.querySelector(".mainText").textContent = "";
+    back.querySelector(".mainText").textContent = cardList[currentCard].text;
+    let imge = document.createElement('img');
+    front.appendChild(imge);
+    imge.src = cardList[currentCard].gif;
     frontsideNumber.textContent = (currentCard + 1) + " / " + cardList.length;
     backsideNumber.textContent = (currentCard + 1) + " / " + cardList.length;
+	lazyLoadASLImgs();
+}
+
+function isImageDownloaded(imageUrl) {
+	const hasMatchingRequest = performance.getEntriesByType('resource')
+    .some(entry => entry.name === imageUrl);
+
+	return hasMatchingRequest;
+}
+
+function lazyLoadASLImgs() {
+	// if it is the last card, only check that the previous img is loaded
+	if (currentCard + 1 == cardList.length) {
+		if (!isImageDownloaded(cardList[currentCard - 1].gif)) {
+			lazyLoadImg(cardList[currentCard - 1].gif);
+		}
+
+	}
+	// if it is the first card, only check that the next img and the last img is loaded
+	else if (currentCard == 0) {
+		if (!isImageDownloaded(cardList[currentCard + 1].gif)) {
+			lazyLoadImg(cardList[currentCard + 1].gif);
+		}
+		if (!isImageDownloaded(cardList[cardList.length - 1].gif)) {
+			lazyLoadImg(cardList[cardList.length - 1].gif);
+		}
+	}
+	// for all other cards, check that the prev and next img is loaded
+	else {
+		if (!isImageDownloaded(cardList[currentCard + 1]).gif) {
+			lazyLoadImg(cardList[currentCard + 1].gif);
+		}
+		if (!isImageDownloaded(cardList[currentCard - 1].gif)) {
+			lazyLoadImg(cardList[currentCard - 1].gif);
+		}
+	}
+}
+
+function lazyLoadImg(imageUrl) {
+	lazyCard.querySelector("img")?.remove();
+	let imge = document.createElement('img');
+	lazyCard.appendChild(imge);
+	imge.src = imageUrl;
 }
 
 function showENGCard() {
-    front.lastChild.textContent = cardList[currentCard].engside;
-    back.lastChild.textContent = cardList[currentCard].aslside;
+    front.querySelector("img")?.remove();
+    back.querySelector("img")?.remove();
+    back.querySelector(".mainText").textContent = "";
+    front.querySelector(".mainText").textContent = cardList[currentCard].text;
+    let imge = document.createElement('img');
+    back.appendChild(imge);
+    imge.src = cardList[currentCard].gif;
     frontsideNumber.textContent = (currentCard + 1) + " / " + cardList.length;
     backsideNumber.textContent = (currentCard + 1) + " / " + cardList.length;
 }
@@ -77,14 +136,14 @@ async function nextCard(){
     currentCard = trueMod(currentCard+1, cardList.length);
     perspectiveCardDiv.classList.add("no-transition");
     perspectiveCardDiv.classList.remove("flipped");
-    requestAnimationFrame(() => {
-        perspectiveCardDiv.classList.remove("no-transition");
-    });
     if (backstart) {
         showENGCard();
     } else {
         showASLCard();
     }
+    requestAnimationFrame(() => {
+        perspectiveCardDiv.classList.remove("no-transition");
+    });
 }
 
 async function previousCard(){
@@ -93,14 +152,14 @@ async function previousCard(){
 	currentCard = trueMod(currentCard-1, cardList.length);
     perspectiveCardDiv.classList.add("no-transition");
     perspectiveCardDiv.classList.remove("flipped");
-    requestAnimationFrame(() => {
-        perspectiveCardDiv.classList.remove("no-transition");
-    });
     if (backstart) {
         showENGCard();
     } else {
         showASLCard();
     }
+    requestAnimationFrame(() => {
+        perspectiveCardDiv.classList.remove("no-transition");
+    });
 }
 
 // key listener for space with some extra kaleb stuff?

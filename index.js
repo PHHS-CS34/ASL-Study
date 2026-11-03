@@ -7,15 +7,20 @@ const notEnoughUnitsPopup = document.getElementById("notEnoughUnits");
 notEnoughUnitsPopup.querySelector(".close-btn").addEventListener("click", () => {
     notEnoughUnitsPopup.close();
 });
+const helppopup = document.getElementById("help");
+helppopup.querySelector(".close-btn").addEventListener("click", () => {
+	helppopup.close();
+});
 
 
 setUpUnits();
 
-function setUpUnits(){
+function setUpUnits() {
 
     for (let i = 1; i <= 24; i++){
         const currentButton = document.createElement("button");
         currentButton.className = "unitButton buttons";
+		currentButton.title = ("Unit " + i);
         currentButton.id = `unit${i}`;
         currentButton.dataset.uniton = "true";
         currentButton.onclick = function() {decideColorOfButton(`unit${i}`);};
@@ -27,44 +32,45 @@ function setUpUnits(){
             document.getElementById("upToThirtyUnits").appendChild(currentButton);
         }
 
-        const myInsides = document.createElement("p");
-        myInsides.className = "unitText";
-        myInsides.textContent = `${i}`;
-        currentButton.appendChild(myInsides);
+        const buttonContainer = document.createElement("p");
+        buttonContainer.className = "unitText";
+        buttonContainer.textContent = `${i}`;
+        currentButton.appendChild(buttonContainer);
     }
 }
 
 function decideColorOfButton(buttonId){
-    const myButt = document.getElementById(buttonId);
-    if (myButt.dataset.uniton === "true"){
-        myButt.style.backgroundColor = "var(--color-background4)";
-        myButt.style.color = "var(--color-lightText)";
-        myButt.dataset.uniton = "false";
+    const unitButton = document.getElementById(buttonId);
+    if (unitButton.dataset.uniton === "true"){
+        unitButton.style.backgroundColor = "var(--color-background4)";
+        unitButton.style.color = "var(--color-lightText)";
+        unitButton.dataset.uniton = "false";
         if (buttonId != "aslorenglish"){
-            unitsSelected.push(myButt);
+            unitsSelected.push(unitButton);
         }
     }
     else {
-        myButt.style.backgroundColor = "var(--color-background3)";
-        myButt.style.color = "var(--color-darkText)";
-        myButt.dataset.uniton = "true";
+        unitButton.style.backgroundColor = '';
+        unitButton.style.color = '';
+        unitButton.dataset.uniton = "true";
         if (buttonId != "aslorenglish"){
-            unitsSelected.splice(unitsSelected.indexOf(myButt),1);
+            unitsSelected.splice(unitsSelected.indexOf(unitButton),1);
         }
     }
 }
 
 function decideImageOfButton(buttonId){
-    const myButt = document.getElementById(buttonId);
-    const myButtIcon = myButt.querySelector('img')
-    if (myButt.dataset.aslorenglish === "asl"){
-        myButtIcon.src = "media/ENG.svg"
-        myButt.dataset.aslorenglish = "eng";
+    const unitButton = document.getElementById(buttonId);
+    const unitButtonIcon = unitButton.querySelector('img')
+    if (unitButton.dataset.aslorenglish === "asl"){
+        unitButtonIcon.src = "media/ENG.svg"
+        unitButton.dataset.aslorenglish = "eng";
     }
     else {
-        myButt.dataset.aslorenglish = "asl";
-        myButtIcon.src = "media/ASL.svg"
+        unitButton.dataset.aslorenglish = "asl";
+        unitButtonIcon.src = "media/ASL.svg"
     }
+	// unitButton.title = ("Unit" + unitsSelected.indexOf(unitButton));
 }
 
 function openSelectedFlash(){

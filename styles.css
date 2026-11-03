@@ -1,16 +1,17 @@
 :root {
 	/* PHHS Theme */
 	/* Teal Green #006D5B */
-	--color-darkText: #000000;
+	--color-darkText: #092300;
 	--color-lightText: #ffe57b;
-	--color-background1: #7dbd77;
-	--color-background2: #44953c;
-	--color-background3: #ffe57b;
-	--color-background4: #124500;
+
+	--color-background1: #386641; /* Body and dialog background */
+	--color-background2: #6a994e; /* Footer, container elements, and flashcard background */
+	--color-background3: #ffe57b; /* Navigation buttons and setup/unit buttons background */
+	--color-background4: #092300; /* Card/container borders, unit dividers, help button outline/text, and selected button background */
 
 	/* Debug coloring
-	To apply, uncomment this section
-	--color-darkText: #ff0000;
+	To apply, uncomment this section */
+	/* --color-darkText: #ff0000;
 	--color-lightText: #ee04ff;
 	--color-background1: #ffa600;
 	--color-background2: #6aff00;
@@ -36,6 +37,7 @@ body {
 	margin: 0;
 	height: 100%;
 	background-color: var(--color-background1);
+	min-width: 200px;
 }
 
 #listHeader {
@@ -86,15 +88,17 @@ body {
 	align-items: center;
 }
 
-main {
-	flex: 1;
+#flashcardsBody {
+	justify-content: center;
+	align-items: center;
 }
 
 footer {
 	font-weight:600;
-	height: 50px;
-	bottom: 0px;
+	height: 3rem;
+	width: 100%;
 	margin: 0;
+	margin-top: auto;
 	text-align: center;
 	background-color: var(--color-background2);
 	max-height: 10%;
@@ -109,7 +113,7 @@ footer {
 	padding-left: .5rem;
 	padding-right: .5rem;
 	width: 80%;
-	max-width: 480px;
+	max-width: 23rem;
 	place-items: center;
 	border-radius: 1rem;
 	border: 3px solid var(--color-background4);
@@ -118,7 +122,7 @@ footer {
 
 #headerDiv{
     text-align: center;
-    font-size: clamp(0.01rem, 6vw, 1.2rem);
+    font-size: clamp(0.01rem, 6vw, 1rem);
     padding-top: 0em;
     padding-bottom: 0em;
     margin-bottom: 1em;
@@ -126,15 +130,15 @@ footer {
 }
 
 .divButtons{
-    grid-template-columns: repeat(auto-fit, 6rem);
-    gap: 1rem;
-	row-gap: 1.3rem;
-    column-gap: 0.3rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+
+    padding: 1rem 1rem;
     margin-bottom: 1rem;
     margin-top: 0;
-    top: 0;
 }
 
 .setupButtonDiv1{
@@ -171,15 +175,7 @@ footer {
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 1em;
-	grid-column: 1 / -1;
 	width: 100%;
-}
-
-.optionButtonDiv {
-	display: flex;
-	width: fit-content;
-	padding: 1rem;
-	margin: 0 auto;
 }
 
 /* Unit selection page */
@@ -203,17 +199,22 @@ footer {
 	margin-bottom: 0;
 }
 
-#setupContainer {
+#homeBody .setupContainer{
 	margin-top: 1rem;
+	max-width: fit-content;
+}
+#flashcardsBody .setupContainer{
+	margin-top: 2rem;
+	max-width: fit-content;
 }
 
 .unitButton{
-	width: 5em;
-	height: 5em;
+	width: 4rem;
+	height: 4rem;
 }
 
 .unitText{
-	font-size: 20px;
+	font-size: 1.25rem;
 	font-weight: 500;
 	color: inherit;
 }
@@ -242,21 +243,18 @@ dialog::backdrop{
 
 /* Flashcards */
 
-#fullcard {
-	display: flex;
-	flex-direction: column;
-	gap: 3rem;
-}
-
 #flashcardsFlexDiv {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 3rem;
-	width: 70rem;
-	height: 30rem;
-	border: none;
+	flex-wrap: wrap balance;
+
+	gap: 2rem;
+	width: fit-content;
+
 	perspective: 1000px;
+
+	margin: 1rem;
 }
 
 body {
@@ -268,9 +266,11 @@ body {
 }
 
 #perspectiveCardDiv {
-    position: relative;
-    width: 100%;
-    height: 100%;
+	flex: 0 1 auto;
+
+    width: 50rem;
+    height: 30rem;
+
     transform-style: preserve-3d;
     transition: transform 0.8s;
     cursor: pointer;
@@ -281,6 +281,9 @@ body {
 }
 
 .card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
     position: absolute;
     font-size: 4rem;
     width: 100%;
@@ -291,37 +294,61 @@ body {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 	border: 3px solid var(--color-background4);
+	cursor: pointer;
+}
+
+.lazyLoadCard {
+	display: none;
+}
+
+.card img {
+	height: 60%;
+	max-width: 90%
 }
 
 .sideNumber {
     font-size: 1.5rem;
-    left: 4%;
+    left: 50%;
+	transform: translateX(-50%);
     position: absolute;
     top: 3%;
 }
 
-.card p {
-    font-size: 1.5rem;
-    right: 4%;
-    position: absolute;
-    top: 3%;
-}
-
-#previousCardButton, #nextCardButton {
+.navigationButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
 	font-size: 2rem;
 	width: 10rem;
-	height: 5rem;
+	aspect-ratio: 1 / 1;
+
 	background-color: var(--color-background3);
 	border-radius: 1em;
-	border-width: 0px;
-	outline: 3px solid currentColor;
+	border-width: 0;
+	outline: 3px solid var(--color-background4);
 	outline-offset: 0;
 	cursor: pointer;
 	color: inherit;
 }
 
+.navigationButton .buttonIcon {
+	display: block;
+	width: 80%;
+	height: 80%;
+	object-fit: contain;
+}
+
+#previousCardButton img {
+	transform: scaleX(-1);
+}
+
 .fadein{
     animation: fadein 1.5s ease-in-out;
+}
+
+.no-transition {
+	transition: none !important;
 }
 
 #back {
@@ -344,14 +371,71 @@ body {
 	background-color: var(--color-background3);
 	border-radius: 1em;
 	border-width: 0px;
-	outline: 3px solid currentColor;
+	outline: 3px solid var(--color-background4);
 	outline-offset: 0;
 	cursor: pointer;
 	color: inherit;
 	box-shadow: none;
 }
 
+.helpDiv {
+	align-self: flex-end;
+	justify-self: right;
+	right: 20px;
+	position: fixed;
+	bottom: 20px;
+}
+
+#help {
+	height: 70%;
+	width: fit-content;
+	min-width: 190px;
+	justify-items: center;
+}
+
+
+.helpButton {
+	height: 40px;
+	width: 40px;
+	border-radius: 3em;
+	border-width: 0px;
+	outline: 4px solid var(--color-background4);
+	outline-offset: 0;
+	font-weight: bold;
+	font-size: 30px;
+	background-color: var(--color-lightText);
+	color: var(--color-background4);
+	cursor: pointer;
+}
+
+.homeHelpImg {
+	height: 85%;
+
+}
+
 .setupButton{
-	width: 7em;
-	height: 7em;
+	width: 7rem;
+	aspect-ratio: 1 / 1;
+}
+
+@media only screen and (max-width: 1280px){
+	#homeBody .setupButton {
+		width: min(16vw, 7rem);
+	}
+	#flashcardsBody .setupButton {
+		width: min(7rem, 23vw);
+	}
+	.navigationButton {
+		/* width: 37vw; */
+		width: min(11rem, 37vw);
+	}
+	#previousCardButton {
+		order: 1;
+	}
+	#nextCardButton {
+		order: 2;
+	}
+	#perspectiveCardDiv {
+		width: 90vw;
+	}
 }

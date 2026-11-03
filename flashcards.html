@@ -8,38 +8,59 @@
 	<link rel="icon" id="favicon" type="image/svg+xml" href="media/ASL.svg">
 </head>
 
-<body id="body">
-	<div id="fullcard">
-		<div id="flashcardsFlexDiv">
-			<button onclick="previousCard()" id="previousCardButton">Previous</button>
-			<div id="perspectiveCardDiv" onclick="flip(this)">
-				<button class="card" id="front">
-					<p id="frontsideNumber" class="sideNumber"></p>
-				</button>
+<body id="flashcardsBody">
+<div>
+	<div id="flashcardsFlexDiv">
+		<button title="Go to the previous card" onclick="previousCard()" id="previousCardButton" class="navigationButton">
+			<img src="media/NEXT.svg" class="buttonIcon"/>
+		</button>
 
-				<button class="card" id="back">
-					<p id="backsideNumber" class="sideNumber"></p>
-				</button>
-			</div>
-			<button onclick="nextCard()" id="nextCardButton">Next</button>
+		<div id="perspectiveCardDiv" onclick="flip(this)">
+			<button title="Flip card" class="card" id="front">
+				<p id="frontsideNumber" class="sideNumber"></p>
+				<p class="mainText"></p>
+			</button>
+
+			<button title="Flip card" class="card" id="back">
+				<p id="backsideNumber" class="sideNumber"></p>
+				<p class="mainText"></p>
+			</button>
+
 		</div>
-
-
-		<div class="roundedLargeElement divButtons optionButtonDiv">
-			<div id="bottomButtons" class="bottomDiv">
-				<button class="buttons setupButton" onclick="shuffle()">Shuffle</button>
-
-				<button id="whichFront" data-aslorenglish="asl" class="buttons setupButton" onclick="backflip()">
-					<img src="media/ASL.svg" class="buttonIcon" />
-				</button>
-
-				<button class="buttons setupButton" onclick="goBack()"><img src="media/Home.png"
-						class="buttonIcon" /></button>
-			</div>
-		</div>
+		<button title="Go to the next card" onclick="nextCard()" id="nextCardButton" class="navigationButton">
+			<img src="media/NEXT.svg" class="buttonIcon"/>
+		</button>
 	</div>
 
-	<script src="flashcards.js"></script>
+	<div class="lazyLoadCard" id="lazy"></div>
+
+	<div class="roundedLargeElement divButtons setupContainer">
+		<div id="bottomButtons" class="bottomDiv">
+			<button title="Shuffle the cards" class="buttons setupButton" onclick="shuffle()">
+				<img src="media/SHUFFLE.svg" class="buttonIcon"/>
+			</button>
+
+			<button title="Switch the front between ASL and English" id="whichFront" data-aslorenglish="asl"
+			        class="buttons setupButton" onclick="backflip()">
+				<img src="media/ASL.svg" class="buttonIcon"/>
+			</button>
+
+			<button title="Return to unit selection" class="buttons setupButton" onclick="goBack()"><img
+				src="media/HOME.svg" class="buttonIcon"/></button>
+		</div>
+	</div>
+</div>
+
+<div class="helpDiv">
+	<button title="Tutorial" class="helpButton" onclick="helppopup.showModal()">?</button>
+	<dialog id="help">
+		<p>How to use the flashcard page.</p>
+		<img src="media/ASL_FLASHCARD_HELP.svg" class="homeHelpImg"/>
+		<button title="close" class="close-btn" aria-label="close">&times;</button>
+	</dialog>
+</div>
+
+<script src="flashcards.js"></script>
 
 </body>
 
