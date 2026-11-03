@@ -38,6 +38,49 @@ body {
 	background-color: var(--color-background1);
 }
 
+#listHeader {
+	text-align: center;
+    font-size: clamp(0.01rem, 6vw, 1.2rem);
+    padding-top: 0em;
+    padding-bottom: 0em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    grid-template-columns: 1fr 7em;
+}
+
+#listHeader > button {
+	justify-self: right;
+	margin-right: 1em;
+}
+
+#scrollToTopBtn {
+  position: fixed; /* Keeps it in the same place even when scrolling */
+  bottom: 30px;    /* Distance from the bottom */
+  right: 30px;     /* Distance from the right */
+  z-index: 99;     /* Makes sure it sits on top of other content */
+
+  /* Styling */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 18px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+  /* Smooth show/hide animation */
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none; /* Prevents clicking when hidden */
+}
+
+#scrollToTopBtn.show {
+	opacity: 1;
+	pointer-events: auto;
+}
+
 #body {
 	justify-content: center;
 	align-items: center;

@@ -69,4 +69,10 @@ async function bootCards(){
 	listContainer.removeChild(hr);
 }
 
+function goBack(){
+    window.location.href = "index.html";
+}
+
+
+
 
