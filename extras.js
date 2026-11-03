@@ -48,7 +48,8 @@ function incrementSkew(){
 }
 
 function skew() {
-	const allElements = document.querySelectorAll("body *");
+	let allElements = document.querySelectorAll("body *");
+	if (inIndex) document.querySelectorAll("main *");
 
 	for (const el of allElements) {
 		const randomValue = (Math.random()-0.5)*2*2;
