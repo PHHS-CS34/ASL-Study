@@ -17,9 +17,6 @@ function medinaPurple() {
 	pageStyle.setProperty('--color-background4', '#3c096c');
 }
 
-// Just for testing, we don't know her actual birthday yet
-medinaPurple();
-
 // Runs a function with a 1-in-chance probability.
 // Example: rngFunction(myEasterEgg, 10) gives a 1-in-10 chance.
 function rngFunction(iFunction, chance) {
