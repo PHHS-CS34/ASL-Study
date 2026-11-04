@@ -23,7 +23,10 @@ function flip(element){
 async function fetchCards(){
     const response = await fetch("./cards.json");
     const data = await response.json();
-    const units = (new URLSearchParams(window.location.search).get("units") ?? "100").split(",").map(Number);
+    const units = (new URLSearchParams(window.location.search).get("units") ?? "100").split(",");
+	for (let i = 0; i < units.length; i++) {
+		units[i] = (units[i] === "dude") ? "dude" : Number(units[i]);
+	}
     const side = (new URLSearchParams(window.location.search).get("front") ?? "asl");
     if (side === "asl") {
         backstart = false;
@@ -37,11 +40,15 @@ async function fetchCards(){
         console.log("ERROR WITH CARD FETCH")
     }
 
-    for (let i = 1;i <= 30;i++){
+    for (let i = 1;i <= 24;i++){
         if (units.includes(i)){
             cardList.push(...Object.values(data[`Unit${i}`]))
         }
     }
+	console.log(cardList);
+	if (units.includes("dude")) {
+		cardList.push()
+	}
     shuffle();
     if (backstart) {
         showENGCard();

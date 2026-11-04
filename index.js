@@ -48,6 +48,9 @@ function decideColorOfButton(buttonId){
         if (buttonId != "aslorenglish"){
             unitsSelected.push(unitButton);
         }
+		if (buttonId === "dude"){
+			document.getElementById("tintColor").style.backgroundColor = "var(--color-background4)";
+		}
     }
     else {
         unitButton.style.backgroundColor = '';
@@ -56,6 +59,9 @@ function decideColorOfButton(buttonId){
         if (buttonId != "aslorenglish"){
             unitsSelected.splice(unitsSelected.indexOf(unitButton),1);
         }
+		if (buttonId === "dude.png"){
+			document.getElementById("tintColor").style.backgroundColor = "var(--color-background3)";
+		}
     }
 }
 

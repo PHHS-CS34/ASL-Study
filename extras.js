@@ -36,15 +36,21 @@ function myDudeBackground(){
 
 		let dudeButton = document.createElement("button");
 		dudeButton.className = "unitButton buttons";
-		dudeButton.title = "dude.png";
-		dudeButton.id = "dude.png";
+		dudeButton.title = "dude";
+		dudeButton.id = "dudedude";
 		dudeButton.style.width = "6rem";
 		dudeButton.style.height = "6rem";
+		dudeButton.dataset.uniton = "true";
+        dudeButton.onclick = function() {decideColorOfButton("dudedude");};
 
-		let imageWrapper = document.createElement("div");
-		imageWrapper.style.position = "relative";
-		imageWrapper.style.width = "100%";
-		imageWrapper.style.height = "100%";
+		let imageTinter = document.createElement("div");
+		imageTinter.id = "imageTinter";
+		imageTinter.style.position = "relative";
+		imageTinter.style.width = "100%";
+		imageTinter.style.height = "100%";
+		imageTinter.style.display = "flex";
+		imageTinter.style.objectFit = "contain";
+		imageTinter.style.alignItems = "center";
 
 		let dudeButtonImg = document.createElement("img");
 		dudeButtonImg.className = "unitText";
@@ -53,6 +59,7 @@ function myDudeBackground(){
 		dudeButtonImg.style.display = "block";
 
 		const tint = document.createElement("div");
+		tint.id = "tintColor";
 
 		Object.assign(tint.style, {
 			position: "absolute",
@@ -65,10 +72,10 @@ function myDudeBackground(){
 			zIndex: "1"
 		})
 
-		imageWrapper.appendChild(dudeButtonImg);
-		imageWrapper.appendChild(tint);
+		imageTinter.appendChild(dudeButtonImg);
+		imageTinter.appendChild(tint);
 
-		dudeButton.appendChild(imageWrapper);
+		dudeButton.appendChild(imageTinter);
 		dudeUnitContainer.appendChild(dudeButton);
 
 		units17_24.after(dudeUnitContainer);
