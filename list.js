@@ -1,7 +1,7 @@
 let cardList = [];
 let side = "asl";
 
-bootCards();
+void bootCards();
 
 async function bootCards(){
     const response = await fetch("./cards.json");
@@ -49,11 +49,11 @@ async function bootCards(){
 			par.innerText = card["text"];
 			par.style.textAlign = "center";
 			listContainer.appendChild(document.createElement("p")).innerText = card["text"];
-			let imoog = document.createElement("img")
-			imoog.src = card["gif"];
-			imoog.style.maxWidth = "100%";
-			imoog.style.minWidth = "70%";
-			listContainer.appendChild(imoog);
+			let image = document.createElement("img")
+			image.src = card["gif"];
+			image.style.maxWidth = "100%";
+			image.style.minWidth = "70%";
+			listContainer.appendChild(image);
 			hr = document.createElement("hr");
 			hr.className = "splitter";
 			hr.style.opacity = "50%";
@@ -72,7 +72,3 @@ async function bootCards(){
 function goBack(){
     window.location.href = "index.html";
 }
-
-
-
-
