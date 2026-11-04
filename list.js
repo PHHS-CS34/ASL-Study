@@ -5,21 +5,20 @@ bootCards();
 
 const scrollToTopBtn = document.getElementById("scrollToTop");
 
-// 1. Listen for scroll events to show/hide the button
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    scrollToTopBtn.classList.add("show");
-  } else {
-    scrollToTopBtn.classList.remove("show");
-  }
+	if (window.scrollY > 300) {
+		scrollToTopBtn.classList.add("show");
+	}
+	else {
+		scrollToTopBtn.classList.remove("show");
+	}
 });
 
-// 2. Add click functionality to scroll back up smoothly
 scrollToTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth" /* Dictates a gradual, smooth animation */
-  });
+	window.scrollTo({
+		top: 0,
+		behavior: "smooth"
+	});
 });
 
 
@@ -36,12 +35,12 @@ async function bootCards(){
 	listContainer.style.paddingLeft = "0";
 	listContainer.style.paddingRight = "0";
 
-	document.getElementById("headerDiv").innerHTML = "<h3> " + ((units.length > 1) ? "Units" : "Unit") + " " + units.join(", ") +" Selected</h3>"
+	document.getElementById("headerDiv").innerHTML = "<h3> " + ((units.length > 1) ? "Units" : "Unit") + " " + units.slice(0, -1).join(", ") + ((units.length > 1) ? ", and " : "") + units.slice(-1) + " selected</h3>"
 
     for (let i = 1;i <= 24;i++){
         if (units.includes(i)){
 			cardList.push([]);
-          	cardList[cardList.length - 1][0] = i;
+			cardList[cardList.length - 1][0] = i;
 			cardList[cardList.length - 1].push(...Object.values(data[`Unit${i}`]))
 
         }
@@ -50,18 +49,19 @@ async function bootCards(){
 	let hr;
 
 	for (let unit of cardList) {
-
 		let title = document.createElement("h1");
-		title.textContent = "Unit " + unit[0];
-		title.style.gridColumn = "1 / -1";
-		title.style.fontSize = "3.5rem";
-		title.style.marginTop = "0";
-		title.style.marginBottom = "0";
-		listContainer.appendChild(title);
-		hr = document.createElement("hr");
-		hr.className = "splitter";
-		hr.style.height = "20%";
-		listContainer.appendChild(hr);
+		if (cardList.length > 1) {
+			title.textContent = "Unit " + unit[0];
+			title.style.gridColumn = "1 / -1";
+			title.style.fontSize = "3.5rem";
+			title.style.marginTop = "0";
+			title.style.marginBottom = "0";
+			listContainer.appendChild(title);
+			hr = document.createElement("hr");
+			hr.className = "splitter";
+			hr.style.height = "20%";
+			listContainer.appendChild(hr);
+		}
 
 		for (let card of unit) {
 			if (Number.isFinite(card)) continue;
