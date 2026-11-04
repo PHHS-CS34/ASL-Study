@@ -153,12 +153,6 @@ footer {
 	color: inherit;
 }
 
-#secretButton{
-	width: 1px;
-	aspect-ratio: 1 / 1;
-	opacity: 0;
-}
-
 /* Dialog */
 
 dialog {
@@ -355,6 +349,11 @@ dialog::backdrop{
 	top: 0;
 	width: max(100vw, 70rem);
 	z-index: 1;
+}
+
+#secretButton{
+	width: 1px;
+	opacity: 0;
 }
 
 @media only screen and (max-width: 1280px){
