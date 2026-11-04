@@ -4,8 +4,16 @@ const pageStyle = document.querySelector(':root').style;
 
 const today = new Date();
 
+// Halloween theme
+dateFunction(halloweenTheme, dayOfWeekOfMonth(10, 1, 1)); // first Monday of October
+dateFunction(halloweenTheme, new Date(2026, 10, 30)); // October 30th
+dateFunction(halloweenTheme, new Date(2026, 10, 31)); // October 31st
+dateFunction(halloweenTheme, new Date.setDate(dayOfWeekOfMonth(11, 5, 1).getDate() - 7)); // last Friday of October
+
+// Purple theme for Medina's birthday
 dateFunction(medinaPurple, new Date());
 rngFunction(medinaPurple, 100);
+
 
 function medinaPurple() {
 	pageStyle.setProperty('--color-darkText', '#3c096c');
@@ -15,6 +23,16 @@ function medinaPurple() {
 	pageStyle.setProperty('--color-background2', '#9683ec');
 	pageStyle.setProperty('--color-background3', '#d0c9ea');
 	pageStyle.setProperty('--color-background4', '#3c096c');
+}
+
+function halloweenTheme() {
+	pageStyle.setProperty('--color-darkText', '#ffc300');
+	pageStyle.setProperty('--color-lightText', '#EDE7F6');
+
+	pageStyle.setProperty('--color-background1', '#10002b');
+	pageStyle.setProperty('--color-background2', '#606c38');
+	pageStyle.setProperty('--color-background3', '#bd632f');
+	pageStyle.setProperty('--color-background4', '#1b4332');
 }
 
 // Runs a function with a 1-in-chance probability.
