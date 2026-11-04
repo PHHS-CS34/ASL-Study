@@ -4,6 +4,9 @@ const pageStyle = document.querySelector(':root').style;
 
 const today = new Date();
 
+dateFunction(medinaPurple, new Date());
+rngFunction(medinaPurple, 100);
+
 function medinaPurple() {
 	pageStyle.setProperty('--color-darkText', '#3c096c');
 	pageStyle.setProperty('--color-lightText', '#EDE7F6');
