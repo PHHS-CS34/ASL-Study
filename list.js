@@ -3,6 +3,26 @@ let side = "asl";
 
 bootCards();
 
+const scrollToTopBtn = document.getElementById("scrollToTop");
+
+// 1. Listen for scroll events to show/hide the button
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    scrollToTopBtn.classList.add("show");
+  } else {
+    scrollToTopBtn.classList.remove("show");
+  }
+});
+
+// 2. Add click functionality to scroll back up smoothly
+scrollToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth" /* Dictates a gradual, smooth animation */
+  });
+});
+
+
 async function bootCards(){
     const response = await fetch("./cards.json");
     const data = await response.json();

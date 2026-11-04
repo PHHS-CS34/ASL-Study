@@ -42,12 +42,24 @@ body {
 
 #listHeader {
 	text-align: center;
+	display: grid;
     font-size: clamp(0.01rem, 6vw, 1.2rem);
     padding-top: 0em;
     padding-bottom: 0em;
     margin-bottom: 1em;
     margin-top: 1em;
     grid-template-columns: 1fr 7em;
+	display: grid;
+	justify-content: center;
+	padding-left: .5rem;
+	padding-right: .5rem;
+	width: 80%;
+	max-width: 23rem;
+	place-items: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 #listHeader > button {
@@ -55,30 +67,17 @@ body {
 	margin-right: 1em;
 }
 
-#scrollToTopBtn {
-  position: fixed; /* Keeps it in the same place even when scrolling */
-  bottom: 30px;    /* Distance from the bottom */
-  right: 30px;     /* Distance from the right */
-  z-index: 99;     /* Makes sure it sits on top of other content */
-
-  /* Styling */
-  background-color: #007bff;
-  color: white;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 50%;
-  font-size: 18px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-
-  /* Smooth show/hide animation */
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  pointer-events: none; /* Prevents clicking when hidden */
+#listHeader > div {
+	height: 100%;
 }
 
-#scrollToTopBtn.show {
+#scrollToTop {
+	opacity: 0;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+	pointer-events: none;
+}
+
+#scrollToTop.show {
 	opacity: 1;
 	pointer-events: auto;
 }
@@ -378,7 +377,7 @@ body {
 	box-shadow: none;
 }
 
-.helpDiv {
+.cornerButtonDiv {
 	align-self: flex-end;
 	justify-self: right;
 	right: 20px;
@@ -394,7 +393,7 @@ body {
 }
 
 
-.helpButton {
+.cornerButton {
 	height: 40px;
 	width: 40px;
 	border-radius: 3em;
