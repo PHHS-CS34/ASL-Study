@@ -5,13 +5,13 @@ const pageStyle = document.querySelector(':root').style;
 const today = new Date();
 
 function medinaPurple() {
-	pageStyle.setProperty('--color-darkText', '#');
+	pageStyle.setProperty('--color-darkText', '#3c096c');
 	pageStyle.setProperty('--color-lightText', '#EDE7F6');
 
-	pageStyle.setProperty('--color-background1', '');
-	pageStyle.setProperty('--color-background2', '');
-	pageStyle.setProperty('--color-background3', '');
-	pageStyle.setProperty('--color-background4', '');
+	pageStyle.setProperty('--color-background1', '#4f518c');
+	pageStyle.setProperty('--color-background2', '#9683ec');
+	pageStyle.setProperty('--color-background3', '#d0c9ea');
+	pageStyle.setProperty('--color-background4', '#3c096c');
 }
 
 // Just for testing, we don't know her actual birthday yet
