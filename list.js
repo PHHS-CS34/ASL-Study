@@ -69,11 +69,11 @@ async function bootCards(){
 			par.innerText = card["text"];
 			par.style.textAlign = "center";
 			listContainer.appendChild(document.createElement("p")).innerText = card["text"];
-			let imoog = document.createElement("img")
-			imoog.src = card["gif"];
-			imoog.style.maxWidth = "100%";
-			imoog.style.minWidth = "70%";
-			listContainer.appendChild(imoog);
+			let img = document.createElement("img")
+			img.src = card["gif"];
+			img.style.maxWidth = "100%";
+			img.style.minWidth = "70%";
+			listContainer.appendChild(img);
 			hr = document.createElement("hr");
 			hr.className = "splitter";
 			hr.style.opacity = "50%";
