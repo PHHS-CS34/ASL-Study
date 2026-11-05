@@ -11,16 +11,10 @@ function myDudeBackground(){
 	body.style.animation = "moveBackground 10s linear infinite";
 
 	const tint = document.createElement("div");
-	Object.assign(tint.style, {
-		position: "fixed",
-		inset: "0",
-		backgroundColor: getComputedStyle(document.documentElement)
-			.getPropertyValue("--color-background1").trim(),
-		mixBlendMode: "color",
-		opacity: "0.7",
-		pointerEvents: "none",
-		zIndex: "-1"
-	});
+	tint.id = "tintColor";
+	tint.style.zIndex = "-1";
+	tint.style.backgroundColor = "var(--color-background1)";
+	tint.style.position = "fixed";
 
 	document.body.style.isolation = "isolate";
 	document.body.prepend(tint);
@@ -45,32 +39,15 @@ function myDudeBackground(){
 
 		let imageTinter = document.createElement("div");
 		imageTinter.id = "imageTinter";
-		imageTinter.style.position = "relative";
-		imageTinter.style.width = "100%";
-		imageTinter.style.height = "100%";
-		imageTinter.style.display = "flex";
-		imageTinter.style.objectFit = "contain";
-		imageTinter.style.alignItems = "center";
 
 		let dudeButtonImg = document.createElement("img");
 		dudeButtonImg.className = "unitText";
 		dudeButtonImg.src = "media/dude.png";
 		dudeButtonImg.style.maxWidth = "100%";
-		dudeButtonImg.style.display = "block";
 
 		const tint = document.createElement("div");
 		tint.id = "tintColor";
-
-		Object.assign(tint.style, {
-			position: "absolute",
-			inset: "0",
-			backgroundColor: getComputedStyle(document.documentElement)
-				.getPropertyValue("--color-background3").trim(),
-			mixBlendMode: "color",
-			opacity: "0.7",
-			pointerEvents: "none",
-			zIndex: "1"
-		})
+		tint.style.backgroundColor = "var(--color-background3)";
 
 		imageTinter.appendChild(dudeButtonImg);
 		imageTinter.appendChild(tint);
@@ -80,10 +57,6 @@ function myDudeBackground(){
 
 		units17_24.after(dudeUnitContainer);
 	}
-
-// <div id = "upToTenUnits" class="roundedLargeElement divButtons"></div>
-// 	<div id = "upToTwentyUnits" class="roundedLargeElement divButtons"></div>
-// 	<div id = "upToThirtyUnits" class="roundedLargeElement divButtons"></div>
 
 }
 
