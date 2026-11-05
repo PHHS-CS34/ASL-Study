@@ -1,6 +1,7 @@
 // use with if statement to do stuff only to the index.html
 const isIndex = document.body.id === "homeBody";
 const today = new Date();
+const pageStyle = document.querySelector(':root').style;
 
 rngFunction(myDudeBackground, 1);
 function myDudeBackground(){
