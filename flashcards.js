@@ -39,15 +39,16 @@ async function fetchCards(){
     } else {
         console.log("ERROR WITH CARD FETCH")
     }
-
     for (let i = 1;i <= 24;i++){
         if (units.includes(i)){
             cardList.push(...Object.values(data[`Unit${i}`]))
         }
     }
-	console.log(cardList);
 	if (units.includes("dude")) {
-		cardList.push()
+		cardList.push({
+			text: "dude.png",
+			gif: "media/dude.png",
+		});
 	}
     shuffle();
     if (backstart) {
@@ -80,7 +81,67 @@ function showASLCard() {
     imge.src = cardList[currentCard].gif;
     frontsideNumber.textContent = (currentCard + 1) + " / " + cardList.length;
     backsideNumber.textContent = (currentCard + 1) + " / " + cardList.length;
-	lazyLoadASLImgs();
+	addDudeBackground();
+
+	if (cardList.length != 1) lazyLoadASLImgs();
+}
+
+function showENGCard() {
+    front.querySelector("img")?.remove();
+    back.querySelector("img")?.remove();
+    back.querySelector(".mainText").textContent = "";
+    front.querySelector(".mainText").textContent = cardList[currentCard].text;
+    let imge = document.createElement('img');
+    back.appendChild(imge);
+    imge.src = cardList[currentCard].gif;
+    frontsideNumber.textContent = (currentCard + 1) + " / " + cardList.length;
+    backsideNumber.textContent = (currentCard + 1) + " / " + cardList.length;
+	addDudeBackground();
+}
+
+function addDudeBackground(){
+	console.log("asdlijasdoiasndoasdoiadoiasdoilasmndouinsdoinas")
+	let imageTinter = document.createElement("div");
+	imageTinter.id = "imageTinter";
+
+	let dudeButtonImg = document.createElement("img");
+	dudeButtonImg.className = "unitText";
+	dudeButtonImg.src = "media/dudeTile.png";
+	dudeButtonImg.style.maxWidth = "100%";
+
+	const tint = document.createElement("div");
+	tint.id = "tintColor";
+	tint.style.backgroundColor = "var(--color-background3)";
+
+	imageTinter.appendChild(dudeButtonImg);
+	imageTinter.appendChild(tint);
+
+	front.prepend(imageTinter);
+	back.prepend(imageTinter);
+	// dudeUnitContainer.appendChild(dudeButton);
+}
+
+
+// let imageTinter = document.createElement("div");
+// imageTinter.id = "imageTinter";
+
+// let dudeButtonImg = document.createElement("img");
+// dudeButtonImg.className = "unitText";
+// dudeButtonImg.src = "media/dude.png";
+// dudeButtonImg.style.maxWidth = "100%";
+
+// const tint = document.createElement("div");
+// tint.id = "tintColor";
+// tint.style.backgroundColor = "var(--color-background3)";
+
+// imageTinter.appendChild(dudeButtonImg);
+// imageTinter.appendChild(tint);
+
+// dudeButton.appendChild(imageTinter);
+// dudeUnitContainer.appendChild(dudeButton);
+
+function removeDudeBackground(){
+
 }
 
 function isImageDownloaded(imageUrl) {
@@ -123,18 +184,6 @@ function lazyLoadImg(imageUrl) {
 	let imge = document.createElement('img');
 	lazyCard.appendChild(imge);
 	imge.src = imageUrl;
-}
-
-function showENGCard() {
-    front.querySelector("img")?.remove();
-    back.querySelector("img")?.remove();
-    back.querySelector(".mainText").textContent = "";
-    front.querySelector(".mainText").textContent = cardList[currentCard].text;
-    let imge = document.createElement('img');
-    back.appendChild(imge);
-    imge.src = cardList[currentCard].gif;
-    frontsideNumber.textContent = (currentCard + 1) + " / " + cardList.length;
-    backsideNumber.textContent = (currentCard + 1) + " / " + cardList.length;
 }
 
 async function nextCard(){
