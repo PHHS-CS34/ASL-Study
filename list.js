@@ -55,17 +55,17 @@ async function bootCards() {
 		}
 
 		for (let card of unit) {
+			let div = document.createElement("div");
+			div.className = "termGifListPair";
 			// The numeric unit ID is the first entry in each unit array, not a card to render.
 			if (Number.isFinite(card)) continue;
 			let par = document.createElement("p");
 			par.innerText = card["text"];
-			par.style.textAlign = "center";
-			listContainer.appendChild(document.createElement("p")).innerText = card["text"];
-			let img = document.createElement("img")
+			div.appendChild(par);
+			let img = document.createElement("img");
 			img.src = card["gif"];
-			img.style.maxWidth = "100%";
-			img.style.minWidth = "70%";
-			listContainer.appendChild(img);
+			div.appendChild(img);
+			listContainer.appendChild(div);
 			hr = document.createElement("hr");
 			hr.className = "splitter";
 			hr.style.opacity = "50%";
