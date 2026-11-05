@@ -25,7 +25,7 @@ async function bootCards() {
 	const response = await fetch("./cards.json");
 	const data = await response.json();
 	// The units query parameter is a comma-separated list; default to the "100" unit when absent.
-	const units = (new URLSearchParams(window.location.search).get("units") ?? "100").split(",").map(Number);
+	const units = (new URLSearchParams(window.location.search).get("units") ?? "2").split(",").map(Number);
 	const listContainer = document.getElementById("listContainer");
 
 	// Format the selected unit numbers as a readable heading, including the singular/plural and final "and".

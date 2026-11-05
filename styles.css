@@ -11,12 +11,12 @@
 
 	/* Debug coloring
 	To apply, uncomment this section */
-	/* --color-darkText: #ff0000;
-	--color-lightText: #ee04ff;
-	--color-background1: #ffa600;
-	--color-background2: #6aff00;
-	--color-background3: #002afb;
-	--color-background4: #7d04ff; */
+	/*--color-darkText: #ff0000;*/
+	/*--color-lightText: #ee04ff;*/
+	/*--color-background1: #ffa600;*/
+	/*--color-background2: #6aff00;*/
+	/*--color-background3: #002afb;*/
+	/*--color-background4: #7d04ff;*/
 }
 
 /* Broad layout stuff */
@@ -84,15 +84,6 @@ footer {
     padding-bottom: 0em;
     margin-bottom: 1em;
     margin-top: 1em;
-}
-
-
-#listHeaderDiv{
-	text-align: center;
-	font-size: clamp(0.01rem, 6vw, 1rem);
-	min-width: 20rem;
-	margin: 0 3rem;
-	padding: 0 2rem;
 }
 
 .divButtons{
@@ -322,15 +313,25 @@ body {
 
 #listHeader {
 	text-align: center;
-	display: grid;
 	font-size: clamp(0.01rem, 6vw, 1.2rem);
-	grid-template-columns: 1fr 7em;
-	justify-content: center;
-	padding: 0em .5rem;
-	width: 80%;
-	max-width: 23rem;
-	place-items: center;
+	width: min(40rem, 80%);
 	margin: 1rem auto;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+}
+
+#listHeaderDiv{
+	text-align: center;
+	font-size: 1rem;
+	margin: 0;
+
+	width: 30rem;
 }
 
 #listUnitTitle {
@@ -342,7 +343,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
-	margin: 1rem auto;
+	margin: 2rem auto;
 	padding: 0;
 	max-width: 40rem;
 }
@@ -388,7 +389,7 @@ body {
 	padding: 0;
 	display: grid;
 	gap: 20px;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 	align-items: center;
 	justify-items: center;
 	width: calc(100% - 4rem);
@@ -407,6 +408,7 @@ body {
 
 .termGifListPair img {
 	height: 10rem;
+	max-width: 100%;
 }
 
 /* Setup buttons (on both pages)*/
