@@ -29,7 +29,7 @@ async function bootCards() {
 	const listContainer = document.getElementById("listContainer");
 
 	// Format the selected unit numbers as a readable heading, including the singular/plural and final "and".
-	document.getElementById("headerDiv").innerHTML = "<h1>" + ((units.length > 1) ? "Units" : "Unit") + " " + units.slice(0, -1).join(", ") + ((units.length > 1) ? ", and " : "") + units.slice(-1) + " selected</h1>"
+	document.getElementById("listHeaderDiv").innerHTML = "<h1>" + ((units.length > 1) ? "Units" : "Unit") + " " + units.slice(0, -1).join(", ") + ((units.length > 1) ? ", and " : "") + units.slice(-1) + " selected</h1>"
 
 	// Each entry starts with its numeric unit ID, followed by that unit's card objects.
 	for (let i = 1; i <= 24; i++) {
@@ -50,7 +50,6 @@ async function bootCards() {
 			listContainer.appendChild(title);
 			hr = document.createElement("hr");
 			hr.className = "splitter";
-			hr.style.height = "20%";
 			listContainer.appendChild(hr);
 		}
 
@@ -59,23 +58,25 @@ async function bootCards() {
 			div.className = "termGifListPair";
 			// The numeric unit ID is the first entry in each unit array, not a card to render.
 			if (Number.isFinite(card)) continue;
+			
 			let par = document.createElement("p");
 			par.innerText = card["text"];
 			div.appendChild(par);
+			
 			let img = document.createElement("img");
 			img.src = card["gif"];
 			div.appendChild(img);
+			
 			listContainer.appendChild(div);
+			
 			hr = document.createElement("hr");
 			hr.className = "splitter";
-			hr.style.opacity = "50%";
 			listContainer.appendChild(hr);
 		}
 		// Remove the last divider added for this unit so the section ends without a trailing line.
 		listContainer.removeChild(hr);
 		hr = document.createElement("hr");
 		hr.className = "splitter";
-		hr.style.height = "20%";
 		listContainer.appendChild(hr);
 	}
 

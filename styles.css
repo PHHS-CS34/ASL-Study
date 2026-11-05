@@ -86,6 +86,15 @@ footer {
     margin-top: 1em;
 }
 
+
+#listHeaderDiv{
+	text-align: center;
+	font-size: clamp(0.01rem, 6vw, 1rem);
+	min-width: 20rem;
+	margin: 0 3rem;
+	padding: 0 2rem;
+}
+
 .divButtons{
     display: flex;
     flex-direction: row;
@@ -335,7 +344,7 @@ body {
 	flex-wrap: nowrap;
 	margin: 1rem auto;
 	padding: 0;
-	max-width: 60rem;
+	max-width: 40rem;
 }
 
 #listHeader button {
@@ -358,6 +367,11 @@ body {
 	pointer-events: auto;
 }
 
+#listContainer h1{
+	font-size: 3rem;
+	margin: 2rem 0;
+}
+
 .splitter{
 	grid-column: 1 / -1;
 	width: 100%;
@@ -374,11 +388,12 @@ body {
 	padding: 0;
 	display: grid;
 	gap: 20px;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-template-columns: repeat(2, 1fr);
 	align-items: center;
 	justify-items: center;
 	width: calc(100% - 4rem);
-	height: 14rem;
+	height: 10rem;
+	max-height: 10rem;
 }
 
 .termGifListPair p {
@@ -391,8 +406,7 @@ body {
 }
 
 .termGifListPair img {
-	max-height: 100%;
-	max-width: 100%;
+	height: 10rem;
 }
 
 /* Setup buttons (on both pages)*/
