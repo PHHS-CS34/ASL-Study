@@ -1,5 +1,6 @@
 // use with if statement to do stuff only to the index.html
 const isIndex = document.body.id === "homeBody";
+const pageStyle = document.querySelector(':root').style;
 
 const today = new Date();
 
@@ -60,8 +61,13 @@ function skew() {
 function christmas() {
 	const img = document.createElement("img");
 
-	document.documentElement.style.setProperty('--color-darkText', '#3b0404');
-	document.documentElement.style.setProperty('--color-background4', '#8a1c1c');
+	pageStyle.setProperty('--color-darkText', '#fcf300');
+	pageStyle.setProperty('--color-lightText', '#f7ee7f');
+
+	pageStyle.setProperty('--color-background1', '#000814');
+	pageStyle.setProperty('--color-background2', '#358600');
+	pageStyle.setProperty('--color-background3', '#ff002b');
+	pageStyle.setProperty('--color-background4', '#a50104');
 
 	img.src = "media/christmasLightsUpresRepeat.png";
 	img.id = "christmasLights";
@@ -70,16 +76,17 @@ function christmas() {
 }
 
 function america() {
-	document.documentElement.style.setProperty('--color-darkText', '#000000');
-	document.documentElement.style.setProperty('--color-lightText', '#ede6e6');
-	document.documentElement.style.setProperty('--color-background1', '#0A3161');
-	document.documentElement.style.setProperty('--color-background2', '#0d76bd');
-	document.documentElement.style.setProperty('--color-background3', '#B31942');
-	document.documentElement.style.setProperty('--color-background4', '#0A3161');
+	pageStyle.setProperty('--color-darkText', '#000000');
+	pageStyle.setProperty('--color-lightText', '#ede6e6');
 
-	document.body.style.backgroundImage = "URL(media/STARS.svg)";
-	document.body.style.backgroundRepeat = "repeat";
-	document.body.style.backgroundSize = "10rem";
+	pageStyle.setProperty('--color-background1', '#0A3161');
+	pageStyle.setProperty('--color-background2', '#0d76bd');
+	pageStyle.setProperty('--color-background3', '#B31942');
+	pageStyle.setProperty('--color-background4', '#0A3161');
+
+	pageStyle.backgroundImage = "URL(media/STARS.svg)";
+	pageStyle.backgroundRepeat = "repeat";
+	pageStyle.backgroundSize = "10rem";
 }
 
 // Runs a function with a 1-in-chance probability.
