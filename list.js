@@ -58,19 +58,20 @@ async function bootCards() {
 			div.className = "termGifListPair";
 			// The numeric unit ID is the first entry in each unit array, not a card to render.
 			if (Number.isFinite(card)) continue;
-			
+
 			let par = document.createElement("p");
 			par.innerText = card["text"];
 			div.appendChild(par);
-			
+
 			let img = document.createElement("img");
 			img.src = card["gif"];
 			div.appendChild(img);
-			
+
 			listContainer.appendChild(div);
-			
+
 			hr = document.createElement("hr");
 			hr.className = "splitter";
+			hr.style.opacity = "50%";
 			listContainer.appendChild(hr);
 		}
 		// Remove the last divider added for this unit so the section ends without a trailing line.
