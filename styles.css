@@ -226,17 +226,21 @@ dialog {
 	background-color: var(--color-background1);
 }
 
+dialog p {
+	font-weight: bold;
+}
+
 dialog::backdrop{
-	backdrop-filter: blur(3px);
+	backdrop-filter: blur(3px) brightness(50%);
 }
 
 .close-btn {
 	position: absolute;
-	top: 2px;
-	right: 2px;
+	top: 0;
+	right: 6px;
 	background: none;
 	border: none;
-	font-size: 1.5rem;
+	font-size: 3rem;
 	cursor: pointer;
 }
 
