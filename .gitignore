@@ -12,3 +12,4 @@ debug.log
 /dataSources.local.xml
 /.github
 *.md
+.editorconfig
