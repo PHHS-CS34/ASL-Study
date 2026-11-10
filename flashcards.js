@@ -1,4 +1,5 @@
-let cardList = [];
+let FullList = [];
+let quizList = [];
 let backStart = false;
 let currentCard = 0;
 const perspectiveCardDiv = document.getElementById("perspectiveCardDiv");
@@ -38,7 +39,8 @@ async function fetchCards(){
 
     for (let i = 1;i <= 30;i++){
         if (units.includes(i)){
-            cardList.push(...Object.values(data[`Unit${i}`]))
+            FullList.push(...Object.values(data[`Unit${i}`]))
+            quizList.push(...Object.values(data[`Unit${i}`]))
         }
     }
     shuffle();
@@ -62,16 +64,30 @@ function backflip(){
     }
 }
 
+function showEndOfDeck(){
+	let list = (isInQuizMode()) ? quizList : FullList;
+	front.querySelector("img")?.remove();
+    back.querySelector("img")?.remove();
+    back.querySelector(".mainText").textContent = "You have learned the deck";
+    front.querySelector(".mainText").textContent = "You have learned the deck";
+    let imge = document.createElement('img');
+    back.appendChild(imge);
+    imge.src = list[currentCard].gif;
+    frontsideNumber.textContent = (currentCard + 1) + " / " + list.length;
+    backsideNumber.textContent = (currentCard + 1) + " / " + list.length;
+}
+
 function showASLCard() {
+	let list = (isInQuizMode()) ? quizList : FullList;
     front.querySelector("img")?.remove();
     back.querySelector("img")?.remove();
     front.querySelector(".mainText").textContent = "";
-    back.querySelector(".mainText").textContent = cardList[currentCard].text;
+    back.querySelector(".mainText").textContent = list[currentCard].text;
     let imge = document.createElement('img');
     front.appendChild(imge);
-    imge.src = cardList[currentCard].gif;
-    frontsideNumber.textContent = (currentCard + 1) + " / " + cardList.length;
-    backsideNumber.textContent = (currentCard + 1) + " / " + cardList.length;
+    imge.src = list[currentCard].gif;
+    frontsideNumber.textContent = (currentCard + 1) + " / " + list.length;
+    backsideNumber.textContent = (currentCard + 1) + " / " + list.length;
 	lazyLoadASLImgs();
 }
 
@@ -80,29 +96,30 @@ function isImageDownloaded(imageUrl) {
 }
 
 function lazyLoadASLImgs() {
+	let list = (isInQuizMode()) ? quizList : FullList;
 	// if it is the last card, only check that the previous img is loaded
-	if (currentCard + 1 === cardList.length) {
-		if (!isImageDownloaded(cardList[currentCard - 1].gif)) {
-			lazyLoadImg(cardList[currentCard - 1].gif);
+	if (currentCard + 1 === list.length) {
+		if (!isImageDownloaded(list[currentCard - 1].gif)) {
+			lazyLoadImg(list[currentCard - 1].gif);
 		}
 
 	}
 	// if it is the first card, only check that the next img and the last img is loaded
 	else if (currentCard === 0) {
-		if (!isImageDownloaded(cardList[currentCard + 1].gif)) {
-			lazyLoadImg(cardList[currentCard + 1].gif);
+		if (!isImageDownloaded(list[currentCard + 1].gif)) {
+			lazyLoadImg(list[currentCard + 1].gif);
 		}
-		if (!isImageDownloaded(cardList[cardList.length - 1].gif)) {
-			lazyLoadImg(cardList[cardList.length - 1].gif);
+		if (!isImageDownloaded(list[list.length - 1].gif)) {
+			lazyLoadImg(list[list.length - 1].gif);
 		}
 	}
 	// for all other cards, check that the prev and next img is loaded
 	else {
-		if (!isImageDownloaded(cardList[currentCard + 1]).gif) {
-			lazyLoadImg(cardList[currentCard + 1].gif);
+		if (!isImageDownloaded(list[currentCard + 1]).gif) {
+			lazyLoadImg(list[currentCard + 1].gif);
 		}
-		if (!isImageDownloaded(cardList[currentCard - 1].gif)) {
-			lazyLoadImg(cardList[currentCard - 1].gif);
+		if (!isImageDownloaded(list[currentCard - 1].gif)) {
+			lazyLoadImg(list[currentCard - 1].gif);
 		}
 	}
 }
@@ -115,24 +132,33 @@ function lazyLoadImg(imageUrl) {
 }
 
 function showENGCard() {
+	let list = (isInQuizMode()) ? quizList : FullList;
     front.querySelector("img")?.remove();
     back.querySelector("img")?.remove();
     back.querySelector(".mainText").textContent = "";
-    front.querySelector(".mainText").textContent = cardList[currentCard].text;
+    front.querySelector(".mainText").textContent = list[currentCard].text;
     let imge = document.createElement('img');
     back.appendChild(imge);
-    imge.src = cardList[currentCard].gif;
-    frontsideNumber.textContent = (currentCard + 1) + " / " + cardList.length;
-    backsideNumber.textContent = (currentCard + 1) + " / " + cardList.length;
+    imge.src = list[currentCard].gif;
+    frontsideNumber.textContent = (currentCard + 1) + " / " + list.length;
+    backsideNumber.textContent = (currentCard + 1) + " / " + list.length;
 }
 
 async function nextCard(){
+	let list = (isInQuizMode()) ? quizList : FullList;
     // increments and protects against overflow
     // needs to use special modulo formula because js is wack
-    currentCard = trueMod(currentCard+1, cardList.length);
+	if (isInQuizMode()){
+		list.splice(currentCard,1);
+		currentCard = (currentCard != trueMod(currentCard, list.length) ? currentCard - 1 : currentCard);
+	} else {
+		currentCard = trueMod(currentCard+1, list.length);
+	}
     perspectiveCardDiv.classList.add("no-transition");
     perspectiveCardDiv.classList.remove("flipped");
-    if (backStart) {
+	if (list.length <= 0){
+		showEndOfDeck();	
+	} else if (backStart) {
         showENGCard();
     } else {
         showASLCard();
@@ -143,9 +169,14 @@ async function nextCard(){
 }
 
 async function previousCard(){
+	let list = (isInQuizMode()) ? quizList : FullList;
 	// decrements and protects against overflow
 	// needs to use special modulo formula because js is wack
-	currentCard = trueMod(currentCard-1, cardList.length);
+	if (isInQuizMode()){
+		currentCard = trueMod(currentCard+1, list.length);
+	} else {
+		currentCard = trueMod(currentCard-1, list.length);
+	}
     perspectiveCardDiv.classList.add("no-transition");
     perspectiveCardDiv.classList.remove("flipped");
     if (backStart) {
@@ -197,26 +228,36 @@ function quizToggle(){
 	let nextCard = document.getElementById("nextCardButton");
 	let nextImage = nextCard.querySelector("img");
 	let nextH1 = nextCard.querySelector("h1");
-	console.log(prevH1.hidden);
-	if (prevH1.hidden){
-		console.log("H1 hidden");
+	if (!isInQuizMode()){
+		previousCard.title = "Don't know (keep in list)";
+		nextCard.title = "Do know (take out of list)";
 		prevImage.style.display = "none";
 		nextImage.style.display = "none";
 		prevH1.hidden = false;
 		nextH1.hidden = false;
 	} else {
-		console.log("img hidden");
+		previousCard.title = "Go to the previous card";
+		nextCard.title = "Go to the next card";
 		prevImage.style.display = "block";
 		nextImage.style.display = "block";
 		prevH1.hidden = true;
 		nextH1.hidden = true;
 	}
+	if (backStart) {
+        showENGCard();
+    } else {
+        showASLCard();
+    }
+}
+
+function isInQuizMode(){
+	return !document.getElementById("previousCardButton").querySelector("h1").hidden;
 }
 
 function shuffle(){
-    for (let i = cardList.length - 1; i > 0; i--) {
+    for (let i = FullList.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [cardList[i], cardList[j]] = [cardList[j], cardList[i]];
+        [FullList[i], FullList[j]] = [FullList[j], FullList[i]];
     }
     currentCard = 0;
     if (backStart) {
