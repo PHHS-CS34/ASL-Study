@@ -54,6 +54,10 @@ body {
 	margin-right: 1em;
 }
 
+#listContainer {
+	overflow-wrap: break-word;
+}
+
 #scrollToTopBtn {
   position: fixed; /* Keeps it in the same place even when scrolling */
   bottom: 30px;    /* Distance from the bottom */
