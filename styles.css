@@ -438,6 +438,7 @@ body {
 	.navigationButton {
 		/* width: 37vw; */
 		width: min(11rem, 37vw);
+		height: min(11rem, 37vw);
 	}
 	#previousCardButton {
 		order: 1;

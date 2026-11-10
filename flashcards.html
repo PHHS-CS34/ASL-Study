@@ -13,13 +13,14 @@
 	<div id="flashcardsFlexDiv">
 		<button title="Go to the previous card" onclick="previousCard()" id="previousCardButton" class="navigationButton">
 			<img alt="Go to the previous card" src="media/NEXT.svg" class="buttonIcon"/>
+			<h1 hidden = "true" style="font-size: 650%">&#1F7A9;</h1>
 		</button>
 
 		<div id="perspectiveCardDiv" onclick="flip(this)">
 			<button title="Flip card" class="card" id="front">
 				<span id="frontsideNumber" class="sideNumber"></span>
 				<span class="mainText"></span>
-			</button>
+			</button>d q
 
 			<button title="Flip card" class="card" id="back">
 				<span id="backsideNumber" class="sideNumber"></span>
@@ -29,6 +30,7 @@
 		</div>
 		<button title="Go to the next card" onclick="nextCard()" id="nextCardButton" class="navigationButton">
 			<img alt="Go to the next card" src="media/NEXT.svg" class="buttonIcon"/>
+			<h1 hidden = "true" style="font-size: 400%">&#x2714;</h1>
 		</button>
 	</div>
 
@@ -47,7 +49,11 @@
 
 			<button title="Return to unit selection" class="buttons setupButton" onclick="goBack()">
 				<img alt="Return to unit selection" src="media/HOME.svg" class="buttonIcon"/>
-				</button>
+			</button>
+			
+			<button title="Enter quiz mode" class="buttons setupButton" onclick="quizToggle()">
+				<img alt="Enter quiz mode" src="media/QUIZ.svg" class="buttonIcon"/>
+			</button>
 		</div>
 	</div>
 </div>

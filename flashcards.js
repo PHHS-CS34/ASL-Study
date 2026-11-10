@@ -190,6 +190,29 @@ function goBack(){
     window.location.href = "index.html";
 }
 
+function quizToggle(){
+	let previousCard = document.getElementById("previousCardButton");
+	let prevImage = previousCard.querySelector("img");
+	let prevH1 = previousCard.querySelector("h1");
+	let nextCard = document.getElementById("nextCardButton");
+	let nextImage = nextCard.querySelector("img");
+	let nextH1 = nextCard.querySelector("h1");
+	console.log(prevH1.hidden);
+	if (prevH1.hidden){
+		console.log("H1 hidden");
+		prevImage.style.display = "none";
+		nextImage.style.display = "none";
+		prevH1.hidden = false;
+		nextH1.hidden = false;
+	} else {
+		console.log("img hidden");
+		prevImage.style.display = "block";
+		nextImage.style.display = "block";
+		prevH1.hidden = true;
+		nextH1.hidden = true;
+	}
+}
+
 function shuffle(){
     for (let i = cardList.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
