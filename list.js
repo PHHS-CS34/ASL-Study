@@ -21,7 +21,7 @@ async function bootCards(){
     for (let i = 1;i <= 24;i++){
         if (units.includes(i)){
 			cardList.push([]);
-          	cardList[cardList.length - 1][0] = i;
+			cardList[cardList.length - 1][0] = i;
 			cardList[cardList.length - 1].push(...Object.values(data[`Unit${i}`]))
 
         }
@@ -50,7 +50,8 @@ async function bootCards(){
 			par.style.textAlign = "center";
 			listContainer.appendChild(document.createElement("p")).innerText = card["text"];
 			let image = document.createElement("img")
-			image.src = card["gif"];
+			image.className = "lazyGif";
+			image.dataset.src = card["gif"];
 			image.style.maxWidth = "100%";
 			image.style.minWidth = "70%";
 			listContainer.appendChild(image);
@@ -67,7 +68,37 @@ async function bootCards(){
 	}
 
 	listContainer.removeChild(hr);
+
+	initializeIntersectionObserver();
 }
+
+function initializeIntersectionObserver() {
+	const lazyLoadedGifs = document.querySelectorAll(".lazyGif");
+
+  // configs for the intersection observer
+	const config = {
+		root: document.getElementById("listContainer"), 
+		rootMargin: "200px 0px", 
+		threshold: 0.01 
+	};
+
+  // observer watches all gifs
+	const gifObserver = new IntersectionObserver((entries, observer) => {
+		entries.forEach(entry => {
+      		// checks if the gif is in the viewport or 
+	  		// 200px below then loads the gif by
+			if (entry.isIntersecting) {
+				const img = entry.target;
+				img.src = img.dataset.src;
+				observer.unobserve(img);
+			}
+		});
+	}, config);
+
+	// make the intersection observer watch every gif
+	lazyLoadedGifs.forEach(gif => gifObserver.observe(gif));
+}
+
 
 function goBack(){
     window.location.href = "index.html";
