@@ -77,7 +77,7 @@ function initializeIntersectionObserver() {
 
   // configs for the intersection observer
 	const config = {
-		root: document.getElementById("listContainer"), 
+		root: null, 
 		rootMargin: "200px 0px", 
 		threshold: 0.01 
 	};
