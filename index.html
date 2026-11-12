@@ -2,71 +2,77 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-	<meta name="google-site-verification" content="upfjtAG3YOqZmzo2idSA2R0k44PSSpohdeDNC-UmCA4" />
-    <meta name="description" content="ASL Study tool made for Patrick Henry High School in San Diego, comprising of 24 units and over 1200 words.">
+    <meta name="google-site-verification" content="upfjtAG3YOqZmzo2idSA2R0k44PSSpohdeDNC-UmCA4"/>
+    <meta name="description"
+          content="ASL Study tool made for Patrick Henry High School in San Diego, comprising of 24 units and over 1200 words.">
     <title>ASL Study - Units</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/svg+xml" href="media/ASL.svg">
 </head>
 <body id="homeBody">
-	<main>
-		<div id="headerDiv" class="roundedLargeElement">
-				<h1>ASL Study - Units</h1>
-		</div>
+<main>
+    <div id="headerDiv" class="roundedLargeElement">
+        <h1>ASL Study - Units</h1>
+    </div>
 
-		<div id = "upToTenUnits" class="roundedLargeElement divButtons"></div>
-		<div id = "upToTwentyUnits" class="roundedLargeElement divButtons"></div>
-		<div id = "upToThirtyUnits" class="roundedLargeElement divButtons"></div>
+    <div id="upToTenUnits" class="roundedLargeElement divButtons"></div>
+    <div id="upToTwentyUnits" class="roundedLargeElement divButtons"></div>
+    <div id="upToThirtyUnits" class="roundedLargeElement divButtons"></div>
 
-		<div class="roundedLargeElement divButtons setupContainer">
-				<div class="bottomDiv">
-						<button title="Clear the selected units" id="clearButton" class="buttons setupButton" onclick="clearUnits()">
-								<!--https://fontawesome.com/icons/classic/regular/trash-can-->
-								<img alt="Clear the selected units" src="media/CLEAR.svg" class="buttonIcon"/>
-						</button>
+    <div class="roundedLargeElement divButtons setupContainer">
+        <div class="bottomDiv">
+            <button title="Clear the selected units" id="clearButton" class="buttons setupButton"
+                    onclick="clearUnits()">
+                <!--https://fontawesome.com/icons/classic/regular/trash-can-->
+                <img alt="Clear the selected units" src="media/CLEAR.svg" class="buttonIcon"/>
+            </button>
 
-						<button title="Switch the front between ASL and English" id="whichFront" data-aslOrEnglish="asl" class="buttons setupButton" onclick="decideImageOfButton('whichFront')">
-								<img alt="Switch the front between ASL and English" src="media/ASL.svg" class="buttonIcon"/>
-						</button>
+            <button title="Switch the front between ASL and English" id="whichFront" data-aslOrEnglish="asl"
+                    class="buttons setupButton" onclick="decideImageOfButton('whichFront')">
+                <img alt="Switch the front between ASL and English" src="media/ASL.svg" class="buttonIcon"/>
+            </button>
 
             <button id="openButtonFlash" class="buttons setupButton" onclick="openSelectedFlash()">Start Flash</button>
 
-						<button id="openButtonList" class="buttons setupButton" onclick="openSelectedList()">Start List</button>
+            <button id="openButtonList" class="buttons setupButton" onclick="openSelectedList()">Start List</button>
 
-						<button title="Copy the selected units to share" id="copyButton" class="buttons setupButton" onclick="copySelected()">
-								<img alt="Copy the selected units to share" src="media/CLIPBOARD.svg" class="buttonIcon"/>
-						</button>
-						<dialog id="copy">
-								<p>Content copied to clipboard!</p>
-								<button title="close" class="close-btn" aria-label="close">&times;</button>
-						</dialog>
-						<dialog id="notEnoughUnits">
-								<p>Not enough units selected!</p>
-								<button title="close" class="close-btn" aria-label="close">&times;</button>
-						</dialog>
-				</div>
-		</div>
+            <button title="Copy the selected units to share" id="copyButton" class="buttons setupButton"
+                    onclick="copySelected()">
+                <img alt="Copy the selected units to share" src="media/CLIPBOARD.svg" class="buttonIcon"/>
+            </button>
+            <dialog id="copy">
+                <p>Content copied to clipboard!</p>
+                <button title="close" class="close-btn" aria-label="close">&times;</button>
+            </dialog>
+            <dialog id="notEnoughUnits">
+                <p>Not enough units selected!</p>
+                <button title="close" class="close-btn" aria-label="close">&times;</button>
+            </dialog>
+        </div>
+    </div>
 
-		<div class="helpDiv">
-			<button title="Tutorial" class="helpButton" onclick="helpPopup.showModal()">?</button>
-			<dialog id="help">
-				<p>How to use the unit selection page</p>
-				<img alt="Image of homescreen with instructions connected to elements" src="media/ASL_HOME_HELP.svg" class="homeHelpImg"/>
-				<button title="close" class="close-btn" aria-label="close">&times;</button>
-			</dialog>
-		</div>
-	</main>
+    <div class="helpDiv">
+        <button title="Tutorial" class="helpButton" onclick="helpPopup.showModal()">?</button>
+        <dialog id="help">
+            <p>How to use the unit selection page</p>
+            <img alt="Image of homescreen with instructions connected to elements" src="media/ASL_HOME_HELP.svg"
+                 class="homeHelpImg"/>
+            <button title="close" class="close-btn" aria-label="close">&times;</button>
+        </dialog>
+    </div>
+</main>
 
-    <footer>
-        <p>
-			&copy PHHS Computer Science 3/4 Class of 2027
-			&emsp;
-			<a href="https://github.com/CS34-CO2627/ASL-Study" target="_blank">GitHub Repository</a>
-			&emsp;
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLScJWMaNmoLAqAhPL84StbIbeAcIAruhEhvMNQnXzmc_PL3eug/viewform?usp=header" target="_blank">Feature Request & Bug Report</a>
-		</p>
-    </footer>
+<footer>
+    <p>
+        &copy PHHS Computer Science 3/4 Class of 2027
+        &emsp;
+        <a href="https://github.com/CS34-CO2627/ASL-Study" target="_blank">GitHub Repository</a>
+        &emsp;
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScJWMaNmoLAqAhPL84StbIbeAcIAruhEhvMNQnXzmc_PL3eug/viewform?usp=header"
+           target="_blank">Feature Request & Bug Report</a>
+    </p>
+</footer>
 
-	<script src="index.js" defer></script>
+<script src="index.js" defer></script>
 </body>
 </html>
