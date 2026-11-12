@@ -11,12 +11,12 @@
 
 	/* Debug coloring
 	To apply, uncomment this section */
-	/* --color-darkText: #ff0000;
-	--color-lightText: #ee04ff;
-	--color-background1: #ffa600;
-	--color-background2: #6aff00;
-	--color-background3: #002afb;
-	--color-background4: #7d04ff; */
+	/*--color-darkText: #ff0000;*/
+	/*--color-lightText: #ee04ff;*/
+	/*--color-background1: #ffa600;*/
+	/*--color-background2: #6aff00;*/
+	/*--color-background3: #002afb;*/
+	/*--color-background4: #7d04ff;*/
 }
 
 /* Broad layout stuff */
@@ -161,14 +161,6 @@ footer p {
 .setupButtonDiv3{
     border-top: 0.4rem solid #636363;
     border-radius: 0 0 1rem 1rem;
-}
-
-.splitter{
-	grid-column: 1 / -1;
-	width: 100%;
-	height: 10%;
-	background-color: #242424;
-	border: none;
 }
 
 .buttonIcon {
@@ -374,6 +366,108 @@ body {
     to {opacity: 1;}
 }
 
+/*List Page*/
+
+#listHeader {
+	text-align: center;
+	font-size: clamp(0.01rem, 6vw, 1.2rem);
+	width: min(40rem, 80%);
+	margin: 1rem auto;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+}
+
+#listHeaderDiv{
+	text-align: center;
+	font-size: 1rem;
+	margin: 0;
+
+	width: 30rem;
+}
+
+#listUnitTitle {
+	font-size: 3.5rem;
+	margin: 0;
+}
+
+#listContainer {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	margin: 2rem auto;
+	padding: 0;
+	max-width: 40rem;
+}
+
+#listHeader button {
+	justify-self: right;
+	margin-right: 1em;
+}
+
+#listHeader div {
+	height: 100%;
+}
+
+#scrollToTop {
+	opacity: 0;
+	transition: opacity 0.3s ease, transform 0.3s ease;
+	pointer-events: none;
+}
+
+#scrollToTop.show {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+#listContainer h1{
+	font-size: 3rem;
+	margin: 2rem 0;
+}
+
+.splitter{
+	grid-column: 1 / -1;
+	width: 100%;
+	height: 4px;
+	background-color: #242424;
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.termGifListPair {
+	margin: 2rem;
+	box-sizing: border-box;
+	padding: 0;
+	display: grid;
+	gap: 20px;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	align-items: center;
+	justify-items: center;
+	width: calc(100% - 4rem);
+	height: 10rem;
+	max-height: 10rem;
+}
+
+.termGifListPair p {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 1.5rem;
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+.termGifListPair img {
+	height: 10rem;
+	max-width: 100%;
+}
+
 /* Setup buttons (on both pages)*/
 
 .buttonIcon {
@@ -392,7 +486,7 @@ body {
 	box-shadow: none;
 }
 
-.helpDiv {
+.cornerButtonDiv {
 	align-self: flex-end;
 	justify-self: right;
 	right: 20px;
@@ -408,7 +502,7 @@ body {
 }
 
 
-.helpButton {
+.cornerButton {
 	height: 40px;
 	width: 40px;
 	border-radius: 3em;
@@ -452,7 +546,7 @@ body {
 	#perspectiveCardDiv {
 		width: 90vw;
 	}
-	
+
 	footer p {
 		padding: 0 5rem 0 1rem;
 	}

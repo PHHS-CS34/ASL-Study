@@ -77,12 +77,12 @@ function openSelectedFlash(){
     if (unitsSelected.length !== 0){
         window.location.href = setUpLink("flash");
     } else {
-        alert("Not enough units to open");
+		notEnoughUnitsPopup.showModal();
     }
 }
 
 function openSelectedList(){
-    if (unitsSelected.length !== 0){
+    if (unitsSelected.length != 0){
         window.location.href = setUpLink("list");
     } else {
         notEnoughUnitsPopup.showModal();
