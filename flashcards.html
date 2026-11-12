@@ -2,35 +2,36 @@
 <html lang="en">
 
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
-	<title>ASL Study - Flashcards</title>
-	<link rel="stylesheet" href="styles.css">
-	<link rel="icon" id="favicon" type="image/svg+xml" href="media/ASL.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <title>ASL Study - Flashcards</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" id="favicon" type="image/svg+xml" href="media/ASL.svg">
 </head>
 
-<body id="flashcardsBody">
-	<main>
-		<div id="flashcardsFlexDiv">
-			<button title="Go to the previous card" onclick="previousCard()" id="previousCardButton" class="navigationButton">
-				<img alt="Go to the previous card" src="media/NEXT.svg" class="buttonIcon"/>
-			</button>
+<body>
+<main id="flashcardsBody">
+    <div id="flashcardsFlexDiv">
+        <button title="Go to the previous card" onclick="previousCard()" id="previousCardButton"
+                class="navigationButton">
+            <img alt="Go to the previous card" src="media/NEXT.svg" class="buttonIcon"/>
+        </button>
 
-			<div id="perspectiveCardDiv" onclick="flip(this)">
-				<button title="Flip card" class="card" id="front">
-					<span id="frontsideNumber" class="sideNumber"></span>
-					<span class="mainText"></span>
-				</button>
+        <div id="perspectiveCardDiv" onclick="flip(this)">
+            <button title="Flip card" class="card" id="front">
+                <span id="frontsideNumber" class="sideNumber"></span>
+                <span class="mainText"></span>
+            </button>
 
-				<button title="Flip card" class="card" id="back">
-					<span id="backsideNumber" class="sideNumber"></span>
-					<span class="mainText"></span>
-				</button>
-			</div>
+            <button title="Flip card" class="card" id="back">
+                <span id="backsideNumber" class="sideNumber"></span>
+                <span class="mainText"></span>
+            </button>
+        </div>
 
 				<button title="Go to the next card" onclick="nextCard()" id="nextCardButton" class="navigationButton">
 					<img alt="Go to the next card" src="media/NEXT.svg" class="buttonIcon"/>
 				</button>
-
+</div>
 			<div class="lazyLoadCard" id="lazy"></div>
 
 			<div class="roundedLargeElement divButtons setupContainer">
@@ -49,27 +50,29 @@
 					</button>
 				</div>
 			</div>
-		</div>
+
 
 		<div class="cornerButtonDiv">
-			<button title="Tutorial" class="cornerButton" onclick="helpPopup.showModal()">?</button>
-			<dialog id="help">
-				<p>How to use the flashcard page.</p>
-				<img alt="Image of homescreen with instructions connected to elements" src="media/ASL_FLASHCARD_HELP.svg" class="homeHelpImg"/>
-				<button title="close" class="close-btn" aria-label="close">&times;</button>
-			</dialog>
-		</div>
-	</main>
+        <button title="Tutorial" class="cornerButton" onclick="helpPopup.showModal()">?</button>
+        <dialog id="help">
+            <p>How to use the flashcard page.</p>
+            <img alt="Image of homescreen with instructions connected to elements" src="media/ASL_FLASHCARD_HELP.svg"
+                 class="homeHelpImg"/>
+            <button title="close" class="close-btn" aria-label="close">&times;</button>
+        </dialog>
+    </div>
+</main>
 
-	<footer>
-        <p>
-			&copy PHHS Computer Science 3/4 Class of 2027
-			&emsp;
-			<a href="https://github.com/CS34-CO2627/ASL-Study" target="_blank">GitHub Repository</a>
-			&emsp;
-			<a href="https://docs.google.com/forms/d/e/1FAIpQLScJWMaNmoLAqAhPL84StbIbeAcIAruhEhvMNQnXzmc_PL3eug/viewform?usp=header" target="_blank">Feature Request & Bug Report</a>
-		</p>
-    </footer>
+<footer>
+    <p>
+        &copy PHHS Computer Science 3/4 Class of 2027
+        &emsp;
+        <a href="https://github.com/CS34-CO2627/ASL-Study" target="_blank">GitHub Repository</a>
+        &emsp;
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScJWMaNmoLAqAhPL84StbIbeAcIAruhEhvMNQnXzmc_PL3eug/viewform?usp=header"
+           target="_blank">Feature Request & Bug Report</a>
+    </p>
+</footer>
 
 <script src="flashcards.js"></script>
 
