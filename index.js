@@ -82,7 +82,7 @@ function openSelectedFlash(){
 }
 
 function openSelectedList(){
-    if (unitsSelected.length != 0){
+    if (unitsSelected.length !== 0){
         window.location.href = setUpLink("list");
     } else {
         notEnoughUnitsPopup.showModal();
