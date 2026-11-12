@@ -9,56 +9,67 @@
 </head>
 
 <body id="flashcardsBody">
-<div>
-	<div id="flashcardsFlexDiv">
-		<button title="Go to the previous card" onclick="previousCard()" id="previousCardButton" class="navigationButton">
-			<img src="media/NEXT.svg" class="buttonIcon"/>
-		</button>
-
-		<div id="perspectiveCardDiv" onclick="flip(this)">
-			<button title="Flip card" class="card" id="front">
-				<p id="frontsideNumber" class="sideNumber"></p>
-				<p class="mainText"></p>
+	<main>
+		<div id="flashcardsFlexDiv">
+			<button title="Go to the previous card" onclick="previousCard()" id="previousCardButton" class="navigationButton">
+				<img alt="Go to the previous card" src="media/NEXT.svg" class="buttonIcon"/>
 			</button>
 
-			<button title="Flip card" class="card" id="back">
-				<p id="backsideNumber" class="sideNumber"></p>
-				<p class="mainText"></p>
-			</button>
+			<div id="perspectiveCardDiv" onclick="flip(this)">
+				<button title="Flip card" class="card" id="front">
+					<span id="frontsideNumber" class="sideNumber"></span>
+					<span class="mainText"></span>
+				</button>
 
+				<button title="Flip card" class="card" id="back">
+					<span id="backsideNumber" class="sideNumber"></span>
+					<span class="mainText"></span>
+				</button>
+			</div>
+
+				<button title="Go to the next card" onclick="nextCard()" id="nextCardButton" class="navigationButton">
+					<img alt="Go to the next card" src="media/NEXT.svg" class="buttonIcon"/>
+				</button>
+
+			<div class="lazyLoadCard" id="lazy"></div>
+
+			<div class="roundedLargeElement divButtons setupContainer">
+				<div id="bottomButtons" class="bottomDiv">
+					<button title="Shuffle the cards" class="buttons setupButton" onclick="shuffle()">
+						<img alt="Shuffle the cards" src="media/SHUFFLE.svg" class="buttonIcon"/>
+					</button>
+
+					<button title="Switch the front between ASL and English" id="whichFront" data-aslorenglish="asl"
+							class="buttons setupButton" onclick="backflip()">
+						<img alt="Switch the front between ASL and English" src="media/ASL.svg" class="buttonIcon"/>
+					</button>
+
+					<button title="Return to unit selection" class="buttons setupButton" onclick="goBack()">
+						<img alt="Return to unit selection" src="media/HOME.svg" class="buttonIcon"/>
+					</button>
+				</div>
+			</div>
 		</div>
-		<button title="Go to the next card" onclick="nextCard()" id="nextCardButton" class="navigationButton">
-			<img src="media/NEXT.svg" class="buttonIcon"/>
-		</button>
-	</div>
 
-	<div class="lazyLoadCard" id="lazy"></div>
-
-	<div class="roundedLargeElement divButtons setupContainer">
-		<div id="bottomButtons" class="bottomDiv">
-			<button title="Shuffle the cards" class="buttons setupButton" onclick="shuffle()">
-				<img src="media/SHUFFLE.svg" class="buttonIcon"/>
-			</button>
-
-			<button title="Switch the front between ASL and English" id="whichFront" data-aslorenglish="asl"
-			        class="buttons setupButton" onclick="backflip()">
-				<img src="media/ASL.svg" class="buttonIcon"/>
-			</button>
-
-			<button title="Return to unit selection" class="buttons setupButton" onclick="goBack()"><img
-				src="media/HOME.svg" class="buttonIcon"/></button>
+		<div class="cornerButtonDiv">
+			<button title="Tutorial" class="cornerButton" onclick="helpPopup.showModal()">?</button>
+			<dialog id="help">
+				<p>How to use the flashcard page.</p>
+				<img alt="Image of homescreen with instructions connected to elements" src="media/ASL_FLASHCARD_HELP.svg" class="homeHelpImg"/>
+				<button title="close" class="close-btn" aria-label="close">&times;</button>
+			</dialog>
 		</div>
-	</div>
-</div>
+	</main>
 
-<div class="cornerButtonDiv">
-	<button title="Tutorial" class="cornerButton" onclick="helppopup.showModal()">?</button>
-	<dialog id="help">
-		<p>How to use the flashcard page.</p>
-		<img src="media/ASL_FLASHCARD_HELP.svg" class="homeHelpImg"/>
-		<button title="close" class="close-btn" aria-label="close">&times;</button>
-	</dialog>
-</div>
+	<footer>
+        <p>
+			&copy PHHS Computer Science 3/4 Class of 2027
+			&emsp;
+			<a href="https://github.com/CS34-CO2627/ASL-Study" target="_blank">GitHub Repository</a>
+			&emsp;
+			<a href="https://docs.google.com/forms/d/e/1FAIpQLScJWMaNmoLAqAhPL84StbIbeAcIAruhEhvMNQnXzmc_PL3eug/viewform?usp=header" target="_blank">Feature Request & Bug Report</a>
+		</p>
+    </footer>
 
 <script src="flashcards.js"></script>
 

@@ -1,7 +1,7 @@
 let cardList = [];
 let side = "asl";
 
-bootCards();
+void bootCards();
 
 const scrollToTopBtn = document.getElementById("scrollToTop");
 
@@ -65,6 +65,8 @@ async function bootCards() {
 
 			let img = document.createElement("img");
 			img.src = card["gif"];
+			img.className = "lazyGif";
+			img.dataset.src = card["gif"];
 			div.appendChild(img);
 
 			listContainer.appendChild(div);
@@ -83,7 +85,37 @@ async function bootCards() {
 
 	// Remove the final section divider after all units have been rendered.
 	listContainer.removeChild(hr);
+
+	initializeIntersectionObserver();
 }
+
+function initializeIntersectionObserver() {
+	const lazyLoadedGifs = document.querySelectorAll(".lazyGif");
+
+  // configs for the intersection observer
+	const config = {
+		root: null, 
+		rootMargin: "200px 0px", 
+		threshold: 0.01 
+	};
+
+  // observer watches all gifs
+	const gifObserver = new IntersectionObserver((entries, observer) => {
+		entries.forEach(entry => {
+      		// checks if the gif is in the viewport or 
+	  		// 200px below then loads the gif by
+			if (entry.isIntersecting) {
+				const img = entry.target;
+				img.src = img.dataset.src;
+				observer.unobserve(img);
+			}
+		});
+	}, config);
+
+	// make the intersection observer watch every gif
+	lazyLoadedGifs.forEach(gif => gifObserver.observe(gif));
+}
+
 
 function goBack() {
 	window.location.href = "index.html";

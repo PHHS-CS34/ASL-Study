@@ -11,3 +11,18 @@ debug.log
 /dataSources/
 /dataSources.local.xml
 .DS_Store
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE files
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Dependencies/build output, if added later
+node_modules/
+dist/
+build/

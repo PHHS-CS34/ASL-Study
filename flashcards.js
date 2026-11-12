@@ -1,6 +1,5 @@
 let cardList = [];
-let backstart = false;
-const flipStartTerm = document.getElementById("flipStartTerm");
+let backStart = false;
 let currentCard = 0;
 const perspectiveCardDiv = document.getElementById("perspectiveCardDiv");
 const front = document.getElementById("front");
@@ -10,10 +9,10 @@ const frontsideNumber = document.getElementById("frontsideNumber");
 const backsideNumber = document.getElementById("backsideNumber");
 const whichFront = document.getElementById("whichFront");
 const whichFrontImg = whichFront.querySelector("img");
-const helppopup = document.getElementById("help");
+const helpPopup = document.getElementById("help");
 
-helppopup.querySelector(".close-btn").addEventListener("click", () => {
-	helppopup.close();
+helpPopup.querySelector(".close-btn").addEventListener("click", () => {
+	helpPopup.close();
 });
 
 function flip(element){
@@ -26,11 +25,11 @@ async function fetchCards(){
     const units = (new URLSearchParams(window.location.search).get("units") ?? "100").split(",").map(Number);
     const side = (new URLSearchParams(window.location.search).get("front") ?? "asl");
     if (side === "asl") {
-        backstart = false;
+        backStart = false;
         whichFront.dataset.aslorenglish = "asl";
         whichFrontImg.src = "media/ASL.svg";
     } else if (side === "eng"){
-        backstart = true;
+        backStart = true;
         whichFront.dataset.aslorenglish = "eng";
         whichFrontImg.src = "media/ENG.svg";
     } else {
@@ -43,7 +42,7 @@ async function fetchCards(){
         }
     }
     shuffle();
-    if (backstart) {
+    if (backStart) {
         showENGCard();
     } else {
         showASLCard();
@@ -51,8 +50,8 @@ async function fetchCards(){
 }
 
 function backflip(){
-    backstart = !backstart;
-    if (backstart) {
+    backStart = !backStart;
+    if (backStart) {
         // Start on English
         whichFront.dataset.aslorenglish = "eng";
         whichFrontImg.src = "media/ENG.svg";
@@ -77,22 +76,19 @@ function showASLCard() {
 }
 
 function isImageDownloaded(imageUrl) {
-	const hasMatchingRequest = performance.getEntriesByType('resource')
-    .some(entry => entry.name === imageUrl);
-
-	return hasMatchingRequest;
+	return performance.getEntriesByType('resource').some(entry => entry.name === imageUrl);
 }
 
 function lazyLoadASLImgs() {
 	// if it is the last card, only check that the previous img is loaded
-	if (currentCard + 1 == cardList.length) {
+	if (currentCard + 1 === cardList.length) {
 		if (!isImageDownloaded(cardList[currentCard - 1].gif)) {
 			lazyLoadImg(cardList[currentCard - 1].gif);
 		}
 
 	}
 	// if it is the first card, only check that the next img and the last img is loaded
-	else if (currentCard == 0) {
+	else if (currentCard === 0) {
 		if (!isImageDownloaded(cardList[currentCard + 1].gif)) {
 			lazyLoadImg(cardList[currentCard + 1].gif);
 		}
@@ -136,7 +132,7 @@ async function nextCard(){
     currentCard = trueMod(currentCard+1, cardList.length);
     perspectiveCardDiv.classList.add("no-transition");
     perspectiveCardDiv.classList.remove("flipped");
-    if (backstart) {
+    if (backStart) {
         showENGCard();
     } else {
         showASLCard();
@@ -152,7 +148,7 @@ async function previousCard(){
 	currentCard = trueMod(currentCard-1, cardList.length);
     perspectiveCardDiv.classList.add("no-transition");
     perspectiveCardDiv.classList.remove("flipped");
-    if (backstart) {
+    if (backStart) {
         showENGCard();
     } else {
         showASLCard();
@@ -200,7 +196,7 @@ function shuffle(){
         [cardList[i], cardList[j]] = [cardList[j], cardList[i]];
     }
     currentCard = 0;
-    if (backstart) {
+    if (backStart) {
         showENGCard();
     } else {
         showASLCard();
@@ -213,4 +209,4 @@ function trueMod(a,b){
 	return ((a % b) + b) % b;
 }
 
-fetchCards();
+void fetchCards();

@@ -1,15 +1,15 @@
 let unitsSelected = [];
-const copypopup = document.getElementById("copy");
-copypopup.querySelector(".close-btn").addEventListener("click", () => {
-    copypopup.close();
+const copyPopup = document.getElementById("copy");
+copyPopup.querySelector(".close-btn").addEventListener("click", () => {
+    copyPopup.close();
 });
 const notEnoughUnitsPopup = document.getElementById("notEnoughUnits");
 notEnoughUnitsPopup.querySelector(".close-btn").addEventListener("click", () => {
     notEnoughUnitsPopup.close();
 });
-const helppopup = document.getElementById("help");
-helppopup.querySelector(".close-btn").addEventListener("click", () => {
-	helppopup.close();
+const helpPopup = document.getElementById("help");
+helpPopup.querySelector(".close-btn").addEventListener("click", () => {
+	helpPopup.close();
 });
 
 
@@ -32,7 +32,7 @@ function setUpUnits() {
             document.getElementById("upToThirtyUnits").appendChild(currentButton);
         }
 
-        const buttonContainer = document.createElement("p");
+        const buttonContainer = document.createElement("span");
         buttonContainer.className = "unitText";
         buttonContainer.textContent = `${i}`;
         currentButton.appendChild(buttonContainer);
@@ -45,7 +45,7 @@ function decideColorOfButton(buttonId){
         unitButton.style.backgroundColor = "var(--color-background4)";
         unitButton.style.color = "var(--color-lightText)";
         unitButton.dataset.uniton = "false";
-        if (buttonId != "aslorenglish"){
+        if (buttonId !== "aslOrEnglish"){
             unitsSelected.push(unitButton);
         }
     }
@@ -53,7 +53,7 @@ function decideColorOfButton(buttonId){
         unitButton.style.backgroundColor = '';
         unitButton.style.color = '';
         unitButton.dataset.uniton = "true";
-        if (buttonId != "aslorenglish"){
+        if (buttonId !== "aslOrEnglish"){
             unitsSelected.splice(unitsSelected.indexOf(unitButton),1);
         }
     }
@@ -62,19 +62,19 @@ function decideColorOfButton(buttonId){
 function decideImageOfButton(buttonId){
     const unitButton = document.getElementById(buttonId);
     const unitButtonIcon = unitButton.querySelector('img')
-    if (unitButton.dataset.aslorenglish === "asl"){
+    if (unitButton.dataset.aslOrEnglish === "asl"){
         unitButtonIcon.src = "media/ENG.svg"
-        unitButton.dataset.aslorenglish = "eng";
+        unitButton.dataset.aslOrEnglish = "eng";
     }
     else {
-        unitButton.dataset.aslorenglish = "asl";
+        unitButton.dataset.aslOrEnglish = "asl";
         unitButtonIcon.src = "media/ASL.svg"
     }
 	// unitButton.title = ("Unit" + unitsSelected.indexOf(unitButton));
 }
 
 function openSelectedFlash(){
-    if (unitsSelected.length != 0){
+    if (unitsSelected.length !== 0){
         window.location.href = setUpLink("flash");
     } else {
 		notEnoughUnitsPopup.showModal();
@@ -90,20 +90,20 @@ function openSelectedList(){
 }
 
 function copySelected(){
-    if (unitsSelected.length != 0){
-        copypopup.querySelector("p").textContent = `Copied link to your clipboard`;
+    if (unitsSelected.length !== 0){
+        copyPopup.querySelector("p").textContent = `Copied link to your clipboard`;
         navigator.clipboard.writeText(setUpLink());
     }
     else {
-        copypopup.querySelector("p").textContent = "Not enough units to copy";
+        copyPopup.querySelector("p").textContent = "Not enough units to copy";
     }
-    copypopup.showModal();
+    copyPopup.showModal();
 }
 
 function setUpLink(type = "flash") {
     let link = type === "flash" ? "flashcards.html?front=" : "list.html?front=";
 		// add if the front is ASL or English to the link
-	link += document.getElementById("whichFront").dataset.aslorenglish;
+	link += document.getElementById("whichFront").dataset.aslOrEnglish;
 	link += "&units=";
 
 	let sortedUnits = [];
