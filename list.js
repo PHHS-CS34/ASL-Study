@@ -138,7 +138,8 @@ function prettyPrintUnits(units) {
 		returnString = "Unit " + consecutiveUnitsPrint(returnString);
 	}
 	else {
-		if (unitGroups.length === 2) returnString = consecutiveUnitsPrint(unitGroups[0]) + " and " + consecutiveUnitsPrint(unitGroups[1]);
+		if (unitGroups.length === 2)
+			returnString = consecutiveUnitsPrint(unitGroups[0]) + " and " + consecutiveUnitsPrint(unitGroups[1]);
 		else {
 			for (let i = 0; i < unitGroups.length - 1; i++) {
 				const currentGroup = unitGroups[i];
