@@ -122,8 +122,8 @@ footer p {
 	justify-content: center;
 	padding-left: .5rem;
 	padding-right: .5rem;
-	width: 20%;
-	max-width: 23rem;
+	width: 80%;
+	max-width: 20rem;
 	place-items: center;
 	border-radius: 1rem;
 	border: 3px solid var(--color-background4);
@@ -522,9 +522,6 @@ span {
 }
 
 @media only screen and (max-width: 1280px){
-	#homeBody .setupButton {
-		width: min(7rem, 20vw);
-	}
 	#flashcardsBody .setupButton {
 		width: min(7rem, 23vw);
 	}
