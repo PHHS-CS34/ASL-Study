@@ -29,7 +29,7 @@ async function bootCards() {
 	const listContainer = document.getElementById("listContainer");
 
 	// Format the selected unit numbers as a readable heading, including the singular/plural and final "and".
-	document.getElementById("listHeaderTitleDiv").innerHTML = "<h1>" + ((units.length > 1) ? "Units" : "Unit") + " " + units.slice(0, -1).join(", ") + ((units.length > 1) ? ", and " : "") + units.slice(-1) + " selected</h1>"
+	document.getElementById("listHeaderDiv").innerHTML = "<h1>" + prettyPrintUnits(units) + "</h1>"
 
 	// Each entry starts with its numeric unit ID, followed by that unit's card objects.
 	for (let i = 1; i <= 24; i++) {
@@ -116,6 +116,50 @@ function initializeIntersectionObserver() {
 	lazyLoadedGifs.forEach(gif => gifObserver.observe(gif));
 }
 
+function prettyPrintUnits(units) {
+	const unitGroups = [];
+
+	let currentGroup = [];
+	for (const unit of units){
+		const unitNum = parseInt(unit);
+
+		if (currentGroup.length === 0) currentGroup.push(unitNum);
+		else if (currentGroup[currentGroup.length-1] === unitNum-1) currentGroup.push(unitNum);
+		else {
+			unitGroups.push(structuredClone(currentGroup));
+			currentGroup = [unitNum];
+		}
+	}
+	if (currentGroup.length > 0) unitGroups.push(currentGroup);
+
+	let returnString = "";
+	if (unitGroups.length === 1) {
+		returnString = unitGroups[0];
+		returnString = (returnString.length === 1 ? "Unit " : "Units ") + consecutiveUnitsPrint(returnString);
+	}
+	else {
+		if (unitGroups.length === 2)
+			returnString = consecutiveUnitsPrint(unitGroups[0]) + " and " + consecutiveUnitsPrint(unitGroups[1]);
+		else {
+			for (let i = 0; i < unitGroups.length - 1; i++) {
+				const currentGroup = unitGroups[i];
+				returnString += consecutiveUnitsPrint(currentGroup);
+				returnString += ", ";
+			}
+			returnString += "and " + consecutiveUnitsPrint(unitGroups[unitGroups.length - 1]);
+		}
+		returnString = "Units " + returnString;
+	}
+
+	returnString = returnString + " selected";
+	return returnString;
+}
+
+function consecutiveUnitsPrint(units) {
+	if (Number.isInteger(units)) return units;
+	if (units.length === 1) return units[0];
+	return units[0] + "-" + units[units.length-1];
+}
 
 function goBack() {
 	window.location.href = "index.html";
