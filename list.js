@@ -29,7 +29,7 @@ async function bootCards() {
 	const listContainer = document.getElementById("listContainer");
 
 	// Format the selected unit numbers as a readable heading, including the singular/plural and final "and".
-	document.getElementById("listHeaderDiv").innerHTML = "<h1>" + ((units.length > 1) ? "Units" : "Unit") + " " + units.slice(0, -1).join(", ") + ((units.length > 1) ? ", and " : "") + units.slice(-1) + " selected</h1>"
+	document.getElementById("listHeaderDiv").innerHTML = "<h1>" + prettyPrintUnits(units) + "</h1>"
 
 	// Each entry starts with its numeric unit ID, followed by that unit's card objects.
 	for (let i = 1; i <= 24; i++) {
@@ -116,6 +116,26 @@ function initializeIntersectionObserver() {
 	lazyLoadedGifs.forEach(gif => gifObserver.observe(gif));
 }
 
+function prettyPrintUnits(units) {
+	const set = [];
+
+	let iSet = [];
+	for (const unit of units){
+		const unitNum = parseInt(unit);
+
+		if (iSet.length === 0) iSet.push(unitNum);
+		else if (iSet[iSet.length-1] === unitNum+1) iSet.push(unitNum);
+		else {
+			set.push(structuredClone(iSet));
+			iSet = [];
+		}
+
+		console.log(unit);
+		console.log(iSet);
+		// console.table(set);
+	}
+	return set;
+}
 
 function goBack() {
 	window.location.href = "index.html";
