@@ -2,6 +2,8 @@ let FullList = [];
 let quizList = [];
 let backStart = false;
 let currentCard = 0;
+let quizCurrentCard = 0;
+let realCurrentCard = 0;
 const perspectiveCardDiv = document.getElementById("perspectiveCardDiv");
 const front = document.getElementById("front");
 const back = document.getElementById("back");
@@ -64,30 +66,23 @@ function backflip(){
     }
 }
 
-function showEndOfDeck(){
+function showCard(){
 	let list = (isInQuizMode()) ? quizList : FullList;
-	front.querySelector("img")?.remove();
-    back.querySelector("img")?.remove();
-    back.querySelector(".mainText").textContent = "You have learned the deck";
-    front.querySelector(".mainText").textContent = "You have learned the deck";
-    let imge = document.createElement('img');
-    back.appendChild(imge);
-    imge.src = list[currentCard].gif;
-    frontsideNumber.textContent = (currentCard + 1) + " / " + list.length;
-    backsideNumber.textContent = (currentCard + 1) + " / " + list.length;
-}
-
-function showASLCard() {
-	let list = (isInQuizMode()) ? quizList : FullList;
-    front.querySelector("img")?.remove();
-    back.querySelector("img")?.remove();
-    front.querySelector(".mainText").textContent = "";
-    back.querySelector(".mainText").textContent = list[currentCard].text;
-    let imge = document.createElement('img');
-    front.appendChild(imge);
-    imge.src = list[currentCard].gif;
-    frontsideNumber.textContent = (currentCard + 1) + " / " + list.length;
-    backsideNumber.textContent = (currentCard + 1) + " / " + list.length;
+	let frontLang = (backStart) ? back : front;
+	let backLang = (backStart) ? front : back;
+    frontsideNumber.textContent = backsideNumber.textContent = (currentCard + 1) + " / " + list.length;
+	frontLang.querySelector("img")?.remove();
+	backLang.querySelector("img")?.remove();
+	if (list.length <= 0){
+		frontLang.querySelector(".mainText").textContent = "You have learned the deck";
+		backLang.querySelector(".mainText").textContent = "You have learned the deck";
+		return
+	}
+	frontLang.querySelector(".mainText").textContent = "";
+	backLang.querySelector(".mainText").textContent = list[currentCard].text;
+	let image = document.createElement('img');
+	image.src = list[currentCard].gif;
+	frontLang.appendChild(image);
 	lazyLoadASLImgs();
 }
 
@@ -131,19 +126,6 @@ function lazyLoadImg(imageUrl) {
 	imge.src = imageUrl;
 }
 
-function showENGCard() {
-	let list = (isInQuizMode()) ? quizList : FullList;
-    front.querySelector("img")?.remove();
-    back.querySelector("img")?.remove();
-    back.querySelector(".mainText").textContent = "";
-    front.querySelector(".mainText").textContent = list[currentCard].text;
-    let imge = document.createElement('img');
-    back.appendChild(imge);
-    imge.src = list[currentCard].gif;
-    frontsideNumber.textContent = (currentCard + 1) + " / " + list.length;
-    backsideNumber.textContent = (currentCard + 1) + " / " + list.length;
-}
-
 async function nextCard(){
 	let list = (isInQuizMode()) ? quizList : FullList;
     // increments and protects against overflow
@@ -156,13 +138,7 @@ async function nextCard(){
 	}
     perspectiveCardDiv.classList.add("no-transition");
     perspectiveCardDiv.classList.remove("flipped");
-	if (list.length <= 0){
-		showEndOfDeck();	
-	} else if (backStart) {
-        showENGCard();
-    } else {
-        showASLCard();
-    }
+	showCard();
     requestAnimationFrame(() => {
         perspectiveCardDiv.classList.remove("no-transition");
     });
@@ -179,11 +155,7 @@ async function previousCard(){
 	}
     perspectiveCardDiv.classList.add("no-transition");
     perspectiveCardDiv.classList.remove("flipped");
-    if (backStart) {
-        showENGCard();
-    } else {
-        showASLCard();
-    }
+    showCard();
     requestAnimationFrame(() => {
         perspectiveCardDiv.classList.remove("no-transition");
     });
@@ -229,25 +201,19 @@ function quizToggle(){
 	let nextImage = nextCard.querySelector("img");
 	let nextH1 = nextCard.querySelector("h1");
 	if (!isInQuizMode()){
-		previousCard.title = "Don't know (keep in list)";
-		nextCard.title = "Do know (take out of list)";
-		prevImage.style.display = "none";
-		nextImage.style.display = "none";
-		prevH1.hidden = false;
-		nextH1.hidden = false;
+		previousCard.title = nextCard.title = "Don't know (keep in list)";
+		prevImage.style.display = nextImage.style.display = "none";
+		prevH1.hidden = nextH1.hidden = false;
+		realCurrentCard = currentCard;
+		currentCard = quizCurrentCard;
 	} else {
-		previousCard.title = "Go to the previous card";
-		nextCard.title = "Go to the next card";
-		prevImage.style.display = "block";
-		nextImage.style.display = "block";
-		prevH1.hidden = true;
-		nextH1.hidden = true;
+		previousCard.title = nextCard.title = "Go to the previous card";
+		prevImage.style.display = nextImage.style.display = "block";
+		prevH1.hidden = nextH1.hidden = true;
+		quizCurrentCard = currentCard;
+		currentCard = realCurrentCard;
 	}
-	if (backStart) {
-        showENGCard();
-    } else {
-        showASLCard();
-    }
+	showCard();
 }
 
 function isInQuizMode(){
@@ -259,12 +225,8 @@ function shuffle(){
         const j = Math.floor(Math.random() * (i + 1));
         [FullList[i], FullList[j]] = [FullList[j], FullList[i]];
     }
-    currentCard = 0;
-    if (backStart) {
-        showENGCard();
-    } else {
-        showASLCard();
-    }
+    currentCard = quizCurrentCard = realCurrentCard = 0;
+    showCard();
 }
 
 // I'm so glad JS uses a mathematically inaccurate modulo %
