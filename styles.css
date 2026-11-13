@@ -449,21 +449,21 @@ span {
 	align-items: center;
 	justify-items: center;
 	width: calc(100% - 4rem);
-	height: 10rem;
-	max-height: 10rem;
+	height: 8rem;
+	max-height: 8rem;
 }
 
 .termGifListPair p {
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	font-size: 1.5rem;
+	font-size: 2rem;
 	min-width: 0;
 	overflow-wrap: anywhere;
 }
 
 .termGifListPair img {
-	height: 10rem;
+	height: 8rem;
 	max-width: 100%;
 }
 
