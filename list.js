@@ -29,7 +29,7 @@ async function bootCards() {
 	const listContainer = document.getElementById("listContainer");
 
 	// Format the selected unit numbers as a readable heading, including the singular/plural and final "and".
-	document.getElementById("listHeaderDiv").innerHTML = "<h1>" + ((units.length > 1) ? "Units" : "Unit") + " " + units.slice(0, -1).join(", ") + ((units.length > 1) ? ", and " : "") + units.slice(-1) + " selected</h1>"
+	document.getElementById("listHeaderTitleDiv").innerHTML = "<h1>" + ((units.length > 1) ? "Units" : "Unit") + " " + units.slice(0, -1).join(", ") + ((units.length > 1) ? ", and " : "") + units.slice(-1) + " selected</h1>"
 
 	// Each entry starts with its numeric unit ID, followed by that unit's card objects.
 	for (let i = 1; i <= 24; i++) {
