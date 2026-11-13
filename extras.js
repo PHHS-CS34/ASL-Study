@@ -61,12 +61,28 @@ function dateRange(startTime, endDate){
 }
 
 function scatterX(image, onBottom) {
-	if (onBottom) image.style.bottom = "0";
+	image.style.position = "absolute";
+	
+	if (onBottom) {
+		image.style.top = "none";
+		
+		image.style.bottom = "0";
+	}
 	else {
-		image.style.transform = "scaleY(-1);";
+		image.style.bottom = "none";
+		
+		image.style.transform = "scaleY(-1)";
 		image.style.top = "0";
 	}
 	
-	if (Math.random() <= 0.5) image.style.left = "1rem";
-	else image.style.right = "1rem";
+	if (Math.random() <= 0.5) {
+		image.style.right = "none";
+		
+		image.style.left = "1rem";
+	}
+	else {
+		image.style.left = "none";
+		
+		image.style.right = "1rem";
+	}
 }
