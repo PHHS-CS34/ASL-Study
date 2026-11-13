@@ -64,7 +64,7 @@ async function bootCards() {
 			div.appendChild(par);
 
 			let img = document.createElement("img");
-			// img.src = card["gif"]; disabled to let the intersection observer work
+			
 			img.className = "lazyGif";
 			img.dataset.src = card["gif"];
 			div.appendChild(img);
