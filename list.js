@@ -64,7 +64,7 @@ async function bootCards() {
 			div.appendChild(par);
 
 			let img = document.createElement("img");
-			img.src = card["gif"];
+			
 			img.className = "lazyGif";
 			img.dataset.src = card["gif"];
 			div.appendChild(img);
