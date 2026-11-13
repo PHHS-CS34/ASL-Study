@@ -135,7 +135,7 @@ function prettyPrintUnits(units) {
 	let returnString = "";
 	if (unitGroups.length === 1) {
 		returnString = unitGroups[0];
-		returnString = "Unit " + consecutiveUnitsPrint(returnString);
+		returnString = (returnString.length === 1 ? "Unit " : "Units ") + consecutiveUnitsPrint(returnString);
 	}
 	else {
 		if (unitGroups.length === 2)
