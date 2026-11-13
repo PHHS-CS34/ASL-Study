@@ -117,24 +117,47 @@ function initializeIntersectionObserver() {
 }
 
 function prettyPrintUnits(units) {
-	const set = [];
+	const unitGroups = [];
 
-	let iSet = [];
+	let currentGroup = [];
 	for (const unit of units){
 		const unitNum = parseInt(unit);
 
-		if (iSet.length === 0) iSet.push(unitNum);
-		else if (iSet[iSet.length-1] === unitNum+1) iSet.push(unitNum);
+		if (currentGroup.length === 0) currentGroup.push(unitNum);
+		else if (currentGroup[currentGroup.length-1] === unitNum-1) currentGroup.push(unitNum);
 		else {
-			set.push(structuredClone(iSet));
-			iSet = [];
+			unitGroups.push(structuredClone(currentGroup));
+			currentGroup = [unitNum];
 		}
-
-		console.log(unit);
-		console.log(iSet);
-		// console.table(set);
 	}
-	return set;
+	if (currentGroup.length > 0) unitGroups.push(currentGroup);
+
+	let returnString = "";
+	if (unitGroups.length === 1) {
+		returnString = unitGroups[0];
+		returnString = "Unit " + consecutiveUnitsPrint(returnString);
+	}
+	else {
+		if (unitGroups.length === 2) returnString = consecutiveUnitsPrint(unitGroups[0]) + " and " + consecutiveUnitsPrint(unitGroups[1]);
+		else {
+			for (let i = 0; i < unitGroups.length - 1; i++) {
+				const currentGroup = unitGroups[i];
+				returnString += consecutiveUnitsPrint(currentGroup);
+				returnString += ", ";
+			}
+			returnString += "and " + consecutiveUnitsPrint(unitGroups[unitGroups.length - 1]);
+		}
+		returnString = "Units " + returnString;
+	}
+
+	returnString = returnString + " selected";
+	return returnString;
+}
+
+function consecutiveUnitsPrint(units) {
+	if (Number.isInteger(units)) return units;
+	if (units.length === 1) return units[0];
+	return units[0] + "-" + units[units.length-1];
 }
 
 function goBack() {
