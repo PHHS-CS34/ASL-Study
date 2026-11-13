@@ -205,7 +205,7 @@ footer p {
 	width: 80%;
 }
 #flashcardsBody .setupContainer{
-	margin-top: 2rem;
+	margin-top: 1rem;
 	max-width: fit-content;
 }
 
@@ -354,6 +354,10 @@ span {
 
 #back {
     transform: rotateX(180deg);
+}
+
+.buttons.setupButton.flashcardSetup {
+	width: 6.5rem;
 }
 
 @keyframes fadeIn{
