@@ -59,3 +59,14 @@ function dateRange(startTime, endDate){
 	}
 	return dateList;
 }
+
+function scatterX(image, onBottom) {
+	if (onBottom) image.style.bottom = "0";
+	else {
+		image.style.transform = "scaleY(-1);";
+		image.style.top = "0";
+	}
+	
+	if (Math.random() <= 0.5) image.style.left = "1rem";
+	else image.style.right = "1rem";
+}
