@@ -83,6 +83,8 @@ function openSelectedPopup() {
 }
 
 function openSelectedFlash(){
+    selectOpenPopup.style.display = "none";
+    selectOpenPopup.close();
     if (unitsSelected.length !== 0){
         window.location.href = setUpLink("flash");
     } else {
@@ -91,6 +93,8 @@ function openSelectedFlash(){
 }
 
 function openSelectedList(){
+    selectOpenPopup.style.display = "none";
+    selectOpenPopup.close();
     if (unitsSelected.length !== 0){
         window.location.href = setUpLink("list");
     } else {
@@ -112,7 +116,7 @@ function copySelected(){
 function setUpLink(type = "flash") {
     let link = type === "flash" ? "flashcards.html?front=" : "list.html?front=";
 		// add if the front is ASL or English to the link
-	link += document.getElementById("whichFront").dataset.aslOrEnglish;
+	// link += document.getElementById("whichFront").dataset.aslOrEnglish;
 	link += "&units=";
 
 	let sortedUnits = [];
