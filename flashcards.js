@@ -1,5 +1,7 @@
 let FullList = [];
 let quizList = [];
+let trueCount = 0;
+let quizTempCount = 0;
 let backStart = false;
 let currentCard = 0;
 let quizCurrentCard = 0;
@@ -46,11 +48,7 @@ async function fetchCards(){
         }
     }
     shuffle();
-    if (backStart) {
-        showENGCard();
-    } else {
-        showASLCard();
-    }
+    showCard();
 }
 
 function backflip(){
@@ -70,7 +68,7 @@ function showCard(){
 	let list = (isInQuizMode()) ? quizList : FullList;
 	let frontLang = (backStart) ? back : front;
 	let backLang = (backStart) ? front : back;
-    frontsideNumber.textContent = backsideNumber.textContent = (currentCard + 1) + " / " + list.length;
+    frontsideNumber.textContent = backsideNumber.textContent = (isInQuizMode()) ? ((trueCount + 1) + " / " + quizTempCount) : ((currentCard + 1) + " / " + list.length);
 	frontLang.querySelector("img")?.remove();
 	backLang.querySelector("img")?.remove();
 	if (list.length <= 0){
@@ -132,7 +130,15 @@ async function nextCard(){
     // needs to use special modulo formula because js is wack
 	if (isInQuizMode()){
 		list.splice(currentCard,1);
-		currentCard = (currentCard != trueMod(currentCard, list.length) ? currentCard - 1 : currentCard);
+		trueCount ++;
+		if (currentCard != trueMod(currentCard, list.length)) {
+			currentCard --;
+		} 
+		if (trueCount + 1 > quizTempCount) {
+			currentCard = 0;
+			trueCount = 0;
+			quizTempCount  = quizList.length;
+		}
 	} else {
 		currentCard = trueMod(currentCard+1, list.length);
 	}
@@ -149,6 +155,11 @@ async function previousCard(){
 	// decrements and protects against overflow
 	// needs to use special modulo formula because js is wack
 	if (isInQuizMode()){
+		trueCount ++;
+		if (currentCard + 1 != trueMod(currentCard + 1, quizList.length)) {
+			trueCount = 0;
+			quizTempCount = quizList.length;
+		} 
 		currentCard = trueMod(currentCard+1, list.length);
 	} else {
 		currentCard = trueMod(currentCard-1, list.length);
@@ -226,6 +237,7 @@ function shuffle(){
         [FullList[i], FullList[j]] = [FullList[j], FullList[i]];
     }
     currentCard = quizCurrentCard = realCurrentCard = 0;
+	quizTempCount = quizList.length;
     showCard();
 }
 
