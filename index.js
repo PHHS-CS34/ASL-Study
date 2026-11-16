@@ -1,7 +1,11 @@
 let unitsSelected = [];
-const copyPopup = document.getElementById("copy");
-copyPopup.querySelector(".close-btn").addEventListener("click", () => {
-    copyPopup.close();
+// const copyPopup = document.getElementById("copy");
+// copyPopup.querySelector(".close-btn").addEventListener("click", () => {
+//     copyPopup.close();
+// });
+const selectOpenPopup = document.getElementById("selectOpen");
+selectOpenPopup.querySelector(".close-btn").addEventListener("click", () => {
+    selectOpenPopup.close();
 });
 const notEnoughUnitsPopup = document.getElementById("notEnoughUnits");
 notEnoughUnitsPopup.querySelector(".close-btn").addEventListener("click", () => {
@@ -71,6 +75,11 @@ function decideImageOfButton(buttonId){
         unitButtonIcon.src = "media/ASL.svg"
     }
 	// unitButton.title = ("Unit" + unitsSelected.indexOf(unitButton));
+}
+
+function openSelectedPopup() {
+    selectOpenPopup.style.display = "flex";
+    selectOpenPopup.showModal();
 }
 
 function openSelectedFlash(){

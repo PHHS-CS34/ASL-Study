@@ -231,6 +231,13 @@ dialog::backdrop{
 	cursor: pointer;
 }
 
+#openButtonFlash {
+	margin-right: 1rem;
+}
+#openButtonList {
+	margin-right: 2rem;
+}
+
 /* Flashcards */
 
 span {
