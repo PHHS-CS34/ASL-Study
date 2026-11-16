@@ -68,12 +68,15 @@ function showCard(){
 	let list = (isInQuizMode()) ? quizList : FullList;
 	let frontLang = (backStart) ? back : front;
 	let backLang = (backStart) ? front : back;
-    frontsideNumber.textContent = backsideNumber.textContent = (isInQuizMode()) ? ((trueCount + 1) + " / " + quizTempCount) : ((currentCard + 1) + " / " + list.length);
+    frontsideNumber.textContent = backsideNumber.textContent = (isInQuizMode()) ? ((quizList.length == 0) ? ("EMPTY") : ((trueCount + 1) + " / " + quizTempCount)) : ((currentCard + 1) + " / " + list.length);
 	frontLang.querySelector("img")?.remove();
 	backLang.querySelector("img")?.remove();
 	if (list.length <= 0){
-		frontLang.querySelector(".mainText").textContent = "You have learned the deck";
-		backLang.querySelector(".mainText").textContent = "You have learned the deck";
+		frontLang.querySelector(".mainText").textContent = " ";
+		backLang.querySelector(".mainText").textContent = " ";
+		let resetButton = document.createElement("button");
+		front.appendChild(resetButton);
+		back.appendChild(resetButton);
 		return
 	}
 	frontLang.querySelector(".mainText").textContent = "";
@@ -126,6 +129,8 @@ function lazyLoadImg(imageUrl) {
 
 async function nextCard(){
 	let list = (isInQuizMode()) ? quizList : FullList;
+	console.log(list);
+	if (list.length <= 0) return;
     // increments and protects against overflow
     // needs to use special modulo formula because js is wack
 	if (isInQuizMode()){
@@ -152,6 +157,7 @@ async function nextCard(){
 
 async function previousCard(){
 	let list = (isInQuizMode()) ? quizList : FullList;
+	if (list.length <= 0) return;
 	// decrements and protects against overflow
 	// needs to use special modulo formula because js is wack
 	if (isInQuizMode()){
@@ -211,13 +217,18 @@ function quizToggle(){
 	let nextCard = document.getElementById("nextCardButton");
 	let nextImage = nextCard.querySelector("img");
 	let nextH1 = nextCard.querySelector("h1");
+	let quizImg = document.getElementById("quizToggle");
 	if (!isInQuizMode()){
+		quizImg.src = "media/exitQuiz";
+		quizImg.alt = "exit quiz mode";
 		previousCard.title = nextCard.title = "Don't know (keep in list)";
 		prevImage.style.display = nextImage.style.display = "none";
 		prevH1.hidden = nextH1.hidden = false;
 		realCurrentCard = currentCard;
 		currentCard = quizCurrentCard;
 	} else {
+		quizImg.src = "media/enterQuiz";
+		quizImg.alt = "enter quiz mode";
 		previousCard.title = nextCard.title = "Go to the previous card";
 		prevImage.style.display = nextImage.style.display = "block";
 		prevH1.hidden = nextH1.hidden = true;
