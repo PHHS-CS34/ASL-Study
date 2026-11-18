@@ -53,10 +53,21 @@
 			
 			<button title="Enter quiz mode"  class="buttons setupButton" onclick="quizToggle()">
 				<img id="quizToggle" alt="Enter quiz mode" src="media/QUIZ.svg" class="buttonIcon"/>
+				
 			</button>
 		</div>
 	</div>
 </div>
+
+<div class="endOfListDiv">
+	<dialog id="endOfList">
+		<p>You reached the end of the list </p>
+		<button title="close" class="close-btn" aria-label="close">&times;</button>
+		<button title="close" class="close-btn" aria-label="close">Reset list</button>
+		<button title="home" class="home-btn" aria-label="close"><img alt="Return to unit selection" src="media/HOME.svg"></button>
+	</dialog>
+</div>
+
 
 <div class="helpDiv">
 	<button title="Tutorial" class="helpButton" onclick="helpPopup.showModal()">?</button>

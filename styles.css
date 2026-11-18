@@ -389,7 +389,7 @@ body {
 	box-shadow: none;
 }
 
-.helpDiv {
+.helpDiv, .endOfListDiv{
 	align-self: flex-end;
 	justify-self: right;
 	right: 20px;
@@ -397,7 +397,7 @@ body {
 	bottom: 20px;
 }
 
-#help {
+#help,  #endOfList{
 	height: 70%;
 	width: fit-content;
 	min-width: 190px;
@@ -417,6 +417,10 @@ body {
 	background-color: var(--color-lightText);
 	color: var(--color-background4);
 	cursor: pointer;
+}
+
+.home-btn img{
+	width: 100%;
 }
 
 .homeHelpImg {

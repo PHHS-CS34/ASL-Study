@@ -15,9 +15,14 @@ const backsideNumber = document.getElementById("backsideNumber");
 const whichFront = document.getElementById("whichFront");
 const whichFrontImg = whichFront.querySelector("img");
 const helpPopup = document.getElementById("help");
+const endOfListPopup = document.getElementById("endOfList");
 
 helpPopup.querySelector(".close-btn").addEventListener("click", () => {
 	helpPopup.close();
+});
+
+endOfListPopup.querySelector(".close-btn").addEventListener("click", () => {
+	endOfListPopup.close();
 });
 
 function flip(element){
@@ -72,11 +77,9 @@ function showCard(){
 	frontLang.querySelector("img")?.remove();
 	backLang.querySelector("img")?.remove();
 	if (list.length <= 0){
-		frontLang.querySelector(".mainText").textContent = " ";
-		backLang.querySelector(".mainText").textContent = " ";
-		let resetButton = document.createElement("button");
-		front.appendChild(resetButton);
-		back.appendChild(resetButton);
+		frontLang.querySelector(".mainText").textContent = "";
+		backLang.querySelector(".mainText").textContent = "";
+		endOfListPopup.showModal();
 		return
 	}
 	frontLang.querySelector(".mainText").textContent = "";
@@ -243,12 +246,17 @@ function isInQuizMode(){
 }
 
 function shuffle(){
-    for (let i = FullList.length - 1; i > 0; i--) {
+	let list = (isInQuizMode()) ? quizList : FullList;
+    for (let i = list.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [FullList[i], FullList[j]] = [FullList[j], FullList[i]];
+        [list[i], list[j]] = [list[j], list[i]];
     }
-    currentCard = quizCurrentCard = realCurrentCard = 0;
-	quizTempCount = quizList.length;
+	if (isInQuizMode()){
+		quizCurrentCard = realCurrentCard = 0;
+		quizTempCount = quizList.length;
+	} else {
+		currentCard = 0;
+	}
     showCard();
 }
 
