@@ -397,6 +397,10 @@ body {
 	bottom: 20px;
 }
 
+#endOfList{
+	align-content: center;
+}
+
 #help,  #endOfList{
 	height: 70%;
 	width: fit-content;

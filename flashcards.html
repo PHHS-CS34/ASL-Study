@@ -62,9 +62,8 @@
 <div class="endOfListDiv">
 	<dialog id="endOfList">
 		<p>You reached the end of the list </p>
-		<button title="close" class="close-btn" aria-label="close">&times;</button>
-		<button title="close" class="close-btn" aria-label="close">Reset list</button>
-		<button title="home" class="home-btn" aria-label="close"><img alt="Return to unit selection" src="media/HOME.svg"></button>
+		<button title="Reset the list back to start" class="buttons" aria-label="close" onclick="window.location.reload()">Reset list</button>
+		<button title="Go to home page" class="buttons " aria-label="close" onclick="goBack()"><img alt="Image of homescreen with instructions connected to elements" src="media/HOME.svg" class="endOfListHome"/></button>
 	</dialog>
 </div>
 

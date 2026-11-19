@@ -16,13 +16,9 @@ const whichFront = document.getElementById("whichFront");
 const whichFrontImg = whichFront.querySelector("img");
 const helpPopup = document.getElementById("help");
 const endOfListPopup = document.getElementById("endOfList");
-
+endOfListPopup.showModal();
 helpPopup.querySelector(".close-btn").addEventListener("click", () => {
 	helpPopup.close();
-});
-
-endOfListPopup.querySelector(".close-btn").addEventListener("click", () => {
-	endOfListPopup.close();
 });
 
 function flip(element){
@@ -52,6 +48,7 @@ async function fetchCards(){
             quizList.push(...Object.values(data[`Unit${i}`]))
         }
     }
+	quizTempCount = quizList.length;
     shuffle();
     showCard();
 }
