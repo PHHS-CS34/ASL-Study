@@ -34,12 +34,12 @@
             <button title = "Choose between flashcard and List mode" class = "buttons setupButton" onclick="openSelectedPopup()">
                 <img src="media/START.svg" class="buttonIcon"/>
             </button>
-			<button title="Copy the selected units to share" id="copyButton" class="buttons setupButton" onclick="copySelected()">
+			<button title="Copy the selected units to share" class="buttons setupButton" onclick="copySelected()">
 					<img alt="Copy the selected units to share" src="media/CLIPBOARD.svg" class="buttonIcon"/>
 			</button>
 			<dialog id="copy">
-                    <button title="Copy the selected units to share" id="copyButton" class="buttons setupButton" onclick="copySelected('list');copyPopup.close()">List</button>
-                    <button title="Copy the selected units to share" id="copyButton2" class="buttons setupButton" onclick="copySelected();copyPopup.close()">Flashcard</button>
+                    <button title="Copy the selected units to share" class="buttons setupButton copyButton" onclick="copySelected('list'); copyPopup.close(); document.getElementById('copy').style.display = 'none'">List</button>
+                    <button title="Copy the selected units to share" id="copyButton2" class="buttons setupButton" onclick="copySelected(); copyPopup.close(); document.getElementById('copy').style.display = 'none'">Flashcard</button>
 					<button title="close" class="close-btn" aria-label="close" onclick = "document.getElementById('copy').style.display = 'none'">&times;</button>
 			</dialog>
             <dialog id="selectOpen">
