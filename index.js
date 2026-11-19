@@ -113,7 +113,8 @@ function copySelected(type = "flash"){
 }
 
 function setUpLink(type = "flash") {
-    let link = type === "flash" ? "phhs-cs34.github.io/ASL-Study/flashcards.html?front=" : "phhs-cs34.github.io/ASL-Study/list.html?front=";
+    // let link = type === "flash" ? "https://phhs-cs34.github.io/ASL-Study/flashcards.html?front=" : "https://phhs-cs34.github.io/ASL-Study/ASL-Study/list.html?front=";
+    let link = type === "flash" ? "flashcards.html?front=" : "list.html?front=";
 		// add if the front is ASL or English to the link
 	//link += document.getElementById("whichFront").dataset.aslOrEnglish;
 	link += "&units=";
