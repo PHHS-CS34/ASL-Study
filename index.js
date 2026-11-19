@@ -1,8 +1,12 @@
 let unitsSelected = [];
-// const copyPopup = document.getElementById("copy");
-// copyPopup.querySelector(".close-btn").addEventListener("click", () => {
-//     copyPopup.close();
-// });
+const copyPopup = document.getElementById("copy");
+copyPopup.querySelector(".close-btn").addEventListener("click", () => {
+    copyPopup.close();
+});
+const copyFinishedPopup = document.getElementById("copyFinished");
+copyFinishedPopup.querySelector(".close-btn").addEventListener("click", () => {
+    copyFinishedPopup.close();
+});
 const selectOpenPopup = document.getElementById("selectOpen");
 selectOpenPopup.querySelector(".close-btn").addEventListener("click", () => {
     selectOpenPopup.close();
@@ -102,21 +106,19 @@ function openSelectedList(){
     }
 }
 
-function copySelected(){
-    if (unitsSelected.length !== 0){
-        copyPopup.querySelector("p").textContent = `Copied link to your clipboard`;
-        navigator.clipboard.writeText(setUpLink());
+function copySelected(type = "flash"){
+    if (unitsSelected.length === 0){
+        notEnoughUnitsPopup.showModal();
+        return;
     }
-    else {
-        copyPopup.querySelector("p").textContent = "Not enough units to copy";
-    }
+    navigator.clipboard.writeText(setUpLink(type));
     copyPopup.showModal();
 }
 
 function setUpLink(type = "flash") {
-    let link = type === "flash" ? "flashcards.html?front=" : "list.html?front=";
+    let link = type === "flash" ? "phhs-cs34.github.io/ASL-Study/flashcards.html?front=" : "phhs-cs34.github.io/ASL-Study/list.html?front=";
 		// add if the front is ASL or English to the link
-	// link += document.getElementById("whichFront").dataset.aslOrEnglish;
+	//link += document.getElementById("whichFront").dataset.aslOrEnglish;
 	link += "&units=";
 
 	let sortedUnits = [];
