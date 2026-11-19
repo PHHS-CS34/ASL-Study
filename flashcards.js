@@ -16,7 +16,7 @@ const whichFront = document.getElementById("whichFront");
 const whichFrontImg = whichFront.querySelector("img");
 const helpPopup = document.getElementById("help");
 const endOfListPopup = document.getElementById("endOfList");
-endOfListPopup.showModal();
+
 helpPopup.querySelector(".close-btn").addEventListener("click", () => {
 	helpPopup.close();
 });
@@ -219,8 +219,8 @@ function quizToggle(){
 	let nextH1 = nextCard.querySelector("h1");
 	let quizImg = document.getElementById("quizToggle");
 	if (!isInQuizMode()){
-		quizImg.src = "media/exitQuiz";
-		quizImg.alt = "exit quiz mode";
+		quizImg.src = "media/FLASHCARDS.svg";
+		quizImg.alt = "Flash Card Mode";
 		previousCard.title = nextCard.title = "Don't know (keep in list)";
 		prevImage.style.display = nextImage.style.display = "none";
 		prevH1.hidden = nextH1.hidden = false;

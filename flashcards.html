@@ -51,7 +51,7 @@
 				<img alt="Return to unit selection" src="media/HOME.svg" class="buttonIcon"/>
 			</button>
 			
-			<button title="Enter quiz mode"  class="buttons setupButton" onclick="quizToggle()">
+			<button title="Quiz Mode"  class="buttons setupButton" onclick="quizToggle()">
 				<img id="quizToggle" alt="Enter quiz mode" src="media/QUIZ.svg" class="buttonIcon"/>
 				
 			</button>
@@ -61,9 +61,18 @@
 
 <div class="endOfListDiv">
 	<dialog id="endOfList">
-		<p>You reached the end of the list </p>
-		<button title="Reset the list back to start" class="buttons" aria-label="close" onclick="window.location.reload()">Reset list</button>
-		<button title="Go to home page" class="buttons " aria-label="close" onclick="goBack()"><img alt="Image of homescreen with instructions connected to elements" src="media/HOME.svg" class="endOfListHome"/></button>
+		<h3>You reached the end of the list.</h3>
+		<p>Would you like to restart the card stack or return to the unit selection?
+		</p>
+		<div id="bottomButtons" class="bottomDiv">
+			<button title="Reset the list back to start" class="buttons setupButton" aria-label="close" onclick="window.location.reload()">
+				<img src="media/RESTART.svg" alt="Restart Icon" class="buttonIcon">
+			</button>
+			<button title="Go to home page" class="buttons setupButton" aria-label="close" onclick="goBack()">
+				<img alt="Homescreen Icon" class="buttonIcon" src="media/HOME.svg"/>
+			</button>
+			
+		</div>
 	</dialog>
 </div>
 
@@ -72,7 +81,7 @@
 	<button title="Tutorial" class="helpButton" onclick="helpPopup.showModal()">?</button>
 	<dialog id="help">
 		<p>How to use the flashcard page.</p>
-		<img alt="Image of homescreen with instructions connected to elements" src="media/ASL_FLASHCARD_HELP.svg" class="homeHelpImg"/>
+		<img alt="Image of flashcard screen with instructions" src="media/ASL_FLASHCARD_HELP.svg" class="homeHelpImg"/>
 		<button title="close" class="close-btn" aria-label="close">&times;</button>
 	</dialog>
 </div>
