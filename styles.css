@@ -224,11 +224,25 @@ dialog::backdrop{
 .close-btn {
 	position: absolute;
 	top: 0;
-	right: 6px;
+	right: 3px;
 	background: none;
 	border: none;
-	font-size: 3rem;
+	font-size: 2.25rem;
 	cursor: pointer;
+}
+
+#openButtonFlash {
+	margin-right: 1rem;
+}
+#openButtonList {
+	margin-right: 2rem;
+}
+
+#copyButton2 {
+	margin-right: 2rem;
+}
+.copyButton {
+	margin-right: 1rem;
 }
 
 /* Flashcards */

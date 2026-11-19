@@ -27,23 +27,28 @@
                 <img alt="Clear the selected units" src="media/CLEAR.svg" class="buttonIcon"/>
             </button>
 
-            <button title="Switch the front between ASL and English" id="whichFront" data-aslOrEnglish="asl"
+            <!-- <button title="Switch the front between ASL and English" id="whichFront" data-aslOrEnglish="asl"
                     class="buttons setupButton" onclick="decideImageOfButton('whichFront')">
                 <img alt="Switch the front between ASL and English" src="media/ASL.svg" class="buttonIcon"/>
+            </button> -->
+            <button title = "Choose between flashcard and List mode" class = "buttons setupButton" onclick="openSelectedPopup()">
+                <img src="media/START.svg" class="buttonIcon"/>
             </button>
-
-            <button id="openButtonFlash" class="buttons setupButton" onclick="openSelectedFlash()">
-				<img src="media/START.svg" class="buttonIcon"/>
-			</button>
-			<button id="openButtonList" class="buttons setupButton" onclick="openSelectedList()">Start List</button>
-
-			<button title="Copy the selected units to share" id="copyButton" class="buttons setupButton" onclick="copySelected()">
+			<button title="Copy the selected units to share" class="buttons setupButton" onclick="copySelected()">
 					<img alt="Copy the selected units to share" src="media/CLIPBOARD.svg" class="buttonIcon"/>
 			</button>
 			<dialog id="copy">
-					<p>Content copied to clipboard!</p>
-					<button title="close" class="close-btn" aria-label="close">&times;</button>
+                    <button title="Copy the selected units to share" class="buttons setupButton copyButton" onclick="copySelected('list'); copyPopup.close(); document.getElementById('copy').style.display = 'none'">List</button>
+                    <button title="Copy the selected units to share" id="copyButton2" class="buttons setupButton" onclick="copySelected(); copyPopup.close(); document.getElementById('copy').style.display = 'none'">Flashcard</button>
+					<button title="close" class="close-btn" aria-label="close" onclick = "document.getElementById('copy').style.display = 'none'">&times;</button>
 			</dialog>
+            <dialog id="selectOpen">
+                <button id="openButtonFlash" class="buttons setupButton" onclick="openSelectedFlash()">
+				    <img src="media/START.svg" class="buttonIcon"/>
+			    </button>
+			    <button id="openButtonList" class="buttons setupButton" onclick="openSelectedList()">Start List</button>
+                <button title="close" class="close-btn" aria-label="close" onclick = "document.getElementById('selectOpen').style.display = 'none'">&times;</button>
+            </dialog>
 			<dialog id="notEnoughUnits">
 					<p>Not enough units selected!</p>
 					<button title="close" class="close-btn" aria-label="close">&times;</button>

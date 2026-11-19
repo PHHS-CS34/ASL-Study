@@ -3,6 +3,10 @@ const copyPopup = document.getElementById("copy");
 copyPopup.querySelector(".close-btn").addEventListener("click", () => {
     copyPopup.close();
 });
+const selectOpenPopup = document.getElementById("selectOpen");
+selectOpenPopup.querySelector(".close-btn").addEventListener("click", () => {
+    selectOpenPopup.close();
+});
 const notEnoughUnitsPopup = document.getElementById("notEnoughUnits");
 notEnoughUnitsPopup.querySelector(".close-btn").addEventListener("click", () => {
     notEnoughUnitsPopup.close();
@@ -73,7 +77,14 @@ function decideImageOfButton(buttonId){
 	// unitButton.title = ("Unit" + unitsSelected.indexOf(unitButton));
 }
 
+function openSelectedPopup() {
+    selectOpenPopup.style.display = "flex";
+    selectOpenPopup.showModal();
+}
+
 function openSelectedFlash(){
+    selectOpenPopup.style.display = "none";
+    selectOpenPopup.close();
     if (unitsSelected.length !== 0){
         window.location.href = setUpLink("flash");
     } else {
@@ -82,6 +93,8 @@ function openSelectedFlash(){
 }
 
 function openSelectedList(){
+    selectOpenPopup.style.display = "none";
+    selectOpenPopup.close();
     if (unitsSelected.length !== 0){
         window.location.href = setUpLink("list");
     } else {
@@ -89,21 +102,20 @@ function openSelectedList(){
     }
 }
 
-function copySelected(){
-    if (unitsSelected.length !== 0){
-        copyPopup.querySelector("p").textContent = `Copied link to your clipboard`;
-        navigator.clipboard.writeText(setUpLink());
+function copySelected(type = "flash"){
+    if (unitsSelected.length === 0){
+        notEnoughUnitsPopup.showModal();
+        return;
     }
-    else {
-        copyPopup.querySelector("p").textContent = "Not enough units to copy";
-    }
+    navigator.clipboard.writeText(setUpLink(type));
+    copyPopup.style.display = "flex";
     copyPopup.showModal();
 }
 
 function setUpLink(type = "flash") {
-    let link = type === "flash" ? "flashcards.html?front=" : "list.html?front=";
+    let link = type === "flash" ? "phhs-cs34.github.io/ASL-Study/flashcards.html?front=" : "phhs-cs34.github.io/ASL-Study/list.html?front=";
 		// add if the front is ASL or English to the link
-	link += document.getElementById("whichFront").dataset.aslOrEnglish;
+	//link += document.getElementById("whichFront").dataset.aslOrEnglish;
 	link += "&units=";
 
 	let sortedUnits = [];
