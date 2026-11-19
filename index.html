@@ -38,14 +38,10 @@
 					<img alt="Copy the selected units to share" src="media/CLIPBOARD.svg" class="buttonIcon"/>
 			</button>
 			<dialog id="copy">
-                    <button title="Copy the selected units to share" id="copyButton" class="buttons setupButton" onclick="copySelected('list');copyPopup.close();copyFinished.showModal()">List</button>
-                    <button title="Copy the selected units to share" id="copyButton2" class="buttons setupButton" onclick="copySelected();copyPopup.close();copyFinished.showModal()">Flashcard</button>
-					<button title="close" class="close-btn" aria-label="close">&times;</button>
+                    <button title="Copy the selected units to share" id="copyButton" class="buttons setupButton" onclick="copySelected('list');copyPopup.close()">List</button>
+                    <button title="Copy the selected units to share" id="copyButton2" class="buttons setupButton" onclick="copySelected();copyPopup.close()">Flashcard</button>
+					<button title="close" class="close-btn" aria-label="close" onclick = "document.getElementById('copy').style.display = 'none'">&times;</button>
 			</dialog>
-            <dialog id = "copyFinished">
-                <p>Copied link to your clipboard</p>
-                <button title="close" class="close-btn" aria-label="close">&times;</button>
-            </dialog>
             <dialog id="selectOpen">
                 <button id="openButtonFlash" class="buttons setupButton" onclick="openSelectedFlash()">
 				    <img src="media/START.svg" class="buttonIcon"/>

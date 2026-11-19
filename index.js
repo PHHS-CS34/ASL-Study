@@ -3,10 +3,6 @@ const copyPopup = document.getElementById("copy");
 copyPopup.querySelector(".close-btn").addEventListener("click", () => {
     copyPopup.close();
 });
-const copyFinishedPopup = document.getElementById("copyFinished");
-copyFinishedPopup.querySelector(".close-btn").addEventListener("click", () => {
-    copyFinishedPopup.close();
-});
 const selectOpenPopup = document.getElementById("selectOpen");
 selectOpenPopup.querySelector(".close-btn").addEventListener("click", () => {
     selectOpenPopup.close();
@@ -112,6 +108,7 @@ function copySelected(type = "flash"){
         return;
     }
     navigator.clipboard.writeText(setUpLink(type));
+    copyPopup.style.display = "flex";
     copyPopup.showModal();
 }
 

@@ -238,6 +238,13 @@ dialog::backdrop{
 	margin-right: 2rem;
 }
 
+#copyButton2 {
+	margin-right: 2rem;
+}
+#copyButton {
+	margin-right: 1rem;
+}
+
 /* Flashcards */
 
 span {
