@@ -47,14 +47,16 @@
 
 		<dialog id="copy">
 			<p>Would you like to copy the link for the flashcards or list of terms?</p>
-			<button title="Copy the selected units to share" id="copyButton2" class="buttons setupButton" onclick="copySelected(); copyPopup.close(); document.getElementById('copy').style.display = 'none'">
-				<img src="media/FLASHCARDS.svg" alt="Flashcards Icon" class="buttonIcon"/>
-			</button>
-			<button title="Copy the selected units to share" class="buttons setupButton copyButton" onclick="copySelected('list'); copyPopup.close(); document.getElementById('copy').style.display = 'none'">
-				<img src="media/LIST.svg" alt="List Icon" class="buttonIcon">
-			</button>
-			<button title="close" class="close-btn" aria-label="close" onclick = "document.getElementById('copy').style.display = 'none'">&times;</button>
-		</dialog>
+            <div class="bottomDiv">
+                <button title="Copy the selected units to share" id="copyButton2" class="buttons setupButton" onclick="copySelected(); copyPopup.close(); document.getElementById('copy').style.display = 'none'">
+                    <img src="media/FLASHCARDS.svg" alt="Flashcards Icon" class="buttonIcon"/>
+                </button>
+                <button title="Copy the selected units to share" id = "copyButton" class="buttons setupButton copyButton" onclick="copySelected('list'); copyPopup.close(); document.getElementById('copy').style.display = 'none'">
+                    <img src="media/LIST.svg" alt="List Icon" class="buttonIcon">
+                </button>
+                <button title="close" class="close-btn" aria-label="close" onclick = "document.getElementById('copy').style.display = 'none'">&times;</button>
+            </div>
+        </dialog>
 
 		<div>
 			<dialog id="selectOpen">

@@ -215,6 +215,7 @@ dialog {
 
 dialog p {
 	font-weight: bold;
+	gap: 0.25em;
 }
 
 dialog::backdrop{
@@ -230,19 +231,27 @@ dialog::backdrop{
 	font-size: 2.25rem;
 	cursor: pointer;
 }
-
 #openButtonFlash {
-	margin-right: 1rem;
+	width: 6.5rem;
+	aspect-ratio: 1 / 1;
+	margin-right: 2rem;
 }
 #openButtonList {
-	margin-right: 2rem;
+	width: 6.5rem;
+	aspect-ratio: 1 / 1;
+	margin-right: 0.1rem;
+}
+
+#copyButton {
+	width: 6.5rem;
+	aspect-ratio: 1 / 1;
+	margin-right: 0.1rem;
 }
 
 #copyButton2 {
+	width: 6.5rem;
+	aspect-ratio: 1 / 1;
 	margin-right: 2rem;
-}
-.copyButton {
-	margin-right: 1rem;
 }
 
 /* Flashcards */

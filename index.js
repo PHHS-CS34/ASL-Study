@@ -3,9 +3,25 @@ const copyPopup = document.getElementById("copy");
 copyPopup.querySelector(".close-btn").addEventListener("click", () => {
     copyPopup.close();
 });
+document.addEventListener("keydown", (event) => {
+    if (copyPopup.style.display === "flex"){
+        if (event.key === "Escape") {
+            copyPopup.style.display = "none";
+            copyPopup.close();
+        }
+    }
+});
 const selectOpenPopup = document.getElementById("selectOpen");
 selectOpenPopup.querySelector(".close-btn").addEventListener("click", () => {
     selectOpenPopup.close();
+});
+document.addEventListener("keydown", (event) => {
+    if (selectOpenPopup.style.display === "flex"){
+        if (event.key === "Escape") {
+            selectOpenPopup.style.display = "none";
+            selectOpenPopup.close();
+        }
+    }
 });
 const notEnoughUnitsPopup = document.getElementById("notEnoughUnits");
 notEnoughUnitsPopup.querySelector(".close-btn").addEventListener("click", () => {
