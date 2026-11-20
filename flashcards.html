@@ -8,8 +8,8 @@
     <link rel="icon" id="favicon" type="image/svg+xml" href="media/ASL.svg">
 </head>
 
-<body id="flashcardsBody">
-<div>
+<body>
+<main id="flashcardsBody">
 	<div id="flashcardsFlexDiv">
 		<button title="Go to the previous card" onclick="previousCard()" id="previousCardButton" class="navigationButton">
 			<img alt="Go to the previous card" src="media/NEXT.svg" class="buttonIcon"/>
@@ -57,27 +57,8 @@
 			</button>
 		</div>
 	</div>
-</div>
-			<!-- <div class="lazyLoadCard" id="lazy"></div>
 
-			<div class="roundedLargeElement divButtons setupContainer">
-				<div id="bottomButtons" class="bottomDiv">
-					<button title="Shuffle the cards" class="buttons setupButton flashcardSetup" onclick="shuffle()">
-						<img alt="Shuffle the cards" src="media/SHUFFLE.svg" class="buttonIcon"/>
-					</button>
-
-					<button title="Switch the front between ASL and English" id="whichFront" data-aslorenglish="asl"
-							class="buttons setupButton flashcardSetup" onclick="backflip()">
-						<img alt="Switch the front between ASL and English" src="media/ASL.svg" class="buttonIcon"/>
-					</button>
-
-					<button title="Return to unit selection" class="buttons setupButton flashcardSetup" onclick="goBack()">
-						<img alt="Return to unit selection" src="media/HOME.svg" class="buttonIcon"/>
-					</button>
-				</div>
-			</div> -->
-
-		<div class="endOfListDiv">
+	<div class="endOfListDiv">
 			<dialog id="endOfList">
 				<h3>You reached the end of the list.</h3>
 				<p>Would you like to restart the card stack or return to the unit selection?</p>
