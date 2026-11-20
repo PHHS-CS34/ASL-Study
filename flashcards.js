@@ -58,12 +58,12 @@ function backflip(){
     backStart = !backStart;
     if (backStart) {
         // Start on English
-        showENGCard();
+        showCard();
         whichFront.dataset.aslorenglish = "eng";
         whichFrontImg.src = "media/ENG.svg";
     } else {
         // Start on ASL
-        showASLCard();
+        showCard();
         whichFront.dataset.aslorenglish = "asl";
         whichFrontImg.src = "media/ASL.svg";
     }
