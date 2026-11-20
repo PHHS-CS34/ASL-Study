@@ -38,7 +38,7 @@
 	<div class="lazyLoadCard" id="lazy"></div>
 
 	<div class="roundedLargeElement divButtons setupContainer">
-		<div id="bottomButtons" class="bottomDiv">
+		<div class="bottomDiv">
 			<button title="Shuffle the cards" class="buttons setupButton" onclick="shuffle()">
 				<img alt="Shuffle the cards" src="media/SHUFFLE.svg" class="buttonIcon"/>
 			</button>
@@ -53,7 +53,7 @@
 			</button>
 			
 			<button title="Quiz Mode"  class="buttons setupButton" onclick="quizToggle()">
-				<img id="quizToggleImg" alt="Enter Quiz Mode" src="media/FLASHCARDS.svg" class="buttonIcon"/>
+				<img id="quizToggleImg" alt="Enter Quiz Mode" src="media/QUIZ.svg" class="buttonIcon"/>
 			</button>
 		</div>
 	</div>
@@ -62,7 +62,7 @@
 			<dialog id="endOfList">
 				<h3>You reached the end of the list.</h3>
 				<p>Would you like to restart the card stack or return to the unit selection?</p>
-				<div id="bottomButtons" class="bottomDiv">
+				<div class="bottomDiv">
 					<button title="Reset the list back to start" class="buttons setupButton" aria-label="close" onclick="window.location.reload()">
 						<img src="media/RESTART.svg" alt="Restart Icon" class="buttonIcon">
 					</button>

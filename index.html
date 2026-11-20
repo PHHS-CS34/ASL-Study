@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <meta name="google-site-verification" content="upfjtAG3YOqZmzo2idSA2R0k44PSSpohdeDNC-UmCA4"/>
     <meta name="description"
-        content="ASL Study tool made for Patrick Henry High School in San Diego, comprising of 24 units and over 1200 words.">
+          content="ASL Study tool made for Patrick Henry High School in San Diego, comprising of 24 units and over 1200 words.">
     <title>ASL Study - Units</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/svg+xml" href="media/ASL.svg">
@@ -27,53 +27,60 @@
                 <img alt="Clear the selected units" src="media/CLEAR.svg" class="buttonIcon"/>
             </button>
 
-            <!-- <button title="Switch the front between ASL and English" id="whichFront" data-aslOrEnglish="asl"
-                    class="buttons setupButton" onclick="decideImageOfButton('whichFront')">
-                <img alt="Switch the front between ASL and English" src="media/ASL.svg" class="buttonIcon"/>
-            </button> -->
-            <button title = "Choose between flashcard and List mode" class = "buttons setupButton" onclick="openSelectedPopup()">
+            <button title="Choose between flashcard and List mode" class="buttons setupButton"
+                    onclick="openSelectedPopup()">
                 <img src="media/START.svg" class="buttonIcon"/>
             </button>
-			<button title="Copy the selected units to share" class="buttons setupButton" onclick="copySelected()">
-					<img alt="Copy the selected units to share" src="media/CLIPBOARD.svg" class="buttonIcon"/>
-			</button>
+            <button title="Copy the selected units to share" class="buttons setupButton" onclick="copySelected()">
+                <img alt="Copy the selected units to share" src="media/CLIPBOARD.svg" class="buttonIcon"/>
+            </button>
 
-			<dialog id="notEnoughUnits">
-					<p>Not enough units selected!</p>
-					<button title="close" class="close-btn" aria-label="close">&times;</button>
-			</dialog>
-			</div>
-		</div>
+            <dialog id="notEnoughUnits">
+                <p>Not enough units selected!</p>
+                <button title="close" class="close-btn" aria-label="close">&times;</button>
+            </dialog>
+        </div>
+    </div>
 
-		<dialog id="copy">
-			<p>Would you like to copy the link for the flashcards or list of terms?</p>
+    <dialog id="copy">
+        <div class="choiceDialog">
+            <p>Would you like to copy the link for the flashcards or list of terms?</p>
+
             <div class="bottomDiv">
-                <button title="Copy the selected units to share" id="copyButton2" class="buttons setupButton" onclick="copySelected(); copyPopup.close(); document.getElementById('copy').style.display = 'none'">
+                <button title="Copy the selected units to share" id="copyButton2" class="buttons setupButton"
+                        onclick="copySelected(); copyPopup.close(); document.getElementById('copy').style.display = 'none'">
                     <img src="media/FLASHCARDS.svg" alt="Flashcards Icon" class="buttonIcon"/>
                 </button>
-                <button title="Copy the selected units to share" id = "copyButton" class="buttons setupButton copyButton" onclick="copySelected('list'); copyPopup.close(); document.getElementById('copy').style.display = 'none'">
+                <button title="Copy the selected units to share" id="copyButton" class="buttons setupButton copyButton"
+                        onclick="copySelected('list'); copyPopup.close(); document.getElementById('copy').style.display = 'none'">
                     <img src="media/LIST.svg" alt="List Icon" class="buttonIcon">
                 </button>
-                <button title="close" class="close-btn" aria-label="close" onclick = "document.getElementById('copy').style.display = 'none'">&times;</button>
+
             </div>
-        </dialog>
+        </div>
+        <button title="close" class="close-btn" aria-label="close"
+                onclick="document.getElementById('copy').style.display = 'none'">&times;
+        </button>
+    </dialog>
 
-		<div>
-			<dialog id="selectOpen">
-					<p>Would you like to study flashcards or a list of terms?</p>
+    <dialog id="selectOpen">
+        <div class="choiceDialog">
+            <p>Would you like to study flashcards or a list of terms?</p>
 
-					<div id="bottomButtons" class="bottomDiv">
-						<button id="openButtonFlash" class="buttons setupButton" onclick="openSelectedFlash()">
-							<img src="media/FLASHCARDS.svg" alt="Flashcards Icon" class="buttonIcon"/>
-						</button>
-						<button id="openButtonList" class="buttons setupButton" onclick="openSelectedList()">
-							<img src="media/LIST.svg" alt="List Icon" class="buttonIcon">
-						</button>
-					</div>
+            <div class="bottomDiv">
+                <button id="openButtonFlash" class="buttons setupButton" onclick="openSelectedFlash()">
+                    <img src="media/FLASHCARDS.svg" alt="Flashcards Icon" class="buttonIcon"/>
+                </button>
+                <button id="openButtonList" class="buttons setupButton" onclick="openSelectedList()">
+                    <img src="media/LIST.svg" alt="List Icon" class="buttonIcon">
+                </button>
+            </div>
+        </div>
 
-					<button title="close" class="close-btn" aria-label="close" onclick = "document.getElementById('selectOpen').style.display = 'none'">&times;</button>
-				</dialog>
-		</div>
+        <button title="close" class="close-btn" aria-label="close"
+                onclick="document.getElementById('selectOpen').style.display = 'none'">&times;
+        </button>
+    </dialog>
 
     <div class="cornerButtonDiv">
         <button title="Tutorial" class="cornerButton" onclick="helpPopup.showModal()">?</button>

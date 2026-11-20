@@ -213,43 +213,6 @@ function goBack(){
     window.location.href = "index.html";
 }
 
-	// function quizToggle(){
-	// 	let prevCardButton = document.getElementById("previousCardButton");
-	// 	let prevImage = prevCardButton.querySelector("img");
-	// 	let prevH1 = prevCardButton.querySelector("h1");
-	// 	let nextCardButton = document.getElementById("nextCardButton");
-	// 	let nextImage = nextCardButton.querySelector("img");
-	// 	let nextH1 = nextCardButton.querySelector("h1");
-	// 	let quizImg = document.getElementById("quizToggleImg");
-	// 	if (!isInQuizMode()){
-	// 		// flashcard mode
-	// 		// when in quiz mode, show the quiz icon and give the option to switch to flashcard mode
-	// 		quizImg.src = "media/FLASHCARD.svg"; 
-	// 		quizImg.alt = "Flash Card Mode";
-	// 		prevCardButton.title = nextCardButton.title = "Go to the previous card";
-	// 		prevImage.src = nextImage.src = "media/NEXT.svg";
-	// 		prevImage.style.display = nextImage.style.display = "block";
-
-	// 		// prevImage.style.display = nextImage.style.display = "none";
-	// 		// prevH1.hidden = nextH1.hidden = false;
-	// 		realCurrentCard = currentCard;
-	// 		currentCard = quizCurrentCard;
-	// 	} else {
-	// 		// quiz mode
-	// 		// when in flashcard mode, show the quiz icon and give the option to switch to quiz mode
-	// 		quizImg.src = "media/QUIZ.svg";
-	// 		quizImg.alt = "Enter Quiz Mode";
-	// 		prevCardButton.title = nextCardButton.title = "Don't know (keep in list)";
-	// 		prevImage.src = "media/X.svg";
-	// 		nextImage.src = "media/CHECK.svg";
-	// 		prevImage.style.display = nextImage.style.display = "block";
-	// 		// prevH1.hidden = nextH1.hidden = true;
-	// 		quizCurrentCard = currentCard;
-	// 		currentCard = realCurrentCard;
-	// 	}
-	// 	showCard();
-	// }
-
 function quizToggle() {
   isInQuizMode = !isInQuizMode;
   let prevCardButton = document.getElementById("previousCardButton");
@@ -260,7 +223,7 @@ function quizToggle() {
 
   if (isInQuizMode) {
     // Switching INTO Quiz Mode
-    quizImg.src = "media/QUIZ.svg";
+    quizImg.src = "media/FLASHCARDS.svg";
     quizImg.alt = "Flash Card Mode";
     prevCardButton.title = "Don't know (keep in list)";
     nextCardButton.title = "Know it (remove from list)";
@@ -271,7 +234,7 @@ function quizToggle() {
     currentCard = quizCurrentCard;
   } else {
     // Switching BACK to Flashcard Mode
-    quizImg.src = "media/FLASHCARDS.svg";
+    quizImg.src = "media/QUIZ.svg";
     quizImg.alt = "Enter Quiz Mode";
     prevCardButton.title = "Go to the previous card";
     nextCardButton.title = "Go to the next card";
