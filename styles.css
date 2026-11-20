@@ -321,6 +321,7 @@ span {
 	padding: 0;
 	font-size: 2rem;
 	width: 10rem;
+	height: 10rem;
 	aspect-ratio: 1 / 1;
 
 	background-color: var(--color-background3);
@@ -477,7 +478,7 @@ span {
 	width: 100%;
 }
 
-.buttons{
+.buttons {
 	background-color: var(--color-background3);
 	border-radius: 1em;
 	border-width: 0;
@@ -488,7 +489,7 @@ span {
 	box-shadow: none;
 }
 
-.cornerButtonDiv {
+.cornerButtonDiv, .endOfListDiv  {
 	align-self: flex-end;
 	justify-self: right;
 	right: 20px;
@@ -503,6 +504,17 @@ span {
 	justify-items: center;
 }
 
+#endOfList {
+	height: fit-content;
+	width: 25%;
+	text-align: center;
+	overflow-wrap: break-word;
+	min-width: 190px;
+	justify-items: center;
+	gap: 15px;
+	padding-top: 1px;
+	row-gap: 2px;
+}
 
 .cornerButton {
 	height: 40px;
@@ -516,6 +528,10 @@ span {
 	background-color: var(--color-lightText);
 	color: var(--color-background4);
 	cursor: pointer;
+}
+
+.home-btn img{
+	width: 100%;
 }
 
 .homeHelpImg {
@@ -535,6 +551,7 @@ span {
 	.navigationButton {
 		/* width: 37vw; */
 		width: min(11rem, 37vw);
+		height: min(11rem, 37vw);
 	}
 	#previousCardButton {
 		order: 1;

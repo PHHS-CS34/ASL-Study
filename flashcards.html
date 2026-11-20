@@ -8,13 +8,13 @@
     <link rel="icon" id="favicon" type="image/svg+xml" href="media/ASL.svg">
 </head>
 
-<body>
-<main id="flashcardsBody">
-    <div id="flashcardsFlexDiv">
-        <button title="Go to the previous card" onclick="previousCard()" id="previousCardButton"
-                class="navigationButton">
-            <img alt="Go to the previous card" src="media/NEXT.svg" class="buttonIcon"/>
-        </button>
+<body id="flashcardsBody">
+<div>
+	<div id="flashcardsFlexDiv">
+		<button title="Go to the previous card" onclick="previousCard()" id="previousCardButton" class="navigationButton">
+			<img alt="Go to the previous card" src="media/NEXT.svg" class="buttonIcon"/>
+			<h1 hidden = "true" style="font-size: 650%">&#x1F7A9;</h1>
+		</button>
 
         <div id="perspectiveCardDiv" onclick="flip(this)">
             <button title="Flip card" class="card" id="front">
@@ -28,11 +28,37 @@
             </button>
         </div>
 
-				<button title="Go to the next card" onclick="nextCard()" id="nextCardButton" class="navigationButton">
-					<img alt="Go to the next card" src="media/NEXT.svg" class="buttonIcon"/>
-				</button>
+		<!-- </div> -->
+		<button title="Go to the next card" onclick="nextCard()" id="nextCardButton" class="navigationButton">
+			<img alt="Go to the next card" src="media/NEXT.svg" class="buttonIcon"/>
+			<h1 hidden = "true" style="font-size: 400%">&#x2714;</h1>
+		</button>
+	</div>
+
+	<div class="lazyLoadCard" id="lazy"></div>
+
+	<div class="roundedLargeElement divButtons setupContainer">
+		<div id="bottomButtons" class="bottomDiv">
+			<button title="Shuffle the cards" class="buttons setupButton" onclick="shuffle()">
+				<img alt="Shuffle the cards" src="media/SHUFFLE.svg" class="buttonIcon"/>
+			</button>
+
+			<button title="Switch the front between ASL and English" id="whichFront" data-aslorenglish="asl"
+			        class="buttons setupButton" onclick="backflip()">
+				<img alt="Switch the front between ASL and English" src="media/ASL.svg" class="buttonIcon"/>
+			</button>
+
+			<button title="Return to unit selection" class="buttons setupButton" onclick="goBack()">
+				<img alt="Return to unit selection" src="media/HOME.svg" class="buttonIcon"/>
+			</button>
+			
+			<button title="Quiz Mode"  class="buttons setupButton" onclick="quizToggle()">
+				<img id="quizToggleImg" alt="Enter Quiz Mode" src="media/FLASHCARDS.svg" class="buttonIcon"/>
+			</button>
+		</div>
+	</div>
 </div>
-			<div class="lazyLoadCard" id="lazy"></div>
+			<!-- <div class="lazyLoadCard" id="lazy"></div>
 
 			<div class="roundedLargeElement divButtons setupContainer">
 				<div id="bottomButtons" class="bottomDiv">
@@ -49,7 +75,22 @@
 						<img alt="Return to unit selection" src="media/HOME.svg" class="buttonIcon"/>
 					</button>
 				</div>
-			</div>
+			</div> -->
+
+		<div class="endOfListDiv">
+			<dialog id="endOfList">
+				<h3>You reached the end of the list.</h3>
+				<p>Would you like to restart the card stack or return to the unit selection?</p>
+				<div id="bottomButtons" class="bottomDiv">
+					<button title="Reset the list back to start" class="buttons setupButton" aria-label="close" onclick="window.location.reload()">
+						<img src="media/RESTART.svg" alt="Restart Icon" class="buttonIcon">
+					</button>
+					<button title="Go to home page" class="buttons setupButton" aria-label="close" onclick="goBack()">
+						<img alt="Homescreen Icon" class="buttonIcon" src="media/HOME.svg"/>
+					</button>
+				</div>
+			</dialog>
+		</div>
 
 
 		<div class="cornerButtonDiv">

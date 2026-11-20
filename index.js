@@ -78,28 +78,36 @@ function decideImageOfButton(buttonId){
 }
 
 function openSelectedPopup() {
-    selectOpenPopup.style.display = "flex";
-    selectOpenPopup.showModal();
+    // selectOpenPopup.style.display = "flex";
+    // selectOpenPopup.showModal();
+    if (unitsSelected.length === 0){
+        notEnoughUnitsPopup.showModal();
+    } else {
+        selectOpenPopup.style.display = "flex";
+        selectOpenPopup.showModal();
+    }
 }
 
 function openSelectedFlash(){
     selectOpenPopup.style.display = "none";
     selectOpenPopup.close();
-    if (unitsSelected.length !== 0){
-        window.location.href = setUpLink("flash");
-    } else {
-		notEnoughUnitsPopup.showModal();
-    }
+    window.location.href = setUpLink("flash");
+    // if (unitsSelected.length !== 0){
+    //     window.location.href = setUpLink("flash");
+    // } else {
+	// 	notEnoughUnitsPopup.showModal();
+    // }
 }
 
 function openSelectedList(){
     selectOpenPopup.style.display = "none";
     selectOpenPopup.close();
-    if (unitsSelected.length !== 0){
-        window.location.href = setUpLink("list");
-    } else {
-        notEnoughUnitsPopup.showModal();
-    }
+    window.location.href = setUpLink("list");
+    // if (unitsSelected.length !== 0){
+    //     window.location.href = setUpLink("list");
+    // } else {
+    //     notEnoughUnitsPopup.showModal();
+    // }
 }
 
 function copySelected(type = "flash"){
