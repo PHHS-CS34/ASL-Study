@@ -108,8 +108,9 @@ footer p {
 	padding-left: .5rem;
 	padding-right: .5rem;
 	width: 80%;
-	max-width: 18rem;
+	max-width: 16.5rem;
 	place-items: center;
+	border-radius: 1rem;
 	border-radius: 1rem;
 	border: 3px solid var(--color-background4);
 	margin: auto;
@@ -117,11 +118,11 @@ footer p {
 
 #headerDiv{
     text-align: center;
-    font-size: clamp(0.01rem, 6vw, 1rem);
+    font-size: 1rem;
     padding-top: 0;
     padding-bottom: 0;
-    margin-bottom: 0.6em;
-    margin-top: 0.6em;
+    margin: 0.5rem 0;
+    max-width: 18rem;
 }
 
 .divButtons{
@@ -185,7 +186,7 @@ footer p {
 }
 
 #homeBody .setupContainer{
-	margin-top: 1rem;
+	margin: 0.5rem 0;
 	max-width: fit-content;
 	width: 80%;
 }
@@ -195,8 +196,8 @@ footer p {
 }
 
 .unitButton{
-	width: 3.5rem;
-	height: 3.5rem;
+	width: 3.25rem;
+	height: 3.25rem;
 }
 
 .unitText{
