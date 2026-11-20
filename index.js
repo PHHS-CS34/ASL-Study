@@ -115,7 +115,7 @@ function copySelected(type = "flash"){
         notEnoughUnitsPopup.showModal();
         return;
     }
-    navigator.clipboard.writeText("https://phhs-cs34.github.io/ASL-Study/" == setUpLink(type));
+    navigator.clipboard.writeText("https://phhs-cs34.github.io/ASL-Study/" + setUpLink(type));
     copyPopup.style.display = "flex";
     copyPopup.showModal();
 }
