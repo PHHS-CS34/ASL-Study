@@ -213,7 +213,7 @@ footer p {
 dialog {
     border-radius: 1rem;
     border: 3px solid var(--color-darkText);
-    background-color: var(--color-background1);
+    background-color: var(--color-background2);
 }
 
 dialog p {
